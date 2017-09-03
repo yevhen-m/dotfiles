@@ -1,0 +1,6 @@
+--recurse=yes
+--languages=python
+--python-kinds=-i
+
+--exclude=venv/lib
+--exclude=.git

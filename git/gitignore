@@ -1,0 +1,5 @@
+bundle/
+undos/
+viminfo
+plugin/autotag.pyc
+nvim/plugged/

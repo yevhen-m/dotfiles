@@ -1,0 +1,52 @@
+[user]
+	email = yvhn.yvhn@gmail.com
+	name = yevhen-m
+[core]
+	excludesfile = ~/.gitignore_global
+	editor = nvim
+	pager = diff-so-fancy | less --tabs=4 -R
+[push]
+	; Push only the current branch to the one that git pull will pull from
+	; (check that their names match)
+	default = simple
+[diff]
+	tool = nvimdiff
+[difftool]
+	prompt = false
+[difftool "nvimdiff"]
+    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[alias]
+	ss = status -s
+	s = status
+	stash-unapply = !git stash show -p | git apply -R
+	can = commit --amend --no-edit
+	ca = commit --amend
+	cv = commit -v
+	cb = checkout -b
+	au = add -u
+[merge]
+	tool = nvimdiff
+	conflictstyle = diff3
+[color "branch"]
+	current = blue
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = blue
+	frag = magenta
+	old = red
+	new = green
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = red
+[pull]
+	rebase = true
+[fetch]
+	prune = true
+[mergetool]
+	prompt = false
+[clean]
+	requireForce = false
+
+; vim: filetype=gitconfig

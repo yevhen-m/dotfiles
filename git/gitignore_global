@@ -1,0 +1,7 @@
+.ignore
+.nvimrc
+.python-version
+.DS_Store
+Session.vim
+fugitive:/
+tags*

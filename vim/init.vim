@@ -572,9 +572,7 @@ let g:qf_mapping_ack_style = 1
 nnoremap <leader>gd :Gvdiff<cr>gg
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gv :GV<cr>
-cnoreabbrev <expr> gst getcmdtype() == ":" && getcmdline() == 'gst' ? 'Gstatus' : 'gst'
-cnoreabbrev <expr> gvd getcmdtype() == ":" && getcmdline() == 'gvd' ? 'Gvdiff' : 'gvd'
-cnoreabbrev <expr> gsd getcmdtype() == ":" && getcmdline() == 'gsd' ? 'Gsdiff' : 'gsd'
+nnoremap <leader>gs :Gstatus<cr>
 " }}}
 
 " Gutentags settings {{{

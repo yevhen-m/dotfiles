@@ -610,10 +610,11 @@ let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_change = 0
+let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
-let g:ale_open_list = 1
+let g:ale_open_list = 0
 let g:ale_set_highlights = 0
+let g:ale_set_quickfix = 1
 
 nmap <silent> [e <Plug>(ale_previous_wrap)
 nmap <silent> ]e <Plug>(ale_next_wrap)

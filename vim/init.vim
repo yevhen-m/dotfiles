@@ -626,7 +626,6 @@ let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
 " }}}
 
 " Ack.vim settings {{{
-cnoreabbrev <expr> gr getcmdtype() == ":" && getcmdline() == 'gr' ? 'LAck' : 'gr'
 nnoremap <leader>gr :LAck<space>
 let g:ackprg = 'ag --vimgrep --smart-case --nocolor'
 " Preview matches when moving between them

@@ -1,0 +1,14 @@
+#!/bin/sh
+set -e
+
+PATH="/usr/local/bin:$PATH"
+DIR="`git rev-parse --git-dir`"
+
+# Remove generated tags file on exit
+trap 'rm -f "$DIR/$$.tags"' EXIT
+
+# Get files from `git ls-files` command
+# Write tag file to specified file
+git ls-files | ctags --tag-relative=yes -L - -f"$DIR/$$.tags" --languages=-javascript,sql
+
+mv "$DIR/$$.tags" ./tags

@@ -314,6 +314,8 @@ endif
 
 " Mappings {{{
 " -------------------------------------------------------------
+" Change default mapping to :tselect
+nnoremap <C-]> :ltag <c-r>=expand("<cword>")<cr><bar>lwindow<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'
@@ -466,10 +468,6 @@ nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>v :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
-nnoremap <silent> gt
-            \ :call fzf#vim#tags(expand('<cword>'),
-            \ {'options': '--exact --select-1 --exit-0'})<CR>
-
 nnoremap <silent> <c-g><c-l> :Commits<cr>
 nnoremap <silent> <c-g><c-b> :BCommits<cr>
 
@@ -657,4 +655,10 @@ let g:rsi_no_meta = 1
 " ArgWrap settings {{{
 nnoremap gw :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
+" }}}
+
+" Add one more tags file from virtualenv {{{
+if !empty($VIRTUAL_ENV)
+    set tags=tags,$VIRTUAL_ENV/tags
+endif
 " }}}

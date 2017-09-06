@@ -297,6 +297,7 @@ if !exists("autocommands_loaded")
     " windows
     autocmd CmdwinEnter * map <buffer> <cr> <cr>
     autocmd FileType qf map <buffer> <cr> <cr>
+    autocmd FileType qf setlocal nocursorline
 
     " Set commentstring for jinja
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
@@ -558,11 +559,22 @@ nnoremap <silent> cog :GitGutterLineHighlightsToggle<cr>
 
 " Vim-qf settings {{{
 " -------------------------------------------------------------
+let g:qf_mapping_ack_style = 0
 let g:qf_auto_open_quickfix = 0
 let g:qf_auto_open_loclist = 0
-let g:qf_loclist_window_bottom = 0
-let g:qf_auto_resize = 1
-let g:qf_mapping_ack_style = 1
+" Open loclist the same way qflist is opened
+let g:qf_loclist_window_bottom = 1
+" Resizing is handled by vim-qf_resize plugin
+let g:qf_auto_resize = 0
+" Show current entry in statusline
+let g:qf_statusline = {}
+let g:qf_statusline.before = '%f%<\ '
+let g:qf_statusline.after = '\ %=%l\/%-6L\ \ \ \ \ '
+" }}}
+
+" Vim-qf_resize settings {{{
+let g:qf_resize_min_height = 5
+let g:qf_resize_max_height = 5
 " }}}
 
 " Fugitive settings {{{
@@ -627,9 +639,6 @@ let g:ackprg = 'ag --vimgrep --smart-case --nocolor'
 " Preview matches when moving between them
 let g:ackpreview = 1
 let g:ackhighlight = 1
-" Don't set up any mappings in qf and ll windows
-let g:ack_apply_lmappings = 0
-let g:ack_apply_qmappings = 0
 " }}}
 
 " Delimitmate settings {{{

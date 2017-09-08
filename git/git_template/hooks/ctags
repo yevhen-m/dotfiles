@@ -9,6 +9,6 @@ trap 'rm -f "$DIR/$$.tags"' EXIT
 
 # Get files from `git ls-files` command
 # Write tag file to specified file
-git ls-files | ctags --tag-relative=yes -L - -f"$DIR/$$.tags" --languages=-javascript,sql
+git ls-files | ctags --tag-relative=no -L - -f"$DIR/$$.tags" --languages=-javascript,sql
 
 mv "$DIR/$$.tags" ./tags

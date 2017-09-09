@@ -15,7 +15,7 @@ Plug 'Glench/Vim-Jinja2-Syntax',               { 'for': 'jinja'}
 Plug 'cespare/vim-toml',                       { 'for': 'toml'}
 Plug 'chase/vim-ansible-yaml',                 { 'for': 'ansible'}
 Plug 'elzr/vim-json',                          { 'for': 'json'}
-Plug 'jelera/vim-javascript-syntax',           { 'for': 'javascript'}
+Plug 'pangloss/vim-javascript',                { 'for': 'javascript'}
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
 Plug 'moskytw/nginx-contrib-vim',              { 'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim',          { 'for': 'requirements'}

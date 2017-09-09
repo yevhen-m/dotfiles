@@ -15,7 +15,8 @@ Plug 'Glench/Vim-Jinja2-Syntax',               { 'for': 'jinja'}
 Plug 'cespare/vim-toml',                       { 'for': 'toml'}
 Plug 'chase/vim-ansible-yaml',                 { 'for': 'ansible'}
 Plug 'elzr/vim-json',                          { 'for': 'json'}
-Plug 'pangloss/vim-javascript',                { 'for': 'javascript'}
+Plug 'pangloss/vim-javascript',                { 'for': ['javascript', 'javascript.jsx']}
+Plug 'mxw/vim-jsx',                            { 'for': 'javascript.jsx'}
 Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
 Plug 'moskytw/nginx-contrib-vim',              { 'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim',          { 'for': 'requirements'}
@@ -670,4 +671,8 @@ let g:argwrap_tail_comma = 1
 if !empty($VIRTUAL_ENV)
     set tags=tags,$VIRTUAL_ENV/tags
 endif
+" }}}
+
+" Vim-jsx settings {{{
+let g:jsx_ext_required = 0
 " }}}

@@ -38,9 +38,6 @@ export FZF_CTRL_T_OPTS='--no-reverse'
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-# Add ~/bin directory to my path
-[[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
-
 # virtualenv-wrapper
 export WORKON_HOME=~/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
@@ -55,8 +52,11 @@ fi
 # Set TERM variable correctly in and out of tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="screen-256color"
 
-# Prepend path for brew installed packages
-PATH="/usr/local/bin:$PATH"
+# Dir for scripts installed by pipsi
+export PATH=/Users/yevhen/.local/bin:$PATH
+
+# Dir for my scripts
+[[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
 
 # Try to fix disappering cursor in gnome-terminal
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)

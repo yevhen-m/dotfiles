@@ -45,7 +45,6 @@ Plug 'tpope/vim-rhubarb'
 
 " Python plugins {{{
 Plug 'zchee/deoplete-jedi',             {'for': 'python'}
-Plug 'davidhalter/jedi-vim',            {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent',    {'for': 'python'}
 Plug 'michaeljsmith/vim-indent-object', {'for': 'python'}
 Plug 'yevhen-m/python-syntax',          {'for': 'python'}
@@ -304,13 +303,6 @@ if !exists("autocommands_loaded")
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s
 
-    function! SetupPythonJedi()
-        nnoremap <buffer> <silent> <leader>gg :call jedi#goto_assignments()<CR>
-        nnoremap <buffer> <silent> <leader>gt :call jedi#goto_definitions()<CR>
-        nnoremap <buffer> <leader>gn :call jedi#usages()<CR>
-        nnoremap <buffer> K :call jedi#show_documentation()<CR>
-    endfunction
-    autocmd FileType python call SetupPythonJedi()
 endif
 " }}}
 

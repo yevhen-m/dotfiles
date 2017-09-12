@@ -308,8 +308,16 @@ endif
 
 " Mappings {{{
 " -------------------------------------------------------------
-" Change default mapping to :tselect
-nnoremap <C-]> :ltag <c-r>=expand("<cword>")<cr><bar>lwindow<CR>
+function! JumpToTag()
+    execute "ltag " . expand("<cword>")
+    if len(getloclist(win_getid())) > 1
+        lwindow | ll
+    else
+        lclose
+    endif
+endfunction
+
+nnoremap <C-]> :call JumpToTag()<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'
@@ -459,7 +467,7 @@ nnoremap <silent> <C-g><C-j> :GFiles?<CR>
 nnoremap <silent> <C-g><C-p> :GFiles<cr>
 nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <C-p> :Files<CR>
-nnoremap <silent> <leader>v :Tags<CR>
+nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <c-g><c-l> :Commits<cr>

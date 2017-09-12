@@ -46,9 +46,7 @@ Plug 'tpope/vim-rhubarb'
 " Python plugins {{{
 Plug 'zchee/deoplete-jedi',             {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent',    {'for': 'python'}
-Plug 'michaeljsmith/vim-indent-object', {'for': 'python'}
 Plug 'yevhen-m/python-syntax',          {'for': 'python'}
-Plug 'foosoft/vim-argwrap',             {'for': 'python'}
 " }}}
 
 " Javascript plugins {{{
@@ -81,7 +79,7 @@ Plug 'w0rp/ale', {'on': ['ALELint', 'ALEInfo']}
 " }}}
 
 " Formatting {{{
-Plug 'Chiel92/vim-autoformat', {'on': 'Autoformat'}
+Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
 " }}}
 
 " Tags {{{
@@ -94,6 +92,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " }}}
 
 " Helpful plugins {{{
+Plug 'foosoft/vim-argwrap',             {'for': ['python', 'javascript']}
+Plug 'michaeljsmith/vim-indent-object', {'for': ['python', 'javascript']}
 Plug 'ciaranm/detectindent',      {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'

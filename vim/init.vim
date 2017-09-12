@@ -583,7 +583,7 @@ let g:qf_resize_max_height = 5
 nnoremap <leader>gd :Gvdiff<cr>gg
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gv :GV<cr>
-nnoremap <leader>gs :Gstatus<cr>
+nmap <leader>gs :Gstatus<cr>gg<C-N>
 " }}}
 
 " Gutentags settings {{{

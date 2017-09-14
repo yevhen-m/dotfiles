@@ -107,7 +107,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'Shougo/junkfile.vim',       {'on': 'JunkfileOpen'}
 Plug 'Valloric/MatchTagAlways',   {'for': ['xml', 'html', 'htmldjango', 'jinja']}
 Plug 'junegunn/vim-easy-align',   {'on': '<Plug>(EasyAlign)'}
-Plug 'kana/vim-operator-user'
 Plug 'mbbill/undotree',           {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
 Plug 'szw/vim-g',                 {'on': ['Gf', 'G']}

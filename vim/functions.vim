@@ -1,20 +1,3 @@
-function! g:_Ack(type) abort
-    " Save register contents
-    let l:orig = @@
-    if a:type ==# 'char'
-        execute "normal! `[v`]y"
-        let l:query = @@
-        " Restore register contents
-        let @@ = l:orig
-        execute 'silent LAck "'.l:query.'"'
-    elseif a:type ==# 'line'
-        call s:EchoFailure('ack operator does not support linewise modes!')
-    endif
-endfunction
-
-call operator#user#define('ack', 'g:_Ack')
-map gr <Plug>(operator-ack)
-
 " Toggle deoplete
 function! ToggleDeoplete() abort
     if g:deoplete_enabled

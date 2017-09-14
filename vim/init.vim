@@ -330,12 +330,8 @@ noremap <C-u> 8<C-u>
 noremap <C-d> 8<C-d>
 noremap <silent> <C-f> 16<C-d>
 noremap <silent> <C-b> 16<C-u>
-
-" Use arrows to resize splits
-nnoremap <Up>    :resize +2<CR>
-nnoremap <Down>  :resize -2<CR>
-nnoremap <Left>  :vertical resize +2<CR>
-nnoremap <Right> :vertical resize -2<CR>
+noremap <ScrollWheelUp> <C-Y>
+noremap <ScrollWheelDown> <C-E>
 
 " Use space to clear highlighting
 nnoremap <silent> <space> :nohlsearch<cr>

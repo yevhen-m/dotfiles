@@ -103,7 +103,6 @@ Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vader.vim',        {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'PeterRincker/vim-argumentative'
-Plug 'Raimondi/delimitMate'
 Plug 'Shougo/junkfile.vim',       {'on': 'JunkfileOpen'}
 Plug 'Valloric/MatchTagAlways',   {'for': ['xml', 'html', 'htmldjango', 'jinja']}
 Plug 'junegunn/vim-easy-align',   {'on': '<Plug>(EasyAlign)'}
@@ -514,8 +513,8 @@ let g:deoplete#enable_ignore_case = 1
 let g:deoplete#disable_auto_complete = 0
 
 " Close popup, delete char and the open popup again
-imap <silent> <expr> <BS> deoplete#smart_close_popup()."<Plug>delimitMateBS"
-imap <silent> <expr> <CR> deoplete#close_popup()."<Plug>delimitMateCR"
+imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
+imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
 
 " Experiment with ignoring tagfiles
 let g:deoplete#ignore_sources = {}
@@ -635,14 +634,6 @@ let g:ackprg = 'ag --vimgrep --smart-case --nocolor'
 " Preview matches when moving between them
 let g:ackpreview = 1
 let g:ackhighlight = 1
-" }}}
-
-" Delimitmate settings {{{
-" -------------------------------------------------------------
-au FileType markdown let delimitMate_nesting_quotes = ["`"]
-au FileType python let delimitMate_nesting_quotes = ["'", '"']
-let delimitMate_excluded_regions = "Comment"
-let delimitMate_expand_cr = 1
 " }}}
 
 " Python highlighting {{{

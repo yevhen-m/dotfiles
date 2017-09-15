@@ -525,11 +525,10 @@ let g:deoplete#ignore_sources._ = ['tag']
 noremap <leader>ff :Autoformat<CR>
 
 let g:formatters_html = ['htmlbeautify']
-" Get autopep8 from venv, read from stdint and write to stdout
-let g:formatdef_my_autopep8 =
-            \ "'$VIRTUAL_ENV/autopep8 "
-            \ "-aa --line-range '.a:firstline.' '.a:lastline -"
-let g:formatters_python = ['my_autopep8']
+" Configure this for your python project
+" Examples:
+" let g:formatdef_yapf = "'yapf --lines ' . a:firstline . '-' . a:lastline"
+" let g:formatters_python = ['yapf']
 " }}}
 
 " Maximizer plugin settings {{{

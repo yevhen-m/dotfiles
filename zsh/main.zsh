@@ -45,15 +45,12 @@ VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper.sh"
 [[ -s $VIRTUALENVWRAPPER ]] && source $VIRTUALENVWRAPPER
 
 # Activate virtualenv in a child shell
-if [ -n "$VIRTUAL_ENV" ]; then
-  source "$VIRTUAL_ENV/bin/activate"
+if [[ -n $VIRTUAL_ENV && -e "${VIRTUAL_ENV}/bin/activate" ]]; then
+  source "${VIRTUAL_ENV}/bin/activate"
 fi
 
 # Set TERM variable correctly in and out of tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="screen-256color"
-
-# Dir for scripts installed by pipsi
-export PATH=/Users/yevhen/.local/bin:$PATH
 
 # Dir for my scripts
 [[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH

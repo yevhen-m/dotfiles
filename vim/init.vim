@@ -492,17 +492,6 @@ let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
 " }}}
 
-" Jedi settings {{{
-" -------------------------------------------------------------
-let g:jedi#force_py_version = 3
-let g:jedi#completions_enabled = 0
-let g:jedi#auto_initialization = 0
-let g:jedi#smart_auto_mappings = 0
-let g:jedi#auto_vim_configuration = 0
-let g:jedi#show_call_signatures = 1
-let g:jedi#use_tag_stack = 1
-" }}}
-
 " Deoplete settings {{{
 " -------------------------------------------------------------
 nnoremap cod :call ToggleDeoplete()<cr>

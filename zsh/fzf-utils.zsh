@@ -78,7 +78,7 @@ bindkey -s '^g^k' 'fzf-branch\n'
 fzf-show() {
     is_in_git_repo || return
     git log --graph --color=always \
-        --format="%C(auto)%h%d %s %C(241)%C(bold)%cr %C(auto)%C(blue)%cn" "$@" |
+        --format="%C(auto)%h%d %s %C(241)%C(bold)%cr %C(bold)(%cD)%C(reset) %C(auto)%C(blue)%cn" "$@" |
     fzf-down --height 70% --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
         --bind "ctrl-m:execute:
     (grep -o '[a-f0-9]\{7\}' | head -1 |

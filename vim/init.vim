@@ -122,7 +122,7 @@ Plug 'tpope/vim-obsession'
 " }}}
 
 " Colorscheme {{{
-Plug 'yevhen-m/base16-vim'
+Plug 'yevhen-m/vim-quantum'
 " }}}
 
 " FZF {{{
@@ -159,8 +159,8 @@ let $LANG = 'en' | set langmenu=none  " set vim language
 
 " Colorscheme {{{
 set background=dark
-let base16colorspace = 256    " base16-shell script should be sourced
-colorscheme base16-eighties
+set termguicolors
+colorscheme quantum
 " }}}
 
 let mapleader=","
@@ -169,7 +169,7 @@ let mapleader=","
 set statusline=
 set statusline=%<       " where to truncate
 set statusline+=\ %{expand('%:h')}/
-set statusline+=%1*%t%* " filename
+set statusline+=%t " filename
 set statusline+=\ %m%r  " modified, readonly, filetype
 set statusline+=%=      " switch to right-hand side
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
@@ -483,6 +483,12 @@ let g:fzf_action = {
 
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
+
+function! s:fzf_statusline()
+  setlocal statusline=\ >\ fzf
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 " }}}
 
 " Undotree settings {{{

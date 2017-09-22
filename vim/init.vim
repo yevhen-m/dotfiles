@@ -76,7 +76,7 @@ Plug 'blueyed/vim-qf_resize'
 " }}}
 
 " Linting {{{
-Plug 'w0rp/ale', {'on': ['ALELint', 'ALEInfo']}
+Plug 'w0rp/ale'
 " }}}
 
 " Formatting {{{
@@ -95,22 +95,22 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Helpful plugins {{{
 Plug 'foosoft/vim-argwrap',             {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': ['python', 'javascript']}
-Plug 'ciaranm/detectindent',      {'on': 'DetectIndent'}
+Plug 'ciaranm/detectindent',            {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/vim-cursorword'
-Plug 'junegunn/vader.vim',        {'on': 'Vader'}
-Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
+Plug 'junegunn/vader.vim',              {'on': 'Vader'}
+Plug 'AndrewRadev/bufferize.vim',       {'on': ['Bufferize'] }
 Plug 'PeterRincker/vim-argumentative'
-Plug 'Shougo/junkfile.vim',       {'on': 'JunkfileOpen'}
-Plug 'Valloric/MatchTagAlways',   {'for': ['xml', 'html', 'htmldjango', 'jinja']}
-Plug 'junegunn/vim-easy-align',   {'on': '<Plug>(EasyAlign)'}
-Plug 'mbbill/undotree',           {'on': 'UndotreeToggle'}
+Plug 'Shougo/junkfile.vim',             {'on': 'JunkfileOpen'}
+Plug 'Valloric/MatchTagAlways',         {'for': ['xml', 'html', 'htmldjango', 'jinja']}
+Plug 'junegunn/vim-easy-align',         {'on': '<Plug>(EasyAlign)'}
+Plug 'mbbill/undotree',                 {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
-Plug 'szw/vim-g',                 {'on': ['Gf', 'G']}
-Plug 'szw/vim-maximizer',         {'on': 'MaximizerToggle'}
+Plug 'szw/vim-g',                       {'on': ['Gf', 'G']}
+Plug 'szw/vim-maximizer',               {'on': 'MaximizerToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -251,8 +251,8 @@ let g:plug_window = 'enew'
 if filereadable(glob('~/.virtualenvs/neovim2/bin/python'))
     let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
 endif
-if filereadable(glob('~/.virtualenvs/neovim35/bin/python'))
-    let g:python3_host_prog = glob('~/.virtualenvs/neovim35/bin/python')
+if filereadable(glob('~/.virtualenvs/neovim3/bin/python'))
+    let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
 endif
 
 let g:python_host_skip_check = 1
@@ -563,7 +563,7 @@ let g:qf_resize_max_height = 5
 
 " Fugitive settings {{{
 " -------------------------------------------------------------
-nnoremap <leader>gd :Gvdiff<cr>gg
+nnoremap <leader>gd :Gvdiff<cr>gg]c
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gv :GV<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>
@@ -585,6 +585,7 @@ let g:vim_g_f_command = "Gf"
 
 " Nerdtree settings {{{
 nnoremap <silent> - :NERDTreeFind<cr>
+nnoremap <silent> _ :NERDTreeClose<cr>
 let NERDTreeIgnore = ['^\.git$', '^\.DS_Store$', '^__pycache__$', '\.pyc$']
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
@@ -604,12 +605,10 @@ let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
-let g:ale_open_list = 0
+let g:ale_open_list = 1
 let g:ale_set_highlights = 0
 let g:ale_set_quickfix = 1
 
-nmap <silent> [e <Plug>(ale_previous_wrap)
-nmap <silent> ]e <Plug>(ale_next_wrap)
 nnoremap <leader>ee :ALELint<cr>
 nnoremap coa :ALEToggle<cr>
 
@@ -618,7 +617,7 @@ let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
 " }}}
 
 " Ack.vim settings {{{
-nnoremap <leader>gr :LAck<space>
+nnoremap gr :LAck<space>
 let g:ackprg = 'ag --vimgrep --smart-case --nocolor'
 " Preview matches when moving between them
 let g:ackpreview = 1
@@ -654,11 +653,15 @@ let g:jsx_ext_required = 0
 
 " Tagbar settings {{{
 let g:tagbar_left = 1
-let g:tagbar_autoclose = 1
+let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_silent = 0
 let g:tagbar_iconchars = ['▸ ', '▾ ']
+" }}}
+
+" Detectindent settings {{{
+let g:detectindent_preferred_indent = 4
 " }}}

@@ -11,20 +11,20 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Syntax plugins {{{
-Plug 'Glench/Vim-Jinja2-Syntax',               { 'for': 'jinja'}
-Plug 'cespare/vim-toml',                       { 'for': 'toml'}
-Plug 'chase/vim-ansible-yaml',                 { 'for': 'ansible'}
-Plug 'elzr/vim-json',                          { 'for': 'json'}
-Plug 'pangloss/vim-javascript',                { 'for': ['javascript', 'javascript.jsx']}
-Plug 'mxw/vim-jsx',                            { 'for': 'javascript.jsx'}
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript'}
-Plug 'moskytw/nginx-contrib-vim',              { 'for': 'nginx'}
-Plug 'raimon49/requirements.txt.vim',          { 'for': 'requirements'}
+Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
+Plug 'cespare/vim-toml', {'for': 'toml'}
+Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
+Plug 'elzr/vim-json', {'for': 'json'}
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
+Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
+Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
+Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
+Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 " }}}
 
 " Arcanist plugins {{{
 Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
-Plug 'solarnz/arcanist.vim',               {'for': 'arcanistdiff'}
+Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 " }}}
 
 " Autocomplete engines {{{
@@ -32,27 +32,33 @@ function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
-Plug 'Shougo/deoplete.nvim',         {'do': function('DoRemote')}
+Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
 Plug 'Shougo/neco-syntax'
 " }}}
 
 " Integration with git {{{
 Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim',                {'on': 'GV'}
+Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 " }}}
 
 " Python plugins {{{
-Plug 'majutsushi/tagbar',               {'for': 'python'}
-Plug 'zchee/deoplete-jedi',             {'for': 'python'}
-Plug 'hynek/vim-python-pep8-indent',    {'for': 'python'}
-Plug 'yevhen-m/python-syntax',          {'for': 'python'}
+Plug 'majutsushi/tagbar', {'for': 'python'}
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+Plug 'yevhen-m/python-syntax', {'for': 'python'}
 " }}}
 
 " Javascript plugins {{{
-Plug 'carlitux/deoplete-ternjs',  {'for': 'javascript', 'do': 'npm install -g tern'}
-Plug 'ternjs/tern_for_vim',       {'for': 'javascript', 'do': 'npm install'}
+Plug 'carlitux/deoplete-ternjs', {
+            \ 'for': 'javascript',
+            \ 'do': 'npm install -g tern'
+            \ }
+Plug 'ternjs/tern_for_vim', {
+            \ 'for': 'javascript',
+            \ 'do': 'npm install'
+            \ }
 " }}}
 
 " HTML plugins {{{
@@ -88,46 +94,48 @@ Plug 'ludovicchabant/vim-gutentags'
 " }}}
 
 " Tmux {{{
-Plug 'tmux-plugins/vim-tmux',   {'for': 'tmux'}
+Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 " }}}
 
 " Helpful plugins {{{
-Plug 'foosoft/vim-argwrap',             {'for': ['python', 'javascript']}
+Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': ['python', 'javascript']}
-Plug 'ciaranm/detectindent',            {'on': 'DetectIndent'}
+Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/vim-cursorword'
-Plug 'junegunn/vader.vim',              {'on': 'Vader'}
-Plug 'AndrewRadev/bufferize.vim',       {'on': ['Bufferize'] }
+Plug 'junegunn/vader.vim', {'on': 'Vader'}
+Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'PeterRincker/vim-argumentative'
-Plug 'Shougo/junkfile.vim',             {'on': 'JunkfileOpen'}
-Plug 'Valloric/MatchTagAlways',         {'for': ['xml', 'html', 'htmldjango', 'jinja']}
-Plug 'junegunn/vim-easy-align',         {'on': '<Plug>(EasyAlign)'}
-Plug 'mbbill/undotree',                 {'on': 'UndotreeToggle'}
+Plug 'Shougo/junkfile.vim', {'on': 'JunkfileOpen'}
+Plug 'Valloric/MatchTagAlways', {'for': [
+            \ 'xml',
+            \ 'html',
+            \ 'htmldjango',
+            \ 'jinja',
+            \ ]}
+Plug 'junegunn/vim-easy-align', {'on': '<Plug>(EasyAlign)'}
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
-Plug 'szw/vim-g',                       {'on': ['Gf', 'G']}
-Plug 'szw/vim-maximizer',               {'on': 'MaximizerToggle'}
+Plug 'szw/vim-g', {'on': ['Gf', 'G']}
+Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
-" }}}
-
-" Session management {{{
 Plug 'tpope/vim-obsession'
+Plug 'junegunn/fzf', {
+            \ 'dir': '~/.fzf',
+            \ 'do': './install --all --no-update-rc'
+            \ }
+Plug 'junegunn/fzf.vim'
 " }}}
 
 " Colorscheme {{{
 Plug 'yevhen-m/vim-quantum'
-" }}}
-
-" FZF {{{
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all --no-update-rc' }
-Plug 'junegunn/fzf.vim'
 " }}}
 
 call plug#end()

@@ -71,7 +71,7 @@ Plug 'scrooloose/nerdtree'
 " }}}
 
 " Quickfix list enhancement {{{
-Plug 'romainl/vim-qf', {'tag': '0.1.0'}
+Plug 'romainl/vim-qf'
 Plug 'blueyed/vim-qf_resize'
 " }}}
 
@@ -550,8 +550,8 @@ nnoremap <silent> cog :GitGutterLineHighlightsToggle<cr>
 " Vim-qf settings {{{
 " -------------------------------------------------------------
 let g:qf_mapping_ack_style = 0
-let g:qf_auto_open_quickfix = 0
-let g:qf_auto_open_loclist = 0
+let g:qf_auto_open_quickfix = 1
+let g:qf_auto_open_loclist = 1
 " Open loclist the same way qflist is opened
 let g:qf_loclist_window_bottom = 1
 " Resizing is handled by vim-qf_resize plugin

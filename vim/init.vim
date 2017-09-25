@@ -135,7 +135,7 @@ Plug 'junegunn/fzf.vim'
 " }}}
 
 " Colorscheme {{{
-Plug 'yevhen-m/vim-quantum'
+Plug 'yevhen-m/base16-vim'
 " }}}
 
 call plug#end()
@@ -167,8 +167,8 @@ let $LANG = 'en' | set langmenu=none  " set vim language
 
 " Colorscheme {{{
 set background=dark
-set termguicolors
-colorscheme quantum
+let base16colorspace = 256    " base16-shell script should be sourced
+colorscheme base16-eighties
 " }}}
 
 let mapleader=","

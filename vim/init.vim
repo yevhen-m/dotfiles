@@ -99,6 +99,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " }}}
 
 " Helpful plugins {{{
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-entire'
 Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': ['python', 'javascript']}
 Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}

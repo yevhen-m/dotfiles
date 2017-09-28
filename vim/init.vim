@@ -245,7 +245,8 @@ set foldclose&             " don't close a fold when the cursor leaves it
 
 set keymap=russian-jcukenwin  " alternative keymap:
 set iminsert=0 imsearch=0     " order of this options matters!
-
+set grepprg=ag\ --vimgrep\ \--column\ --smart-case
+set grepformat=%f:%l:%c:%m
 set shellpipe=>            " fix for ack.vim plugin
 set exrc secure            " enable sourcing of project's .nvimrc
 " }}}
@@ -334,6 +335,10 @@ cnoreabbrev <expr> tag
 
 " Source current file
 nnoremap <leader>ss :source %<CR>
+
+" Quickfix list
+nnoremap <Up> :cprev<CR>
+nnoremap <Down> :cnext<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'

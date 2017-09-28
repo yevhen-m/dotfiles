@@ -66,7 +66,6 @@ Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
 " }}}
 
 " Enhance vim searching {{{
-Plug 'mileszs/ack.vim'
 " This plugin does not work with other plugins that tamper with search
 " mappings.
 Plug 'thinca/vim-visualstar'
@@ -648,14 +647,6 @@ nnoremap coa :ALEToggle<cr>
 
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
-" }}}
-
-" Ack.vim settings {{{
-nnoremap gr :LAck<space>
-let g:ackprg = 'ag --vimgrep --smart-case --nocolor'
-" Preview matches when moving between them
-let g:ackpreview = 1
-let g:ackhighlight = 1
 " }}}
 
 " Python highlighting {{{

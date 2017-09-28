@@ -156,7 +156,7 @@ call s:SourceIfExists('~/.config/nvim/functions.vim')
 " Main settings {{{
 " -------------------------------------------------------------
 set guicursor=                " don't chnage cursor shape in different modes
-set fillchars=vert:│          " nice window separator char
+set fillchars=diff:⣿,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
@@ -203,6 +203,7 @@ set hidden
 set history=1000
 set noinfercase            " don't set infercase, it's not useful
 set ignorecase
+set smartcase              " ovveride ignorecase when pattern contains uppercase
 set inccommand=split       " Show visual indication when using substitute command
 set isfname-==             " remove = from filename pattern
 set list                   " show tab characters
@@ -224,7 +225,8 @@ set shiftwidth=4           " number of spaces per <<
 set shortmess+=cI          " silence vim messages
 set splitbelow splitright
 set synmaxcol=500
-set softtabstop=4          " number of spaces per TAB
+set tabstop=4              " number of visual spaces per TAB
+set softtabstop=4          " number of spaces in TAB when editing
 set expandtab              " insert spaces when hitting TAB
 set timeout                " for mappings
 set timeoutlen=1000        " default value
@@ -235,7 +237,7 @@ set updatetime=2000        " used for CursorHold events (gitgutter uses it)
 set wildignore+=*.pyc,*/__pycache__/*,*/venv/*,*/env/*
 set wildmenu               " visual autocomplete for command menu
 set wrap
-set nowrapscan             " don't wrap around during search
+set wrapscan               " wrap around during search
 set nospell                " don't check spelling
 set nojoinspaces           " don't insert addtional space after joining lines
 set foldcolumn&            " don't show a column to indicate folds

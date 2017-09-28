@@ -316,20 +316,34 @@ endif
 
 " Mappings {{{
 " -------------------------------------------------------------
-function! JumpToTag()
-    execute "ltag " . expand("<cword>")
+function! JumpToTag(...)
+    let word = exists('a:1') ? a:1 : expand("<cword>")
+    execute "ltag " . word
     if len(getloclist(win_getid())) > 1
-        lwindow | ll
+        lwindow | keepjumps ll
     else
         lclose
     endif
 endfunction
 
+command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")
+
 nnoremap <C-]> :call JumpToTag()<CR>
+cnoreabbrev <expr> tag
+            \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
+
+" Source current file
+nnoremap <leader>ss :source %<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'
 vnoremap <expr> Y 'my"'.v:register.'Y`y'
+
+" Keep the cursor in place while joining lines
+nnoremap J mzJ`z
+
+" Split line (sister to [J]oin lines)
+nnoremap S mwi<cr><esc>`w
 
 " Duplicate and comment out duplicate.
 nmap gcp :t.<CR>k<Plug>CommentaryLinej
@@ -362,8 +376,8 @@ inoremap <c-j> <down>
 " }}}
 
 " Edit init.vim and abbreviations.vim files {{{
-nnoremap <leader>ev :e $MYVIMRC<cr>
-nnoremap <silent> <leader>sv :execute("source ".$MYVIMRC)<cr>
+nnoremap <leader>ev :edit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 let abbr_file = fnamemodify($MYVIMRC, ':p:h')."/abbreviations.vim"
 nnoremap <leader>ea :execute("edit ".abbr_file)<cr>
@@ -667,6 +681,7 @@ let g:jsx_ext_required = 0
 " }}}
 
 " Tagbar settings {{{
+nnoremap <leader>T :Tagbar<cr>
 let g:tagbar_left = 1
 let g:tagbar_autoclose = 0
 let g:tagbar_autofocus = 1
@@ -680,3 +695,6 @@ let g:tagbar_iconchars = ['▸ ', '▾ ']
 " Detectindent settings {{{
 let g:detectindent_preferred_indent = 4
 " }}}
+
+" Highlight VCS conflict markers
+match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'

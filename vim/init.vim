@@ -182,10 +182,7 @@ set statusline+=\ %m%r  " modified, readonly, filetype
 set statusline+=%=      " switch to right-hand side
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%{ObsessionStatus()}
-set statusline+=%y      " filetype
-set statusline+=\ %P    " percentage
-set statusline+=\|%l:%c " cusor line and column
-set statusline+=\|%L\ | " number of lines
+set statusline+=%y\ |   " filetype
 " }}}
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split

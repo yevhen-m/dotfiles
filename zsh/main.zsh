@@ -55,6 +55,9 @@ fi
 # Dir for my scripts
 [[ -d $HOME/bin ]] && PATH=$HOME/bin:$PATH
 
+# Brew sbin dir
+export PATH="/usr/local/sbin:$PATH"
+
 # Try to fix disappering cursor in gnome-terminal
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern)
 
@@ -72,6 +75,7 @@ compinit
 alias ll='ls -l -A -G -h'
 alias l='ls -l -A -G -h'
 alias r=ranger
+alias ag='ag --mmap'
 
 # Aliases for Linux setups
 if [[ $(uname -s) = Linux ]]; then

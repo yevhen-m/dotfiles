@@ -1,16 +1,15 @@
-" Autoinstall vim-plug {{{
-" -------------------------------------------------------------
+" Autoinstall vim-plug
+" ----------------------------------------------------------------------------
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
-" }}}
 
-" Plugins {{{
-" -------------------------------------------------------------
+" Plugins
+" ----------------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
 
-" Syntax plugins {{{
+" Syntax
 Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
@@ -20,37 +19,32 @@ Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-" }}}
 
-" Arcanist plugins {{{
+" Arcanist
 Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
 Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
-" }}}
 
-" Autocomplete engines {{{
+" Autocomplete
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
 
 Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
 Plug 'Shougo/neco-syntax'
-" }}}
 
-" Integration with git {{{
+" Git
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
-" }}}
 
-" Python plugins {{{
+" Python
 Plug 'majutsushi/tagbar', {'for': 'python'}
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
-" }}}
 
-" Javascript plugins {{{
+" Javascript
 Plug 'carlitux/deoplete-ternjs', {
             \ 'for': 'javascript',
             \ 'do': 'npm install -g tern'
@@ -59,45 +53,35 @@ Plug 'ternjs/tern_for_vim', {
             \ 'for': 'javascript',
             \ 'do': 'npm install'
             \ }
-" }}}
 
-" HTML plugins {{{
+" HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
-" }}}
 
-" Enhance vim searching {{{
-" This plugin does not work with other plugins that tamper with search
-" mappings.
+" Enhance vim searching. This plugin does not work with other plugins that
+" tamper with search mappings.
 Plug 'thinca/vim-visualstar'
-" }}}
 
-" Filesystem browsers {{{
+" Filesystem browsers
 Plug 'scrooloose/nerdtree'
-" }}}
 
-" Quickfix list enhancement {{{
+" Quickfix list enhancement
 Plug 'romainl/vim-qf'
 Plug 'blueyed/vim-qf_resize'
-" }}}
 
-" Linting {{{
+" Linting
 Plug 'w0rp/ale'
-" }}}
 
-" Formatting {{{
+" Formatting
 Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
-" }}}
 
-" Tags {{{
+" Tags
 Plug 'ludovicchabant/vim-gutentags'
-" }}}
 
-" Tmux {{{
+" Tmux
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
-" }}}
 
-" Helpful plugins {{{
+" Helpful
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
@@ -133,14 +117,11 @@ Plug 'junegunn/fzf', {
             \ 'do': './install --all --no-update-rc'
             \ }
 Plug 'junegunn/fzf.vim'
-" }}}
 
-" Colorscheme {{{
+" Colorscheme
 Plug 'yevhen-m/base16-vim'
-" }}}
 
 call plug#end()
-" }}}
 
 function! s:SourceIfExists(path)
     let path = expand(a:path)
@@ -152,8 +133,8 @@ endfunction
 call s:SourceIfExists('~/.config/nvim/abbreviations.vim')
 call s:SourceIfExists('~/.config/nvim/functions.vim')
 
-" Main settings {{{
-" -------------------------------------------------------------
+" Main settings
+" ----------------------------------------------------------------------------
 set guicursor=                " don't chnage cursor shape in different modes
 set fillchars=diff:⣿,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
@@ -166,15 +147,14 @@ set signcolumn=yes            " always show sign column
 
 let $LANG = 'en' | set langmenu=none  " set vim language
 
-" Colorscheme {{{
+" Colorscheme
 set background=dark
 let base16colorspace = 256    " base16-shell script should be sourced
 colorscheme base16-eighties
-" }}}
 
 let mapleader=","
 
-" Statusline {{{
+" Statusline
 set statusline=
 set statusline=%<       " where to truncate
 set statusline+=\ %{expand('%:h')}/
@@ -184,7 +164,6 @@ set statusline+=%=      " switch to right-hand side
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%{ObsessionStatus()}
 set statusline+=%y\ |   " filetype
-" }}}
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
@@ -244,19 +223,17 @@ set foldclose&             " don't close a fold when the cursor leaves it
 
 set keymap=russian-jcukenwin  " alternative keymap:
 set iminsert=0 imsearch=0     " order of this options matters!
-set grepprg=ag\ --vimgrep\ \--column\ --smart-case
+set grepprg=ag\ --vimgrep\ \--column\ --smart-case\ $*
 set grepformat=%f:%l:%c:%m
 set shellpipe=>            " fix for ack.vim plugin
 set exrc secure            " enable sourcing of project's .nvimrc
-" }}}
 
-" Vim-plug settings {{{
-" -------------------------------------------------------------
+" Vim-plug settings
+" ----------------------------------------------------------------------------
 let g:plug_window = 'enew'
-" }}}
 
-" Python interfaces {{{
-" -------------------------------------------------------------
+" Python interfaces
+" ----------------------------------------------------------------------------
 if filereadable(glob('~/.virtualenvs/neovim2/bin/python'))
     let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
 endif
@@ -266,10 +243,9 @@ endif
 
 let g:python_host_skip_check = 1
 let g:python3_host_skip_check = 1
-" }}}
 
-" Autocommands {{{
-" -------------------------------------------------------------
+" Autocommands
+" ----------------------------------------------------------------------------
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
@@ -312,10 +288,9 @@ if !exists("autocommands_loaded")
     autocmd FileType cfg setlocal commentstring=#\ %s
 
 endif
-" }}}
 
-" Mappings {{{
-" -------------------------------------------------------------
+" Mappings
+" ----------------------------------------------------------------------------
 function! JumpToTag(...)
     let word = exists('a:1') ? a:1 : expand("<cword>")
     execute "ltag " . word
@@ -335,9 +310,14 @@ cnoreabbrev <expr> tag
 " Source current file
 nnoremap <leader>ss :source %<CR>
 
+" Search
+nnoremap <C-s> :grep ""<left>
+
 " Quickfix list
 nnoremap <Up> :cprev<CR>
+nnoremap ( :cprev<CR>
 nnoremap <Down> :cnext<CR>
+nnoremap ) :cnext<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'
@@ -371,22 +351,20 @@ nnoremap <C-w>j <C-w>^
 " Center easily
 nnoremap <cr> zz
 
-" Insert mode mapping {{{
+" Insert mode mapping
 " Movements
 inoremap <C-h> <left>
 inoremap <C-l> <right>
 inoremap <c-k> <up>
 inoremap <c-j> <down>
-" }}}
 
-" Edit init.vim and abbreviations.vim files {{{
+" Edit init.vim and abbreviations.vim files
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
 let abbr_file = fnamemodify($MYVIMRC, ':p:h')."/abbreviations.vim"
 nnoremap <leader>ea :execute("edit ".abbr_file)<cr>
 nnoremap <leader>sa :execute("source ".abbr_file)<cr>
-" }}}
 
 " Copy current file's path to clipboard (shift for absolute path)
 function! PathToClipboard(absolute)
@@ -404,8 +382,6 @@ cnoremap <c-k> <C-R><C-W>
 nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 
 " Save and exit
-inoremap <silent> <C-s> <esc>:x<cr>
-nnoremap <silent> <C-s> :x<cr>
 nnoremap <silent> <C-q> :q!<cr>
 
 " ,qq to record, Q to replay
@@ -419,12 +395,11 @@ nnoremap <silent> q :q<cr>
 " C-g is shadowed by some fzf mappings
 nnoremap <C-g><C-g> <c-g>
 
-" Yanking mappings {{{
+" Yanking mappings
 " Copy from the cursor to the end of the line
 nnoremap Y y$
 " Copy in visual mode and move cursor to the end of selection
 vnoremap gy y`>
-" }}}
 
 " Refine these so they take into account typed text
 cnoremap <C-P> <up>
@@ -461,7 +436,7 @@ xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap <silent> <C-h> <gv
 xnoremap <silent> <C-l> >gv
 
-" Operate on display lines {{{
+" Operate on display lines
 " Only normal and visual mode, not operator mode
 nnoremap k gk
 nnoremap j gj
@@ -474,17 +449,15 @@ xnoremap j gj
 xnoremap ^ g^
 xnoremap $ g$
 xnoremap 0 g0
-" }}}
 
 " Move to start/end of current line
 nnoremap gh g^
 xnoremap gl g$h
 nnoremap gl g$
 xnoremap gh g^
-" }}}
 
-" FZF settings {{{
-" -------------------------------------------------------------
+" FZF settings
+" ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>
 nnoremap <silent> <C-g><C-p> :GFiles<cr>
 nnoremap <silent> <C-_> :BLines<CR>
@@ -516,17 +489,15 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-" }}}
 
-" Undotree settings {{{
-" -------------------------------------------------------------
+" Undotree settings
+" ----------------------------------------------------------------------------
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
-" }}}
 
-" Deoplete settings {{{
-" -------------------------------------------------------------
+" Deoplete settings
+" ----------------------------------------------------------------------------
 nnoremap cod :call ToggleDeoplete()<cr>
 let g:deoplete_enabled = 1
 let g:deoplete#enable_at_startup = 1
@@ -543,8 +514,8 @@ imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['tag']
 
-" Autoformat settings {{{
-" -------------------------------------------------------------
+" Autoformat settings
+" ----------------------------------------------------------------------------
 noremap <leader>ff :Autoformat<CR>
 
 let g:formatters_html = ['htmlbeautify']
@@ -552,17 +523,15 @@ let g:formatters_html = ['htmlbeautify']
 " Examples:
 " let g:formatdef_yapf = "'yapf --lines ' . a:firstline . '-' . a:lastline"
 " let g:formatters_python = ['yapf']
-" }}}
 
-" Maximizer plugin settings {{{
-" -------------------------------------------------------------
+" Maximizer plugin settings
+" ----------------------------------------------------------------------------
 let g:maximizer_set_default_mapping = 0
 let g:maximizer_restore_on_winleave = 1
 noremap <leader>m :MaximizerToggle<CR>
-" }}}
 
-" Gitgutter settings {{{
-" -------------------------------------------------------------
+" Gitgutter settings
+" ----------------------------------------------------------------------------
 " Nice uniform gitgutter signs
 let g:gitgutter_sign_added = '▎'
 let g:gitgutter_sign_modified = '▎'
@@ -572,10 +541,9 @@ let g:gitgutter_sign_modified_removed = '▎'
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 nnoremap <silent> cog :GitGutterLineHighlightsToggle<cr>
-" }}}
 
-" Vim-qf settings {{{
-" -------------------------------------------------------------
+" Vim-qf settings
+" ----------------------------------------------------------------------------
 let g:qf_mapping_ack_style = 0
 let g:qf_auto_open_quickfix = 1
 let g:qf_auto_open_loclist = 1
@@ -587,51 +555,44 @@ let g:qf_auto_resize = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%f%<\ '
 let g:qf_statusline.after = '\ %=%l\/%-6L\ \ \ \ \ '
-" }}}
 
-" Vim-qf_resize settings {{{
+" Vim-qf_resize settings
 let g:qf_resize_min_height = 5
 let g:qf_resize_max_height = 5
-" }}}
 
-" Fugitive settings {{{
-" -------------------------------------------------------------
+" Fugitive settings
+" ----------------------------------------------------------------------------
 nnoremap <leader>gd :Gvdiff<cr>gg]c
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gv :GV<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>
-" }}}
 
-" Gutentags settings {{{
-" -------------------------------------------------------------
+" Gutentags settings
+" ----------------------------------------------------------------------------
 let g:gutentags_enabled = 1
 let g:gutentags_generate_on_write = 1
 let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_empty_buffer = 1
-" }}}
 
-" Vim-g settings {{{
-" -------------------------------------------------------------
+" Vim-g settings
+" ----------------------------------------------------------------------------
 let g:vim_g_command = "G"
 let g:vim_g_f_command = "Gf"
-" }}}
 
-" Nerdtree settings {{{
+" Nerdtree settings
 nnoremap <silent> - :NERDTreeFind<cr>
 nnoremap <silent> _ :NERDTreeClose<cr>
 let NERDTreeIgnore = ['^\.git$', '^\.DS_Store$', '^__pycache__$', '\.pyc$']
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
-" }}}
 
-" Vim-easy-align settings {{{
-" -------------------------------------------------------------
+" Vim-easy-align settings
+" ----------------------------------------------------------------------------
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-" }}}
 
-" ALE settings {{{
-" -------------------------------------------------------------
+" ALE settings
+" ----------------------------------------------------------------------------
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '●'
 let g:ale_lint_on_save = 0
@@ -647,36 +608,29 @@ nnoremap coa :ALEToggle<cr>
 
 let g:ale_linters = {'python': ['flake8']}
 let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
-" }}}
 
-" Python highlighting {{{
+" Python highlighting
 let python_self_cls_highlight = 1
-" }}}
 
-" Obsession settings {{{
+" Obsession settings
 nnoremap coo :Obsession<CR>
-" }}}
 
-" RSI settings {{{
+" RSI settings
 let g:rsi_no_meta = 1
-" }}}
 
-" ArgWrap settings {{{
+" ArgWrap settings
 nnoremap gw :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
-" }}}
 
-" Add one more tags file from virtualenv {{{
+" Add one more tags file from virtualenv
 if !empty($VIRTUAL_ENV)
     set tags=tags,$VIRTUAL_ENV/tags
 endif
-" }}}
 
-" Vim-jsx settings {{{
+" Vim-jsx settings
 let g:jsx_ext_required = 0
-" }}}
 
-" Tagbar settings {{{
+" Tagbar settings
 nnoremap <leader>T :Tagbar<cr>
 let g:tagbar_left = 1
 let g:tagbar_autoclose = 0
@@ -686,11 +640,9 @@ let g:tagbar_compact = 1
 let g:tagbar_autoshowtag = 1
 let g:tagbar_silent = 0
 let g:tagbar_iconchars = ['▸ ', '▾ ']
-" }}}
 
-" Detectindent settings {{{
+" Detectindent settings
 let g:detectindent_preferred_indent = 4
-" }}}
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'

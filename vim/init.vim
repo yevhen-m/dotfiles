@@ -39,7 +39,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'majutsushi/tagbar', {'for': 'python'}
 Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
@@ -630,17 +629,6 @@ endif
 
 " Vim-jsx settings
 let g:jsx_ext_required = 0
-
-" Tagbar settings
-nnoremap <leader>T :Tagbar<cr>
-let g:tagbar_left = 1
-let g:tagbar_autoclose = 0
-let g:tagbar_autofocus = 1
-let g:tagbar_sort = 0
-let g:tagbar_compact = 1
-let g:tagbar_autoshowtag = 1
-let g:tagbar_silent = 0
-let g:tagbar_iconchars = ['▸ ', '▾ ']
 
 " Detectindent settings
 let g:detectindent_preferred_indent = 4

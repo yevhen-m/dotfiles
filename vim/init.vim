@@ -136,7 +136,7 @@ call s:SourceIfExists('~/.config/nvim/functions.vim')
 " Main settings
 " ----------------------------------------------------------------------------
 set guicursor=                " don't chnage cursor shape in different modes
-set fillchars=diff:⣿,vert:│          " nice window separator char
+set fillchars=diff:-,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)

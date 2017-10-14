@@ -141,7 +141,7 @@ set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
-set cursorline
+set nocursorline
 set scrolloff=8               " offset of 8 lines to top-bottom borders
 set signcolumn=yes            " always show sign column
 

@@ -463,7 +463,7 @@ nnoremap <silent> <C-g><C-p> :GFiles<cr>
 nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <C-p> :Files<CR>
 nnoremap <silent> <leader>t :Tags<CR>
-nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <leader>m :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <c-g><c-l> :Commits<cr>
 nnoremap <silent> <c-g><c-b> :BCommits<cr>
@@ -528,7 +528,7 @@ let g:formatters_html = ['htmlbeautify']
 " ----------------------------------------------------------------------------
 let g:maximizer_set_default_mapping = 0
 let g:maximizer_restore_on_winleave = 1
-noremap <leader>m :MaximizerToggle<CR>
+noremap <leader>b :MaximizerToggle<CR>
 
 " Gitgutter settings
 " ----------------------------------------------------------------------------

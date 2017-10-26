@@ -3,6 +3,7 @@
 if empty(glob("~/.config/nvim/autoload/plug.vim"))
     !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
                 \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall
 endif
 
 " Plugins
@@ -30,6 +31,7 @@ function! DoRemote(arg)
 endfunction
 
 Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+Plug 'ujihisa/neco-look'
 Plug 'Shougo/neco-syntax'
 
 " Git
@@ -223,7 +225,7 @@ set foldclose&             " don't close a fold when the cursor leaves it
 
 set keymap=russian-jcukenwin  " alternative keymap:
 set iminsert=0 imsearch=0     " order of this options matters!
-set grepprg=ag\ --vimgrep\ \--column\ --smart-case\ $*
+set grepprg=ag\ --hidden\ --vimgrep\ --column\ --smart-case\ $*
 set grepformat=%f:%l:%c:%m
 set shellpipe=>            " fix for ack.vim plugin
 set exrc secure            " enable sourcing of project's .nvimrc
@@ -303,6 +305,7 @@ endfunction
 
 command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")
 
+nnoremap <C-w><C-]> :vsp<bar>call JumpToTag()<CR>
 nnoremap <C-]> :call JumpToTag()<CR>
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
@@ -311,7 +314,7 @@ cnoreabbrev <expr> tag
 nnoremap <leader>ss :source %<CR>
 
 " Search
-nnoremap <C-s> :grep ""<left>
+nnoremap <leader>j :silent grep ""<left>
 
 " Quickfix list
 nnoremap <Up> :cprev<CR>
@@ -335,18 +338,11 @@ nmap gcp :t.<CR>k<Plug>CommentaryLinej
 " Scrolling
 noremap <C-u> 8<C-u>
 noremap <C-d> 8<C-d>
-noremap <silent> <C-f> 16<C-d>
-noremap <silent> <C-b> 16<C-u>
-noremap <ScrollWheelUp> <C-Y>
-noremap <ScrollWheelDown> <C-E>
+noremap <C-f> 16<C-d>
+noremap <C-b> 16<C-u>
 
 " Use space to clear highlighting
 nnoremap <silent> <space> :nohlsearch<cr>
-
-" Switch to alternate buffer in current window
-nnoremap <leader>j <c-^>
-" Open split and edit alternate buffer there
-nnoremap <C-w>j <C-w>^
 
 " Center easily
 nnoremap <cr> zz
@@ -383,6 +379,8 @@ nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 
 " Save and exit
 nnoremap <silent> <C-q> :q!<cr>
+inoremap <C-s> <ESC>:x<CR>
+nnoremap <C-s> <ESC>:x<CR>
 
 " ,qq to record, Q to replay
 nnoremap <leader>q q
@@ -483,6 +481,11 @@ let g:fzf_action = {
 
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
+" Match only the first field (much faster)
+command! -bang -nargs=* Tags
+  \ call fzf#vim#tags(<q-args>, {'options': '-n1'}, <bang>0)
+
+nnoremap gt :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --select-1 --exit-0'})<CR>
 
 function! s:fzf_statusline()
   setlocal statusline=\ >\ fzf
@@ -509,6 +512,10 @@ let g:deoplete#disable_auto_complete = 0
 " Close popup, delete char and the open popup again
 imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
 imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
+imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
+imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
+imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
+imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
 
 " Experiment with ignoring tagfiles
 let g:deoplete#ignore_sources = {}

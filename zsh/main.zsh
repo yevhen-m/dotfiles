@@ -101,7 +101,7 @@ alias vi="nvim"
 alias vim="nvim"
 
 # Tmux aliases
-alias tl="tmux ls"
+alias tl="tmux ls | cut -d ' ' -f 1 | sed 's/://'"
 alias tat="tmux attach -t"
 alias ta="tmux attach"
 alias td="tmux detach"

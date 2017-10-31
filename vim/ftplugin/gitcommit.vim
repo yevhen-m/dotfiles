@@ -1,2 +1,2 @@
-setlocal colorcolumn=51
+setlocal colorcolumn=51,79
 setlocal textwidth=72

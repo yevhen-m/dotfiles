@@ -58,9 +58,10 @@ Plug 'ternjs/tern_for_vim', {
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
 
-" Enhance vim searching. This plugin does not work with other plugins that
-" tamper with search mappings.
+" Enhance vim searching.
+" These both plugins work together perfectly.
 Plug 'thinca/vim-visualstar'
+Plug 'osyo-manga/vim-anzu'
 
 " Filesystem browsers
 Plug 'scrooloose/nerdtree'
@@ -642,3 +643,11 @@ let g:detectindent_preferred_indent = 4
 
 " Highlight VCS conflict markers
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+
+" Vim-anzu settings
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+nmap g* g*<Plug>(anzu-update-search-status-with-echo)
+nmap g# g#<Plug>(anzu-update-search-status-with-echo)

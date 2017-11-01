@@ -164,9 +164,9 @@ set statusline+=\ %{expand('%:h')}/
 set statusline+=%t " filename
 set statusline+=\ %m%r  " modified, readonly, filetype
 set statusline+=%=      " switch to right-hand side
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=%{ObsessionStatus()}
-set statusline+=%y\ |   " filetype
+set statusline+=%y      " filetype
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ |
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler

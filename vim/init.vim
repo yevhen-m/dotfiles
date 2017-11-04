@@ -20,6 +20,7 @@ Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
+Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
 
 " Arcanist
 Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}

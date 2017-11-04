@@ -544,7 +544,6 @@ let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▎'
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
-nnoremap <silent> cog :GitGutterLineHighlightsToggle<cr>
 
 " Vim-qf settings
 " ----------------------------------------------------------------------------

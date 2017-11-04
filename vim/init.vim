@@ -486,8 +486,6 @@ command! -bang -nargs=* Ag
 command! -bang -nargs=* Tags
   \ call fzf#vim#tags(<q-args>, {'options': '-n1'}, <bang>0)
 
-nnoremap gt :call fzf#vim#tags(expand('<cword>'), {'options': '--exact --select-1 --exit-0'})<CR>
-
 function! s:fzf_statusline()
   setlocal statusline=\ >\ fzf
 endfunction

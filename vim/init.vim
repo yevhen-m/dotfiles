@@ -32,7 +32,6 @@ function! DoRemote(arg)
 endfunction
 
 Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
-Plug 'ujihisa/neco-look'
 Plug 'Shougo/neco-syntax'
 
 " Git

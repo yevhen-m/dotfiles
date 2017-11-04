@@ -591,6 +591,8 @@ nnoremap <silent> _ :NERDTreeClose<cr>
 let NERDTreeIgnore = ['^\.git$', '^\.DS_Store$', '^__pycache__$', '\.pyc$']
 let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
+let NERDTreeShowHidden = 1
+let NERDTreeCreatePrefix = 'silent keepalt keepjumps'
 
 " Vim-easy-align settings
 " ----------------------------------------------------------------------------

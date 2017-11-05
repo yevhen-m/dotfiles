@@ -1,3 +1,4 @@
+; vim: filetype=gitconfig
 [user]
 	email = yvhn.yvhn@gmail.com
 	name = yevhen-m
@@ -24,6 +25,8 @@
 	cv = commit -v
 	cb = checkout -b
 	au = add -u
+    fix = commit --fixup
+    squ = commit --squash
 	ctags = !.git/hooks/ctags
 [merge]
 	tool = nvimdiff
@@ -51,4 +54,5 @@
 	requireForce = false
 [init]
 	templatedir = ~/.git_template
-; vim: filetype=gitconfig
+[rebase]
+	autoSquash = true

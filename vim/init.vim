@@ -92,7 +92,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
-Plug 'itchyny/vim-cursorword'
 Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'PeterRincker/vim-argumentative'

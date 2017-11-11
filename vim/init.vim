@@ -1,14 +1,27 @@
+let s:nvim = has('nvim')
+if !s:nvim
+    set nocompatible
+endif
+
 " Autoinstall vim-plug
 " ----------------------------------------------------------------------------
-if empty(glob("~/.config/nvim/autoload/plug.vim"))
-    !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall
+let s:plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+let s:plug_self_dir = s:nvim ?
+            \ '~/.config/nvim/autoload/plug.vim' :
+            \ '~/.vim/autoload/plug.vim'
+
+if empty(glob(s:plug_self_dir))
+    execute '!curl -fLo ' s:plug_self_dir ' --create-dirs ' s:plug_url
+    echo '"vim-plug" successfuly installed'
 endif
 
 " Plugins
 " ----------------------------------------------------------------------------
-call plug#begin('~/.config/nvim/plugged')
+let g:plug_window = 'enew'
+let s:plug_plugins_dir = s:nvim ?
+            \ '~/.config/nvim/plugged' :
+            \ '~/.vim/plugged'
+call plug#begin(s:plug_plugins_dir)
 
 " Syntax
 Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
@@ -27,12 +40,16 @@ Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
 Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 
 " Autocomplete
-function! DoRemote(arg)
-    UpdateRemotePlugins
-endfunction
+if s:nvim
+    function! DoRemote(arg)
+        UpdateRemotePlugins
+    endfunction
 
-Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
-Plug 'Shougo/neco-syntax'
+    Plug 'Shougo/deoplete.nvim', {'do': function('DoRemote')}
+    Plug 'Shougo/neco-syntax'
+else
+    Plug 'Shougo/neocomplete.vim'
+endif
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -41,19 +58,23 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
+if s:nvim
+    Plug 'zchee/deoplete-jedi', {'for': 'python'}
+endif
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
 " Javascript
-Plug 'carlitux/deoplete-ternjs', {
-            \ 'for': 'javascript',
-            \ 'do': 'npm install -g tern'
-            \ }
-Plug 'ternjs/tern_for_vim', {
-            \ 'for': 'javascript',
-            \ 'do': 'npm install'
-            \ }
+if s:nvim
+    Plug 'carlitux/deoplete-ternjs', {
+                \ 'for': 'javascript',
+                \ 'do': 'npm install -g tern'
+                \ }
+    Plug 'ternjs/tern_for_vim', {
+                \ 'for': 'javascript',
+                \ 'do': 'npm install'
+                \ }
+endif
 
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
@@ -69,7 +90,9 @@ Plug 'romainl/vim-qf'
 Plug 'blueyed/vim-qf_resize'
 
 " Linting
-Plug 'w0rp/ale'
+if s:nvim
+    Plug 'w0rp/ale'
+endif
 
 " Formatting
 Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
@@ -121,6 +144,11 @@ Plug 'junegunn/fzf.vim'
 " Colorscheme
 Plug 'yevhen-m/base16-vim'
 
+if !s:nvim
+    Plug 'haya14busa/incsearch.vim'
+    Plug 'haya14busa/incsearch-fuzzy.vim'
+endif
+
 call plug#end()
 
 function! s:SourceIfExists(path)
@@ -135,6 +163,21 @@ call s:SourceIfExists('~/.config/nvim/functions.vim')
 
 " Main settings
 " ----------------------------------------------------------------------------
+if s:nvim
+    set inccommand=split   " Show visual indication when using substitute command
+    set keymap=russian-jcukenwin  " alternative keymap (+keymap feature for vim)
+    set iminsert=0 imsearch=0     " order of this options matters!
+else
+    filetype plugin indent on
+    syntax on
+    runtime macros/matchit.vim
+    set laststatus=2      " Always show statusline
+    set encoding=utf-8
+endif
+
+set incsearch
+set hlsearch
+set formatoptions+=j          " Delete comment character when joining commented lines
 set guicursor=                " don't chnage cursor shape in different modes
 set fillchars=diff:-,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
@@ -182,7 +225,6 @@ set history=1000
 set noinfercase            " don't set infercase, it's not useful
 set ignorecase
 set smartcase              " ovveride ignorecase when pattern contains uppercase
-set inccommand=split       " Show visual indication when using substitute command
 set isfname-==             " remove = from filename pattern
 set list                   " show tab characters
 set showmatch              " show matching parens (see 'matchtime' setting)
@@ -220,37 +262,26 @@ set nospell                " don't check spelling
 set nojoinspaces           " don't insert addtional space after joining lines
 set foldcolumn&            " don't show a column to indicate folds
 set foldclose&             " don't close a fold when the cursor leaves it
-
-set keymap=russian-jcukenwin  " alternative keymap:
-set iminsert=0 imsearch=0     " order of this options matters!
 set grepprg=ag\ --hidden\ --vimgrep\ --column\ --smart-case\ $*
 set grepformat=%f:%l:%c:%m
 set shellpipe=>            " fix for ack.vim plugin
 set exrc secure            " enable sourcing of project's .nvimrc
 
-" Vim-plug settings
-" ----------------------------------------------------------------------------
-let g:plug_window = 'enew'
-
 " Python interfaces
 " ----------------------------------------------------------------------------
-if filereadable(glob('~/.virtualenvs/neovim2/bin/python'))
-    let g:python_host_prog = glob('~/.virtualenvs/neovim2/bin/python')
+let s:nvim_python2 = '~/.virtualenvs/neovim2/bin/python'
+let s:nvim_python3 = '~/.virtualenvs/neovim3/bin/python'
+if s:nvim && filereadable(glob(s:nvim_python2))
+    let g:python_host_prog = glob(s:nvim_python2)
 endif
-if filereadable(glob('~/.virtualenvs/neovim3/bin/python'))
-    let g:python3_host_prog = glob('~/.virtualenvs/neovim3/bin/python')
+if s:nvim && filereadable(glob(s:nvim_python3))
+    let g:python3_host_prog = glob(s:nvim_python3)
 endif
-
-let g:python_host_skip_check = 1
-let g:python3_host_skip_check = 1
 
 " Autocommands
 " ----------------------------------------------------------------------------
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
-
-    " Go to the last line in logs
-    autocmd BufReadPost *.log normal G
 
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80
@@ -287,6 +318,13 @@ if !exists("autocommands_loaded")
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s
 
+    " FZF statusline
+    function! s:fzf_statusline()
+      setlocal statusline=\ >\ fzf
+    endfunction
+
+    autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
 endif
 
 " Mappings
@@ -313,6 +351,7 @@ nnoremap <leader>ss :source %<CR>
 
 " Search
 nnoremap <leader>j :silent grep ""<left>
+nnoremap <leader>J :execute 'silent grep "' . expand("<cword>") .'"'<CR>
 
 " Quickfix list
 nnoremap <Up> :cprev<CR>
@@ -377,8 +416,8 @@ nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 
 " Save and exit
 nnoremap <silent> <C-q> :q!<cr>
-inoremap <C-s> <ESC>:silent x<CR>
-nnoremap <C-s> <ESC>:silent x<CR>
+inoremap <silent> <C-s> <ESC>:x<CR>
+nnoremap <silent> <C-s> <ESC>:x<CR>
 
 " ,qq to record, Q to replay
 nnoremap <leader>q q
@@ -411,11 +450,9 @@ nnoremap <silent> <leader><leader> :update<CR>:nohlsearch<cr>
 " (delete selected text to the black hole register)
 vnoremap <Leader>p "_dP
 
-nnoremap <silent> tk :tabnext<CR>
-nnoremap <silent> tj :tabprev<CR>
-nnoremap <silent> th :tabfirst<CR>
-nnoremap <silent> tl :tablast<CR>
-nnoremap <silent> to :tabonly<cr>
+" Mapping to move between tags
+nnoremap <silent> H :tabprev<CR>
+nnoremap <silent> L :tabprev<CR>
 
 " %% for current file dir path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -468,7 +505,7 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 " Just make this mapping easier
-let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'down': '~40%' }
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_tags_command = 'ctags'
 let g:fzf_commands_expect = 'ctrl-x'
@@ -483,12 +520,6 @@ command! -bang -nargs=* Ag
 command! -bang -nargs=* Tags
   \ call fzf#vim#tags(<q-args>, {'options': '-n1'}, <bang>0)
 
-function! s:fzf_statusline()
-  setlocal statusline=\ >\ fzf
-endfunction
-
-autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
 " Undotree settings
 " ----------------------------------------------------------------------------
 let g:undotree_SetFocusWhenToggle = 1
@@ -497,25 +528,27 @@ nnoremap U :UndotreeToggle<CR>
 
 " Deoplete settings
 " ----------------------------------------------------------------------------
-nnoremap cod :call ToggleDeoplete()<cr>
-let g:deoplete_enabled = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 300
-let g:deoplete#auto_refresh_delay = 500
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#disable_auto_complete = 0
+if s:nvim
+    nnoremap cod :call ToggleDeoplete()<cr>
+    let g:deoplete_enabled = 1
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 300
+    let g:deoplete#auto_refresh_delay = 500
+    let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#disable_auto_complete = 0
 
-" Close popup, delete char and the open popup again
-imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
-imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
-imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
-imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
-imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
-imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
+    " Close popup, delete char and the open popup again
+    imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
+    imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
+    imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
+    imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
+    imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
+    imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
 
-" Experiment with ignoring tagfiles
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['tag']
+    " Experiment with ignoring tagfiles
+    let g:deoplete#ignore_sources = {}
+    let g:deoplete#ignore_sources._ = ['tag']
+endif
 
 " Autoformat settings
 " ----------------------------------------------------------------------------
@@ -637,5 +670,17 @@ let g:jsx_ext_required = 0
 " Detectindent settings
 let g:detectindent_preferred_indent = 4
 
-" Highlight VCS conflict markers
-match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+if !s:nvim
+    " Incsearch settings
+    map /  <Plug>(incsearch-fuzzy-/)
+    map ?  <Plug>(incsearch-fuzzy-?)
+    map g/ <Plug>(incsearch-fuzzy-stay)
+
+    " Neocomplete settings
+    let g:neocomplete#enable_at_startup = 1
+    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+    function! s:my_cr_function()
+        return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+    endfunction
+    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+endif

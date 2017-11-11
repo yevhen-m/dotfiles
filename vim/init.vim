@@ -102,7 +102,9 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Tmux
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-Plug 'tmux-plugins/vim-tmux-focus-events'
+if s:nvim
+    Plug 'tmux-plugins/vim-tmux-focus-events'
+endif
 
 " Helpful
 Plug 'christoomey/vim-sort-motion'
@@ -146,7 +148,6 @@ Plug 'yevhen-m/base16-vim'
 
 if !s:nvim
     Plug 'haya14busa/incsearch.vim'
-    Plug 'haya14busa/incsearch-fuzzy.vim'
 endif
 
 call plug#end()
@@ -173,6 +174,9 @@ else
     runtime macros/matchit.vim
     set laststatus=2      " Always show statusline
     set encoding=utf-8
+    set undodir=          " Dont' create undofiles
+    set nobackup
+    set nowritebackup
 endif
 
 set incsearch
@@ -672,8 +676,8 @@ let g:detectindent_preferred_indent = 4
 
 if !s:nvim
     " Incsearch settings
-    map /  <Plug>(incsearch-fuzzy-/)
-    map ?  <Plug>(incsearch-fuzzy-?)
+    map /  <Plug>(incsearch-forward)
+    map ?  <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-fuzzy-stay)
 
     " Neocomplete settings

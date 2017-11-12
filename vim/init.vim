@@ -165,9 +165,10 @@ call s:SourceIfExists('~/.config/nvim/functions.vim')
 " Main settings
 " ----------------------------------------------------------------------------
 if s:nvim
-    set inccommand=split   " Show visual indication when using substitute command
-    set keymap=russian-jcukenwin  " alternative keymap (+keymap feature for vim)
-    set iminsert=0 imsearch=0     " order of this options matters!
+    set inccommand=split         " Show visual indication when using substitute command
+    set signcolumn=yes           " always show sign column
+    set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
+    set iminsert=0 imsearch=0    " order of this options matters!
 else
     filetype plugin indent on
     syntax on
@@ -190,7 +191,6 @@ set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
 set nocursorline
 set scrolloff=8               " offset of 8 lines to top-bottom borders
-set signcolumn=yes            " always show sign column
 
 let $LANG = 'en' | set langmenu=none  " set vim language
 
@@ -647,7 +647,10 @@ let g:ale_set_quickfix = 1
 nnoremap <leader>ee :ALELint<cr>
 nnoremap coa :ALEToggle<cr>
 
-let g:ale_linters = {'python': ['flake8']}
+let g:ale_linters = {
+            \ 'python': ['flake8'],
+            \ 'javascript': ['eslint'],
+            \ }
 let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
 
 " Python highlighting

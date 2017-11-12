@@ -96,9 +96,9 @@ alias rm=trash
 
 # Vim aliases
 alias e="nvim"
-alias n="nvim"
-alias v="vim"
-alias vi="vim"
+alias v="nvim"
+alias vi="nvim"
+alias vim="nvim"
 
 # Tmux aliases
 alias tl="tmux ls | cut -d ' ' -f 1 | sed 's/://'"

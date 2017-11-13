@@ -1,5 +1,8 @@
 let s:nvim = has('nvim')
 if !s:nvim
+    unlet! skip_defaults_vim
+    silent! source $VIMRUNTIME/defaults.vim
+
     set nocompatible
 endif
 
@@ -90,9 +93,7 @@ Plug 'romainl/vim-qf'
 Plug 'blueyed/vim-qf_resize'
 
 " Linting
-if s:nvim
-    Plug 'w0rp/ale'
-endif
+Plug 'w0rp/ale'
 
 " Formatting
 Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
@@ -354,14 +355,14 @@ cnoreabbrev <expr> tag
 nnoremap <leader>ss :source %<CR>
 
 " Search
-nnoremap <leader>j :silent grep ""<left>
-nnoremap <leader>J :execute 'silent grep "' . expand("<cword>") .'"'<CR>
+nnoremap <leader>j :silent lgrep ""<left>
+nnoremap <leader>J :execute 'silent lgrep "' . expand("<cword>") .'"'<CR>
 
 " Quickfix list
-nnoremap <Up> :cprev<CR>
 nnoremap ( :cprev<CR>
-nnoremap <Down> :cnext<CR>
 nnoremap ) :cnext<CR>
+nnoremap } :lnext<CR>
+nnoremap { :lprev<CR>
 
 " Retain cursor position when visually yanking.
 vnoremap <expr> y 'my"'.v:register.'y`y'
@@ -456,7 +457,7 @@ vnoremap <Leader>p "_dP
 
 " Mapping to move between tags
 nnoremap <silent> H :tabprev<CR>
-nnoremap <silent> L :tabprev<CR>
+nnoremap <silent> L :tabnext<CR>
 
 " %% for current file dir path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -509,7 +510,7 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 " Just make this mapping easier
-let g:fzf_layout = { 'down': '~40%' }
+let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_tags_command = 'ctags'
 let g:fzf_commands_expect = 'ctrl-x'
@@ -586,8 +587,10 @@ let g:gitgutter_eager = 1
 let g:qf_mapping_ack_style = 0
 let g:qf_auto_open_quickfix = 1
 let g:qf_auto_open_loclist = 1
-" Open loclist the same way qflist is opened
-let g:qf_loclist_window_bottom = 1
+" Don't open location list at the bottom, there may be multiple loclists
+let g:qf_loclist_window_bottom = 0
+" Qflist can be only one so I can put it at the bottom
+let g:qf_window_bottom = 1
 " Resizing is handled by vim-qf_resize plugin
 let g:qf_auto_resize = 0
 " Show current entry in statusline
@@ -642,10 +645,8 @@ let g:ale_lint_on_filetype_changed = 0
 let g:ale_lint_on_text_changed = 0
 let g:ale_open_list = 1
 let g:ale_set_highlights = 0
-let g:ale_set_quickfix = 1
-
+let g:ale_set_quickfix = 0
 nnoremap <leader>ee :ALELint<cr>
-nnoremap coa :ALEToggle<cr>
 
 let g:ale_linters = {
             \ 'python': ['flake8'],

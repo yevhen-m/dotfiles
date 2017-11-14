@@ -108,11 +108,16 @@ if s:nvim
 endif
 
 " Helpful
+Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-user'
 Plug 'kana/vim-textobj-entire'
 Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
-Plug 'michaeljsmith/vim-indent-object', {'for': ['python', 'javascript']}
+Plug 'michaeljsmith/vim-indent-object', {'for': [
+            \ 'python',
+            \ 'javascript',
+            \ 'vim',
+            \ ]}
 Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'
@@ -363,10 +368,6 @@ nnoremap ( :cprev<CR>
 nnoremap ) :cnext<CR>
 nnoremap } :lnext<CR>
 nnoremap { :lprev<CR>
-
-" Retain cursor position when visually yanking.
-vnoremap <expr> y 'my"'.v:register.'y`y'
-vnoremap <expr> Y 'my"'.v:register.'Y`y'
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -691,4 +692,11 @@ if !s:nvim
         return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
     endfunction
     inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+endif
+
+" Vim-highlightedyank settings
+hi link HighlightedyankRegion Visual
+let g:highlightedyank_highlight_duration = 500
+if !s:nvim
+    map y <Plug>(highlightedyank)
 endif

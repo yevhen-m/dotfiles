@@ -186,6 +186,7 @@ else
     set nowritebackup
 endif
 
+set nosmartindent             " smartindent is not so smart
 set incsearch
 set hlsearch
 set formatoptions+=j          " Delete comment character when joining commented lines
@@ -195,8 +196,11 @@ set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
-set nocursorline
-set scrolloff=8               " offset of 8 lines to top-bottom borders
+set nocursorline              " less redrawing
+set scrolloff=0               " offset of 0 lines to top-bottom borders;
+                              " don't want to set this bc viewport jumps when
+                              " I click with mouse at the top/bottom of the
+                              " screen.
 
 let $LANG = 'en' | set langmenu=none  " set vim language
 
@@ -209,14 +213,16 @@ let mapleader=","
 
 " Statusline
 set statusline=
-set statusline=%<       " where to truncate
-set statusline+=\ %{expand('%:h')}/
-set statusline+=%t " filename
-set statusline+=\ %m%r  " modified, readonly, filetype
-set statusline+=%=      " switch to right-hand side
-set statusline+=%{ObsessionStatus()}
-set statusline+=%y      " filetype
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}\ |
+set statusline=%<                    " where to truncate
+set statusline+=\ %{expand('%:h')}/  " relative path of file
+set statusline+=%t                   " filename
+set statusline+=\ %m%r               " modified, readonly, filetype
+set statusline+=%=                   " switch to right-hand side
+set statusline+=%{ObsessionStatus()} " Obsession status
+set statusline+=%y                   " filetype
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
+set statusline+=\ %l/                " current line in file
+set statusline+=%L\ |                " total count of lines in file
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
@@ -321,12 +327,16 @@ if !exists("autocommands_loaded")
     " Turn off my 'center' mapping in cmdline window and quickfix/location list
     " windows
     autocmd CmdwinEnter * map <buffer> <cr> <cr>
-    autocmd FileType qf map <buffer> <cr> <cr>
+    autocmd Filetype qf nnoremap <buffer> <2-LeftMouse> <cr>
+    autocmd FileType qf nnoremap <buffer> <cr> <cr>
     autocmd FileType qf setlocal nocursorline
 
     " Set commentstring for jinja
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s
+
+    " Vim filetype
+    autocmd FileType vim nnoremap <buffer> <leader>ss :source %<CR>
 
     " FZF statusline
     function! s:fzf_statusline()
@@ -356,12 +366,11 @@ nnoremap <C-]> :call JumpToTag()<CR>
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
 
-" Source current file
-nnoremap <leader>ss :source %<CR>
-
 " Search
 nnoremap <leader>j :silent lgrep ""<left>
-nnoremap <leader>J :execute 'silent lgrep "' . expand("<cword>") .'"'<CR>
+nnoremap <leader>J
+            \ :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hlsearch<cr>
+            \ :execute 'silent lgrep "' . expand("<cword>") .'"'<CR>
 
 " Quickfix list
 nnoremap ( :cprev<CR>
@@ -386,6 +395,8 @@ noremap <C-b> 16<C-u>
 
 " Use space to clear highlighting
 nnoremap <silent> <space> :nohlsearch<cr>
+nnoremap <silent> <2-LeftMouse>
+            \ :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hlsearch<cr>
 
 " Center easily
 nnoremap <cr> zz
@@ -501,6 +512,7 @@ nnoremap <silent> <C-g><C-j> :GFiles?<CR>
 nnoremap <silent> <C-g><C-p> :GFiles<cr>
 nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <C-p> :Files<CR>
+nnoremap <silent> <leader>d :BTags<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
@@ -638,8 +650,8 @@ nmap ga <Plug>(EasyAlign)
 
 " ALE settings
 " ----------------------------------------------------------------------------
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '●'
+let g:ale_sign_error = '⦿'
+let g:ale_sign_warning = '⦿'
 let g:ale_lint_on_save = 0
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_filetype_changed = 0

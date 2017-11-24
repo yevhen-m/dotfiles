@@ -76,6 +76,7 @@ alias ll='ls -l -A -G -h'
 alias l='ls -l -A -G -h'
 alias r=ranger
 alias ag='ag --mmap'
+alias grep='ag --mmap'
 
 # Aliases for Linux setups
 if [[ $(uname -s) = Linux ]]; then
@@ -88,9 +89,6 @@ alias gd='git diff -w'
 alias gdc='git diff --cached -w'
 alias gp='git push origin HEAD'
 alias gs='git status -sb'
-
-# Grep
-alias grep='grep --color=auto'
 
 alias rm=trash
 

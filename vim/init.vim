@@ -217,6 +217,7 @@ set statusline+=\ %m%r               " modified, readonly, filetype
 set statusline+=%=                   " switch to right-hand side
 set statusline+=%{ObsessionStatus()} " Obsession status
 set statusline+=%y                   " filetype
+set statusline+=[ALE:%{ALEGetStatusLine()}]  " ALE status
 set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 set statusline+=\ %l/                " current line in file
 set statusline+=%L\ |                " total count of lines in file

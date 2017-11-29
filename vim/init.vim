@@ -104,7 +104,6 @@ if s:nvim
 endif
 
 " Helpful
-Plug 'unblevable/quick-scope'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-user'
@@ -709,6 +708,3 @@ let g:highlightedyank_highlight_duration = 500
 if !s:nvim
     map y <Plug>(highlightedyank)
 endif
-
-" Quick-scope settings
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

@@ -98,9 +98,7 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " Tmux
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-if s:nvim
-    Plug 'tmux-plugins/vim-tmux-focus-events'
-endif
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
 Plug 'machakann/vim-highlightedyank'

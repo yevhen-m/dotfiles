@@ -85,7 +85,6 @@ Plug 'scrooloose/nerdtree'
 
 " Quickfix list enhancement
 Plug 'romainl/vim-qf'
-Plug 'blueyed/vim-qf_resize'
 
 " Linting
 Plug 'w0rp/ale'
@@ -612,10 +611,6 @@ let g:qf_auto_resize = 0
 let g:qf_statusline = {}
 let g:qf_statusline.before = '%f%<\ '
 let g:qf_statusline.after = '\ %=%l\/%-6L\ \ \ \ \ '
-
-" Vim-qf_resize settings
-let g:qf_resize_min_height = 5
-let g:qf_resize_max_height = 5
 
 " Fugitive settings
 " ----------------------------------------------------------------------------

@@ -104,7 +104,6 @@ if s:nvim
 endif
 
 " Helpful
-Plug 'unblevable/quick-scope'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-user'
@@ -149,8 +148,12 @@ Plug 'junegunn/fzf.vim'
 " Colorscheme
 Plug 'yevhen-m/base16-vim'
 
+" Vim8 only plugins
 if !s:nvim
     Plug 'haya14busa/incsearch.vim'
+    " Don't use this plugin with neovim until then fix cursor issues in
+    " command line.
+    Plug 'unblevable/quick-scope'
 endif
 
 call plug#end()
@@ -690,6 +693,7 @@ let g:jsx_ext_required = 0
 " Detectindent settings
 let g:detectindent_preferred_indent = 4
 
+" Vim8 plugins
 if !s:nvim
     " Incsearch settings
     map /  <Plug>(incsearch-forward)
@@ -703,6 +707,9 @@ if !s:nvim
         return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
     endfunction
     inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+
+    " Quick-scope settings
+    let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 endif
 
 " Vim-highlightedyank settings
@@ -711,6 +718,3 @@ let g:highlightedyank_highlight_duration = 500
 if !s:nvim
     map y <Plug>(highlightedyank)
 endif
-
-" Quick-scope settings
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

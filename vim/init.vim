@@ -45,10 +45,12 @@ Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 " Autocomplete
 if s:nvim
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/neco-syntax'
 else
-    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'Shougo/neco-syntax'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -509,6 +511,9 @@ xnoremap gl g$h
 nnoremap gl g$
 xnoremap gh g^
 
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>
@@ -549,26 +554,24 @@ nnoremap U :UndotreeToggle<CR>
 
 " Deoplete settings
 " ----------------------------------------------------------------------------
-if s:nvim
-    let g:deoplete_enabled = 1
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 300
-    let g:deoplete#auto_refresh_delay = 500
-    let g:deoplete#enable_ignore_case = 1
-    let g:deoplete#disable_auto_complete = 0
+let g:deoplete_enabled = 1
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete_delay = 300
+let g:deoplete#auto_refresh_delay = 500
+let g:deoplete#enable_ignore_case = 1
+let g:deoplete#disable_auto_complete = 0
 
-    " Close popup, delete char and the open popup again
-    imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
-    imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
-    imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
-    imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
-    imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
-    imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
+" Close popup, delete char and the open popup again
+imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
+imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
+imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
+imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
+imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
+imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
 
-    " Experiment with ignoring tagfiles
-    let g:deoplete#ignore_sources = {}
-    let g:deoplete#ignore_sources._ = ['tag']
-endif
+" Experiment with ignoring tagfiles
+let g:deoplete#ignore_sources = {}
+let g:deoplete#ignore_sources._ = ['tag']
 
 " Autoformat settings
 " ----------------------------------------------------------------------------
@@ -699,14 +702,6 @@ if !s:nvim
     map /  <Plug>(incsearch-forward)
     map ?  <Plug>(incsearch-backward)
     map g/ <Plug>(incsearch-fuzzy-stay)
-
-    " Neocomplete settings
-    let g:neocomplete#enable_at_startup = 1
-    inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-    function! s:my_cr_function()
-        return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-    endfunction
-    inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 
     " Quick-scope settings
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

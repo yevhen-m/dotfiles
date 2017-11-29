@@ -171,17 +171,20 @@ if s:nvim
     set signcolumn=yes           " always show sign column
     set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
     set iminsert=0 imsearch=0    " order of this options matters!
+    set clipboard^=unnamedplus   " use system clipboard
 else
     filetype plugin indent on
     syntax on
     runtime macros/matchit.vim
-    set laststatus=2      " Always show statusline
+    set laststatus=2             " Always show statusline
+    set clipboard=unnamed        " OSX does not have plus clipboard
     set encoding=utf-8
-    set undodir=          " Dont' create undofiles
+    set undodir=                 " Dont' create undofiles
     set nobackup
     set nowritebackup
 endif
 
+set noruler
 set nosmartindent             " smartindent is not so smart
 set incsearch
 set hlsearch
@@ -230,7 +233,6 @@ set autoread               " for vim-tmux-focus-events plugin
 set fileignorecase         " ignore case when autocompleting filenames in command line
 set cmdwinheight=10        " height of command-line window
 set backspace=2
-set clipboard^=unnamedplus " use system clipboard
 set completeopt-=preview
 set gdefault               " always use 'g' flag when executing substitute command
 set hidden

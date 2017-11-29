@@ -47,6 +47,7 @@ if s:nvim
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
     Plug 'Shougo/deoplete.nvim'
+    " These both are deoplete's dependencies
     Plug 'roxma/nvim-yarp'
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
@@ -59,23 +60,19 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-if s:nvim
-    Plug 'zchee/deoplete-jedi', {'for': 'python'}
-endif
+Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
 " Javascript
-if s:nvim
-    Plug 'carlitux/deoplete-ternjs', {
-                \ 'for': 'javascript',
-                \ 'do': 'npm install -g tern'
-                \ }
-    Plug 'ternjs/tern_for_vim', {
-                \ 'for': 'javascript',
-                \ 'do': 'npm install'
-                \ }
-endif
+Plug 'carlitux/deoplete-ternjs', {
+            \ 'for': 'javascript',
+            \ 'do': 'npm install -g tern'
+            \ }
+Plug 'ternjs/tern_for_vim', {
+            \ 'for': 'javascript',
+            \ 'do': 'npm install'
+            \ }
 
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
@@ -295,7 +292,9 @@ let s:nvim_python3 = '~/.virtualenvs/neovim3/bin/python'
 if s:nvim && filereadable(glob(s:nvim_python2))
     let g:python_host_prog = glob(s:nvim_python2)
 endif
-if s:nvim && filereadable(glob(s:nvim_python3))
+" I suppose vim-hug-neovim-rpc plugin needs this var `pytho3_host_prog`
+" So I should define is both for neovim and vim8
+if filereadable(glob(s:nvim_python3))
     let g:python3_host_prog = glob(s:nvim_python3)
 endif
 

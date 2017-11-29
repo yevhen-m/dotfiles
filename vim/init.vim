@@ -462,7 +462,7 @@ cnoremap <C-N> <down>
 nnoremap \ ,
 
 " Use leader key to save current buffer
-nnoremap <silent> <leader><leader> :update<CR>:nohlsearch<cr>
+nnoremap <silent> <leader><leader> :update<CR>
 
 " Paste and keep pasting same thing
 " (delete selected text to the black hole register)

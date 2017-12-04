@@ -168,7 +168,7 @@ call s:SourceIfExists('~/.config/nvim/functions.vim')
 " ----------------------------------------------------------------------------
 if s:nvim
     set inccommand=split         " Show visual indication when using substitute command
-    set signcolumn=yes           " always show sign column
+    set signcolumn=auto          " Draw signcolumn when signs are available
     set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
     set iminsert=0 imsearch=0    " order of this options matters!
     set clipboard^=unnamedplus   " use system clipboard
@@ -693,7 +693,6 @@ if !s:nvim
     " Incsearch settings
     map /  <Plug>(incsearch-forward)
     map ?  <Plug>(incsearch-backward)
-    map g/ <Plug>(incsearch-fuzzy-stay)
 
     " Quick-scope settings
     let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

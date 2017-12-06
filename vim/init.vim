@@ -100,6 +100,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-user'

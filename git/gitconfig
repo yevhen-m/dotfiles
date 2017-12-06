@@ -23,6 +23,7 @@
 	can = commit --amend --no-edit
 	ca = commit --amend
 	cv = commit -v
+    co = checkout
 	cb = checkout -b
 	au = add -u
     fix = commit --fixup

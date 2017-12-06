@@ -89,6 +89,7 @@ alias gd='git diff -w'
 alias gdc='git diff --cached -w'
 alias gp='git push origin HEAD'
 alias gs='git status -sb'
+alias gco='git checkout'
 
 alias rm=trash
 

@@ -514,15 +514,14 @@ xnoremap gl g$h
 nnoremap gl g$
 xnoremap gh g^
 
-" Terminal
-tnoremap <Esc> <C-\><C-n>
-
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>
-nnoremap <silent> <C-g><C-p> :GFiles<cr>
-nnoremap <silent> <C-_> :BLines<CR>
+" Search files from vim's cwd
 nnoremap <silent> <C-p> :Files<CR>
+" Search files in the current file's directory
+nnoremap <silent> <C-g><C-p> :execute 'FZF ' . expand('%:h').'/'<cr>
+nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <leader>d :BTags<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>

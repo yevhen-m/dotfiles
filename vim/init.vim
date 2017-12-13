@@ -436,8 +436,6 @@ nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 
 " Save and exit
 nnoremap <silent> <C-q> :q!<cr>
-inoremap <silent> <C-s> <ESC>:x<CR>
-nnoremap <silent> <C-s> <ESC>:x<CR>
 
 " ,qq to record, Q to replay
 nnoremap <leader>q q

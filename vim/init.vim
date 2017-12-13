@@ -364,7 +364,11 @@ endfunction
 
 command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")
 
+" Open tag in vertical split
 nnoremap <C-w><C-]> :vsp<bar>call JumpToTag()<CR>
+" Open tag in horizontal split
+nnoremap <C-s><C-]> :sp<bar>call JumpToTag()<CR>
+" Open tag in current window
 nnoremap <C-]> :call JumpToTag()<CR>
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'

@@ -116,6 +116,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-unimpaired'
+Plug 'lambdalisue/suda.vim'
 Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'PeterRincker/vim-argumentative'
@@ -705,3 +706,10 @@ let g:highlightedyank_highlight_duration = 500
 if !s:nvim
     map y <Plug>(highlightedyank)
 endif
+
+" Suda settings
+let g:suda#prefix = 'sudo:'
+call suda#init('sudo:*,sudo:*/*')
+
+command! -nargs=1 SudoRead  edit  sudo://<args>
+command! -nargs=1 SudoWrite write sudo://<args>

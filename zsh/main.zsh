@@ -6,6 +6,8 @@ export LESS='-i -M -R -z-4'
 export VISUAL='/usr/local/bin/nvim'
 export GREP_COLOR="30;43"
 
+export PIPENV_DEFAULT_PYTHON_VERSION=3.6
+
 # ZSH options
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000000

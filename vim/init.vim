@@ -580,6 +580,8 @@ let g:deoplete#ignore_sources._ = ['tag']
 noremap <leader>ff :Autoformat<CR>
 
 let g:formatters_html = ['htmlbeautify']
+let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+let g:formatters_python = ['autopep8']
 " Configure this for your python project
 " Examples:
 " let g:formatdef_yapf = "'yapf --lines ' . a:firstline . '-' . a:lastline"

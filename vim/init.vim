@@ -375,7 +375,7 @@ cnoreabbrev <expr> tag
 
 " Search
 nnoremap <leader>j :silent lgrep ""<left>
-nnoremap <leader>J
+nnoremap <silent> <leader>J
             \ :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hlsearch<cr>
             \ :execute 'silent lgrep "' . expand("<cword>") .'"'<CR>
 

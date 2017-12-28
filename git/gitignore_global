@@ -4,4 +4,5 @@
 .DS_Store
 Session.vim
 fugitive:/
+node_modules/
 tags*

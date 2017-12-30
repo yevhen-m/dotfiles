@@ -90,10 +90,8 @@ Plug 'scrooloose/nerdtree'
 " Quickfix list enhancement
 Plug 'romainl/vim-qf'
 
-" Linting
+" Linting and formatting
 Plug 'w0rp/ale'
-
-" Formatting
 Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
 
 " Tags

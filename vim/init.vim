@@ -92,7 +92,7 @@ Plug 'romainl/vim-qf'
 
 " Linting and formatting
 Plug 'w0rp/ale'
-Plug 'Chiel92/vim-autoformat', {'on': ['CurrentFormatter', 'Autoformat']}
+Plug 'sbdchd/neoformat', {'on': ['Neoformat']}
 
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
@@ -577,17 +577,21 @@ imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
 let g:deoplete#ignore_sources = {}
 let g:deoplete#ignore_sources._ = ['tag']
 
-" Autoformat settings
+" Neoformat settings
 " ----------------------------------------------------------------------------
-noremap <leader>ff :Autoformat<CR>
+let g:neoformat_python_autopep8 = {
+            \ 'exe': 'autopep8',
+            \ 'stdin': 0,
+            \ }
 
-let g:formatters_html = ['htmlbeautify']
-let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
-let g:formatters_python = ['autopep8']
-" Configure this for your python project
-" Examples:
-" let g:formatdef_yapf = "'yapf --lines ' . a:firstline . '-' . a:lastline"
-" let g:formatters_python = ['yapf']
+let g:neoformat_enabled_python = ['autopep8']
+" Enable alignment
+let g:neoformat_basic_format_align = 1
+" Enable tab to spaces conversion
+let g:neoformat_basic_format_retab = 1
+" Enable trimmming of trailing whitespace
+let g:neoformat_basic_format_trim = 1
+let g:neoformat_run_all_formatters = 1
 
 " Maximizer plugin settings
 " ----------------------------------------------------------------------------

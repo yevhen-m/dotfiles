@@ -45,13 +45,16 @@ Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 " Autocomplete
 if s:nvim
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi', {'for': 'python'}
+    Plug 'Shougo/neco-syntax'
 else
-    Plug 'Shougo/deoplete.nvim'
-    " These both are deoplete's dependencies
-    Plug 'roxma/nvim-yarp'
-    Plug 'roxma/vim-hug-neovim-rpc'
+    function! BuildYCM(info)
+      if a:info.status == 'installed' || a:info.force
+        !./install.py --js-completer
+      endif
+    endfunction
+    Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
 endif
-Plug 'Shougo/neco-syntax'
 
 " Git
 Plug 'airblade/vim-gitgutter'
@@ -60,7 +63,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'zchee/deoplete-jedi', {'for': 'python'}
 Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
@@ -556,20 +558,29 @@ nnoremap U :UndotreeToggle<CR>
 
 " Deoplete settings
 " ----------------------------------------------------------------------------
-let g:deoplete_enabled = 1
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 300
-let g:deoplete#auto_refresh_delay = 500
-let g:deoplete#enable_ignore_case = 1
-let g:deoplete#disable_auto_complete = 0
+if s:nvim
+    let g:deoplete_enabled = 1
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#auto_complete_delay = 300
+    let g:deoplete#auto_refresh_delay = 500
+    let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#disable_auto_complete = 0
 
-" Close popup, delete char and the open popup again
-imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
-imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
-imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
-imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
-imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
-imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
+    " Close popup, delete char and the open popup again
+    imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
+    imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
+    imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
+    imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
+    imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
+    imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
+    inoremap <silent><expr> <C-N> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+else
+    let g:ycm_python_binary_path = 'python'
+    let g:ycm_collect_identifiers_from_comments_and_strings = 1
+    let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_seed_identifiers_with_syntax = 1
+    let g:ycm_key_invoke_completion = '<C-N>'
+endif
 
 " Experiment with ignoring tagfiles
 let g:deoplete#ignore_sources = {}

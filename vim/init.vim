@@ -514,12 +514,6 @@ xnoremap ^ g^
 xnoremap $ g$
 xnoremap 0 g0
 
-" Move to start/end of current line
-nnoremap gh g^
-xnoremap gl g$h
-nnoremap gl g$
-xnoremap gh g^
-
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>

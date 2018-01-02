@@ -104,6 +104,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'Raimondi/delimitMate'
 Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
@@ -567,8 +568,9 @@ if s:nvim
     let g:deoplete#disable_auto_complete = 0
 
     " Close popup, delete char and the open popup again
-    imap <silent> <expr> <BS> deoplete#smart_close_popup()."\<BS>"
-    imap <silent> <expr> <CR> deoplete#close_popup()."\<CR>"
+    " Account for delimitmate mappings as well
+    imap <silent> <expr> <BS> deoplete#smart_close_popup()."<Plug>delimitMateBS"
+    imap <silent> <expr> <CR> deoplete#close_popup()."<Plug>delimitMateCR"
     imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
     imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
     imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
@@ -737,3 +739,9 @@ command! -nargs=1 SudoWrite write sudo://<args>
 
 " Rainbow parens settings
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+
+" Prettier settings
+let g:prettier#autoformat = 0
+
+" Delimitmate settings
+let delimitMate_quotes = ""

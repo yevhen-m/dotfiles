@@ -47,6 +47,7 @@ if s:nvim
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'zchee/deoplete-jedi', {'for': 'python'}
     Plug 'Shougo/neco-syntax'
+    Plug 'Shougo/neco-vim', {'for': 'vim'}
 else
     function! BuildYCM(info)
       if a:info.status == 'installed' || a:info.force

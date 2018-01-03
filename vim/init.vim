@@ -344,6 +344,8 @@ if !exists("autocommands_loaded")
     autocmd FileType qf nnoremap <buffer> <cr> <cr>
     autocmd FileType qf setlocal nocursorline
 
+    autocmd FileType vim-plug,GV setlocal nocursorline
+
     " Set commentstring for jinja
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s
@@ -351,12 +353,7 @@ if !exists("autocommands_loaded")
     " Vim filetype
     autocmd FileType vim nnoremap <buffer> <leader>ss :source %<CR>
 
-    " FZF statusline
-    function! s:fzf_statusline()
-      setlocal statusline=\ >\ fzf
-    endfunction
-
-    autocmd! User FzfStatusLine call <SID>fzf_statusline()
+    autocmd! User FzfStatusLine setlocal statusline=\ >\ fzf
 
 endif
 

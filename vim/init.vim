@@ -560,9 +560,11 @@ nnoremap U :UndotreeToggle<CR>
 if s:nvim
     let g:deoplete_enabled = 1
     let g:deoplete#enable_at_startup = 1
-    let g:deoplete#auto_complete_delay = 300
+    let g:deoplete#auto_complete_delay = 100
     let g:deoplete#auto_refresh_delay = 500
     let g:deoplete#enable_ignore_case = 1
+    let g:deoplete#enable_smart_case = 1
+    let g:deoplete#enable_refresh_always = 1
     let g:deoplete#disable_auto_complete = 0
 
     " Close popup, delete char and the open popup again
@@ -574,6 +576,18 @@ if s:nvim
     imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
     imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
     inoremap <silent><expr> <C-N> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+
+    " Experiment with ignoring tagfiles
+    " let g:deoplete#ignore_sources = {}
+    " let g:deoplete#ignore_sources._ = ['tag']
+    " Increase limit for cached tags file (up to 50MB for instance)
+    let g:deoplete#tag#cache_limit_size = 5000000
+
+    " Add support for arcanist username completion
+    let g:deoplete#omni#input_patterns = {}
+    let g:deoplete#omni#input_patterns.arcanistdiff = '\w+'
+    let g:deoplete#omni#functions = {}
+    let g:deoplete#omni#functions.arcanistdiff = ['CompleteReviewers']
 else
     let g:ycm_python_binary_path = 'python'
     let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -581,10 +595,6 @@ else
     let g:ycm_seed_identifiers_with_syntax = 1
     let g:ycm_key_invoke_completion = '<C-N>'
 endif
-
-" Experiment with ignoring tagfiles
-let g:deoplete#ignore_sources = {}
-let g:deoplete#ignore_sources._ = ['tag']
 
 " Neoformat settings
 " ----------------------------------------------------------------------------

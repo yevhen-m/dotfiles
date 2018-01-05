@@ -75,18 +75,11 @@ fzf-branch() {
 bindkey -s '^g^k' 'fzf-branch\n'
 
 # Browse git commits
-fzf-show() {
+vim-git-log() {
     is_in_git_repo || return
-    git log --graph --color=always \
-        --format="%C(auto)%h%d %s %C(241)%C(bold)%cr %C(bold)(%cD)%C(reset) %C(auto)%C(blue)%cn" "$@" |
-    fzf-down --height 70% --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-        --bind "ctrl-m:execute:
-    (grep -o '[a-f0-9]\{7\}' | head -1 |
-    xargs -I % sh -c 'git show --color=always % | diff-so-fancy | less --tabs=4 -RX') << 'FZF-EOF'
-    {}
-    FZF-EOF"
+    vim -c "GV -50"
 }
-bindkey -s '^g^l' 'fzf-show\n'
+bindkey -s '^g^l' 'vim-git-log\n'
 
 
 join-lines() {

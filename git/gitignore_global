@@ -1,7 +1,9 @@
 .ignore
+.envrc
 .nvimrc
 .python-version
 .DS_Store
+.tern-port
 Session.vim
 fugitive:/
 node_modules/

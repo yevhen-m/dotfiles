@@ -221,17 +221,17 @@ let mapleader=","
 
 " Statusline
 set statusline=
-set statusline=%<                    " where to truncate
 set statusline+=\ %{expand('%:h')}/  " relative path of file
 set statusline+=%t                   " filename
+set statusline+=%<                    " where to truncate
 set statusline+=\ %m%r               " modified, readonly, filetype
 set statusline+=%=                   " switch to right-hand side
 set statusline+=%{ObsessionStatus()} " Obsession status
 set statusline+=%y                   " filetype
 set statusline+=[ALE:%{ALEGetStatusLine()}]  " ALE status
-set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
-set statusline+=\ %l/                " current line in file
-set statusline+=%L\ |                " total count of lines in file
+set statusline+=%{fugitive#statusline()}
+set statusline+=[%c:%l/                " current line in file
+set statusline+=%L]\ |                " total count of lines in file
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler

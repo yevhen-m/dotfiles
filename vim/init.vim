@@ -582,12 +582,6 @@ if s:nvim
     " let g:deoplete#ignore_sources._ = ['tag']
     " Increase limit for cached tags file (up to 50MB for instance)
     let g:deoplete#tag#cache_limit_size = 5000000
-
-    " Add support for arcanist username completion
-    let g:deoplete#omni#input_patterns = {}
-    let g:deoplete#omni#input_patterns.arcanistdiff = '\w+'
-    let g:deoplete#omni#functions = {}
-    let g:deoplete#omni#functions.arcanistdiff = ['CompleteReviewers']
 else
     let g:ycm_python_binary_path = 'python'
     let g:ycm_collect_identifiers_from_comments_and_strings = 1

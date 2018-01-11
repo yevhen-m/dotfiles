@@ -76,10 +76,16 @@ Plug 'ternjs/tern_for_vim', {
             \ 'for': 'javascript',
             \ 'do': 'npm install'
             \ }
-Plug 'prettier/vim-prettier', {
-            \ 'do': 'npm -g install prettier',
-            \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown']
-            \ }
+Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
+            \ 'javascript',
+            \ 'typescript',
+            \ 'css',
+            \ 'less',
+            \ 'scss',
+            \ 'json',
+            \ 'graphql',
+            \ 'markdown',
+            \ ]}
 
 " HTML
 Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}

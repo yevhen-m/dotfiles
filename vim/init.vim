@@ -112,7 +112,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
 Plug 'Raimondi/delimitMate'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
@@ -315,9 +314,6 @@ endif
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    " Activate rainbow parent on startup
-    autocmd VimEnter * RainbowParentheses
-
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80
 
@@ -458,8 +454,8 @@ nnoremap <silent> <C-q> :q!<cr>
 nnoremap <leader>q q
 nnoremap Q @q
 
-" Quit with one keystroke
-nnoremap <silent> q :q<cr>
+" Disable q key
+nnoremap q :echo "NOOP"<CR>
 
 " Print the current filname, etc.
 " C-g is shadowed by some fzf mappings
@@ -744,9 +740,6 @@ call suda#init('sudo:*,sudo:*/*')
 
 command! -nargs=1 SudoRead  edit  sudo://<args>
 command! -nargs=1 SudoWrite write sudo://<args>
-
-" Rainbow parens settings
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 
 " Prettier settings
 let g:prettier#autoformat = 0

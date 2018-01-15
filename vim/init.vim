@@ -646,6 +646,7 @@ let g:qf_statusline.after = '\ %=%l\/%-6L\ \ \ \ \ '
 nnoremap <leader>gd :Gvdiff<cr>gg]c
 nnoremap <leader>gc :Gcommit -v -q<cr>
 nnoremap <leader>gv :GV<cr>
+nnoremap <leader>gb :Gblame<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>
 
 " Gutentags settings

@@ -228,7 +228,7 @@ let mapleader=","
 set statusline=
 set statusline+=\ %{expand('%:h')}/  " relative path of file
 set statusline+=%t                   " filename
-set statusline+=%<                    " where to truncate
+set statusline+=\ %<                    " where to truncate
 set statusline+=\ %m%r               " modified, readonly, filetype
 set statusline+=%=                   " switch to right-hand side
 set statusline+=%{ObsessionStatus()} " Obsession status

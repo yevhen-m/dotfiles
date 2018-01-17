@@ -231,12 +231,14 @@ set statusline+=%t                   " filename
 set statusline+=\ %<                    " where to truncate
 set statusline+=\ %m%r               " modified, readonly, filetype
 set statusline+=%=                   " switch to right-hand side
-set statusline+=%{ObsessionStatus()} " Obsession status
-set statusline+=%y                   " filetype
-set statusline+=[ALE:%{ALEGetStatusLine()}]  " ALE status
+
+set statusline+=%{gutentags#statusline('')}
+set statusline+=%{ObsessionStatus()}        " Obsession status
+set statusline+=%y                          " filetype
+set statusline+=[ALE:%{ALEGetStatusLine()}] " ALE status
 set statusline+=%{fugitive#statusline()}
-set statusline+=[%c:%l/                " current line in file
-set statusline+=%L]\ |                " total count of lines in file
+set statusline+=[%c:%l/                     " current line in file
+set statusline+=%L]\ |                      " total count of lines in file
 
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
@@ -548,8 +550,8 @@ let g:fzf_action = {
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
 " Match only the first field (much faster)
-command! -bang -nargs=* Tags
-  \ call fzf#vim#tags(<q-args>, {'options': '-n1'}, <bang>0)
+" command! -bang -nargs=* Tags
+"   \ call fzf#vim#tags(<q-args>, {'options': '-n1'}, <bang>0)
 
 " Undotree settings
 " ----------------------------------------------------------------------------
@@ -653,9 +655,10 @@ nmap <leader>gs :Gstatus<cr>gg<C-N>
 " ----------------------------------------------------------------------------
 let g:gutentags_enabled = 1
 let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_missing = 1
 let g:gutentags_generate_on_empty_buffer = 1
-
+let g:gutentags_project_root = ['.git']
+let g:gutentags_add_default_project_roots = 0
 " Vim-g settings
 " ----------------------------------------------------------------------------
 let g:vim_g_command = "G"

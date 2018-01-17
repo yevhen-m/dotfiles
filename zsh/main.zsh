@@ -124,6 +124,11 @@ function httpless {
     http --pretty=all --print=hb "$@" | less -R;
 }
 
+# Use the same key to go foreground
+fgkey() { fg }
+zle -N fgkey
+bindkey '^Z' fgkey
+
 # Pyenv settings: should be at the end of the script
 # cause pyenv modified PATH
 export PYENV_ROOT="$HOME/.pyenv"

@@ -11,7 +11,7 @@ else
     trap 'rm -f "$TMP_DIR/$$.tags"' EXIT
 
     echo "enta: generating tags file..."
-    ctags -f"$TMP_DIR/$$.tags" $VIRTUAL_ENV
+    ctags -f"$TMP_DIR/$$.tags" --exclude="*/tests/*" --exclude="*/test/*" $VIRTUAL_ENV
     mv "$TMP_DIR/$$.tags" "$VIRTUAL_ENV/tags"
     exit 0
 fi

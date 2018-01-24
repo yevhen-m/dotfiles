@@ -63,10 +63,6 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
 " Javascript
-Plug 'carlitux/deoplete-ternjs', {
-            \ 'for': 'javascript',
-            \ 'do': 'npm install -g tern'
-            \ }
 Plug 'ternjs/tern_for_vim', {
             \ 'for': 'javascript',
             \ 'do': 'npm install'
@@ -554,31 +550,14 @@ let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
 
-" Deoplete settings
+" Autocomplete settings
 " ----------------------------------------------------------------------------
 if s:nvim
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_ignore_case = 1
-    let g:deoplete#enable_smart_case = 1
-    let g:deoplete#enable_refresh_always = 1
-    let g:deoplete#auto_complete_delay = 50
-    let g:deoplete#auto_refresh_delay = 50
-
-    " Close popup, delete char and the open popup again
-    " Account for delimitmate mappings as well
-    imap <silent> <expr> <BS> deoplete#smart_close_popup()."<Plug>delimitMateBS"
-    imap <silent> <expr> <CR> deoplete#close_popup()."<Plug>delimitMateCR"
-    imap <silent> <expr> <C-j> deoplete#close_popup()."\<down>"
-    imap <silent> <expr> <C-k> deoplete#close_popup()."\<up>"
-    imap <silent> <expr> <C-h> deoplete#smart_close_popup()."\<left>"
-    imap <silent> <expr> <C-l> deoplete#smart_close_popup()."\<right>"
-    inoremap <silent><expr> <C-N> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-
-    " Experiment with ignoring tagfiles
-    " let g:deoplete#ignore_sources = {}
-    " let g:deoplete#ignore_sources._ = ['tag']
-    " Increase limit for cached tags file (up to 50MB for instance)
-    let g:deoplete#tag#cache_limit_size = 5000000
+    imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR")
+    imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
+    let g:cm_matcher = {'module': 'cm_matchers.abbrev_matcher', 'case': 'smartcase'}
+    imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
+    let g:cm_refresh_length = [[1,3],[7,3]]
 else
     let g:ycm_python_binary_path = 'python'
     let g:ycm_collect_identifiers_from_comments_and_strings = 1

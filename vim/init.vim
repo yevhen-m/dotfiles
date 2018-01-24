@@ -48,6 +48,10 @@ if !s:nvim
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}
@@ -739,3 +743,8 @@ let g:prettier#autoformat = 0
 
 " Delimitmate settings
 let delimitMate_quotes = ""
+
+" Ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-f>"
+let g:UltiSnipsJumpBackwardTrigger="<c-b>"

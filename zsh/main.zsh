@@ -97,10 +97,8 @@ alias glg='git lg'
 alias rm=trash
 
 # Vim aliases
-alias e="nvim"
-alias v="nvim"
-alias vi="nvim"
-alias vim="nvim"
+alias vi="/usr/local/bin/vim"
+alias vim="/usr/local/bin/nvim"
 
 # Tmux aliases
 alias tl="tmux ls | cut -d ' ' -f 1 | sed 's/://'"

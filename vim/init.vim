@@ -196,7 +196,7 @@ set hlsearch
 set formatoptions+=j          " Delete comment character when joining commented lines
 set guicursor=                " don't chnage cursor shape in different modes
 set fillchars=diff:-,vert:│          " nice window separator char
-set listchars=tab:\⋮\ ,extends:⟫,precedes:⟪,trail:·
+set listchars=tab:\⋮\ ,extends:❯,precedes:❮,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines

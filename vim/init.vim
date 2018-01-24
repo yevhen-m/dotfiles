@@ -43,18 +43,9 @@ Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
 Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 
 " Autocomplete
-if s:nvim
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi', {'for': 'python'}
-    Plug 'Shougo/neco-syntax'
-    Plug 'Shougo/neco-vim', {'for': 'vim'}
-else
-    function! BuildYCM(info)
-      if a:info.status == 'installed' || a:info.force
-        !./install.py --js-completer
-      endif
-    endfunction
-    Plug 'Valloric/YouCompleteMe', {'do': function('BuildYCM')}
+Plug 'roxma/nvim-completion-manager'
+if !s:nvim
+    Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
 " Git

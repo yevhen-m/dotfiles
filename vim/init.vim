@@ -375,11 +375,24 @@ nnoremap <C-]> :call JumpToTag()<CR>
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
 
-" Search
-nnoremap <leader>j :silent lgrep ""<left>
-nnoremap <silent> <leader>J
-            \ :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hlsearch<cr>
-            \ :execute 'silent lgrep "' . expand("<cword>") .'"'<CR>
+function! Grep(...)
+    if exists('a:1')
+        let query = a:1
+    else
+        let query = escape(expand("<cword>"), '\')
+        let @/ = expand("<cword>")
+        set hlsearch
+    endif
+    let args = exists('a:1') ? a:000[1:] : []
+    execute 'silent lgrep "' . query . '" ' . join(args, ' ')
+    redraw!
+endfunction
+
+command! -nargs=* Grep call Grep(<f-args>)
+" Search word under the cursor
+nnoremap <leader>j :Grep<space>
+" Start Grep command
+nnoremap <silent> <leader>J :call Grep()<CR>
 
 " Quickfix list
 nnoremap ( :cprev<CR>

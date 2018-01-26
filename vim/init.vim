@@ -573,19 +573,11 @@ nnoremap U :UndotreeToggle<CR>
 
 " Autocomplete settings
 " ----------------------------------------------------------------------------
-if s:nvim
-    imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR")
-    imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
-    let g:cm_matcher = {'module': 'cm_matchers.abbrev_matcher', 'case': 'smartcase'}
-    imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
-    let g:cm_refresh_length = [[1,3],[7,3]]
-else
-    let g:ycm_python_binary_path = 'python'
-    let g:ycm_collect_identifiers_from_comments_and_strings = 1
-    let g:ycm_collect_identifiers_from_tags_files = 1
-    let g:ycm_seed_identifiers_with_syntax = 1
-    let g:ycm_key_invoke_completion = '<C-N>'
-endif
+imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR")
+imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
+let g:cm_matcher = {'module': 'cm_matchers.prefix_matcher', 'case': 'case'}
+imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
+let g:cm_refresh_length = [[1,3],[7,3]]
 
 " Neoformat settings
 " ----------------------------------------------------------------------------

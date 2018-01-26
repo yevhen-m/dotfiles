@@ -391,6 +391,9 @@ function! Grep(...)
     let args = exists('a:1') ? a:000[1:] : []
     execute 'silent lgrep "' . query . '" ' . join(args, ' ')
     redraw!
+    if len(getloclist(win_getid())) == 0
+        echo 'No results!'
+    endif
 endfunction
 
 command! -nargs=* Grep call Grep(<f-args>)

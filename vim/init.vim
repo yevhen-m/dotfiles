@@ -356,7 +356,12 @@ endif
 " ----------------------------------------------------------------------------
 function! JumpToTag(...)
     let word = exists('a:1') ? a:1 : expand("<cword>")
-    execute "ltag " . word
+    try
+        execute "silent ltag " . word
+    catch
+        echo 'Tag not found!'
+        return
+    endtry
     if len(getloclist(win_getid())) > 1
         lwindow | keepjumps ll
     else

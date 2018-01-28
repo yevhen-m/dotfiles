@@ -1,6 +1,7 @@
 .ignore
 .envrc
 .nvimrc
+.exrc
 .python-version
 .DS_Store
 .tern-port

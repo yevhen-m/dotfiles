@@ -579,6 +579,9 @@ imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitM
 imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
 let g:cm_matcher = {'module': 'cm_matchers.prefix_matcher', 'case': 'case'}
 imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
+let g:cm_sources_override = {
+            \ 'cm-tmux': {'enable':0}
+            \ }
 let g:cm_refresh_length = [[1,3],[7,3]]
 
 " Neoformat settings

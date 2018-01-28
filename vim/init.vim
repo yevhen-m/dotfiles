@@ -45,6 +45,7 @@ Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 
 " Autocomplete
 Plug 'roxma/nvim-completion-manager'
+Plug 'Shougo/neco-vim', {'for': 'vim'}
 if !s:nvim
     Plug 'roxma/vim-hug-neovim-rpc'
 endif

@@ -39,8 +39,9 @@ Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
 
 " Arcanist
-Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
 Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
+Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
+Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 
 " Autocomplete
 Plug 'roxma/nvim-completion-manager'

@@ -187,6 +187,7 @@ else
     set clipboard=unnamed        " OSX does not have plus clipboard
     set encoding=utf-8
     set undodir=                 " Dont' create undofiles
+    set ttyfast                  " Assume fast terminal connection
     set nobackup
     set nowritebackup
 endif

@@ -399,7 +399,7 @@ function! Grep(...)
     endif
 endfunction
 
-command! -nargs=* Grep call Grep(<f-args>)
+command! -nargs=* -complete=file Grep call Grep(<f-args>)
 " Search word under the cursor
 nnoremap <leader>j :Grep<space>
 " Start Grep command

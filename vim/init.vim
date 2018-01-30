@@ -50,10 +50,6 @@ if !s:nvim
     Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}

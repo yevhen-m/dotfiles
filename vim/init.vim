@@ -58,10 +58,6 @@ Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
 " Javascript
-Plug 'ternjs/tern_for_vim', {
-            \ 'for': 'javascript',
-            \ 'do': 'npm install'
-            \ }
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
             \ 'javascript',
             \ 'typescript',

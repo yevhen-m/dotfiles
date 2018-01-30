@@ -43,13 +43,10 @@ Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
 Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
 Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 
-" Autocomplete
-Plug 'roxma/nvim-completion-manager'
-Plug 'Shougo/neco-vim', {'for': 'vim'}
-if !s:nvim
-    Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'junegunn/gv.vim', {'on': 'GV'}
+Plug 'tpope/vim-fugitive'
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}
@@ -569,17 +566,6 @@ command! -bang -nargs=* Tags
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
-
-" Autocomplete settings
-" ----------------------------------------------------------------------------
-imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR")
-imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
-let g:cm_matcher = {'module': 'cm_matchers.prefix_matcher', 'case': 'case'}
-imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
-let g:cm_sources_override = {
-            \ 'cm-tmux': {'enable':0}
-            \ }
-let g:cm_refresh_length = [[1,3],[7,3]]
 
 " Neoformat settings
 " ----------------------------------------------------------------------------

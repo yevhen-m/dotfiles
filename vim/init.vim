@@ -713,6 +713,7 @@ let g:prettier#autoformat = 0
 
 " Delimitmate settings
 let delimitMate_quotes = ""
+let delimitMate_expand_cr = 1
 
 " Ultisnips settings
 let g:UltiSnipsExpandTrigger="<tab>"

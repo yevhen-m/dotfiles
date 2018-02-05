@@ -536,7 +536,8 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 " Just make this mapping easier
-let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
+" let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
+let g:fzf_layout = {'window': '15split enew'}
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_tags_command = 'ctags'
 let g:fzf_commands_expect = 'ctrl-x'

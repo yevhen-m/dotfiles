@@ -47,10 +47,6 @@ Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 Plug 'airblade/vim-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'tpope/vim-fugitive'
-" Git
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/gv.vim', {'on': 'GV'}
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python

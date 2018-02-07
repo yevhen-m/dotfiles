@@ -26,6 +26,11 @@ let s:plug_plugins_dir = s:nvim ?
             \ '~/.vim/plugged'
 call plug#begin(s:plug_plugins_dir)
 
+" Autocomplete
+if s:nvim
+    Plug 'roxma/nvim-completion-manager'
+endif
+
 " Syntax
 Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
@@ -712,3 +717,15 @@ let delimitMate_expand_cr = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" Autocomplete settings
+" ----------------------------------------------------------------------------
+if s:nvim
+    imap <expr> <CR> (pumvisible() ? "\<c-y>\<Plug>delimitMateCR" : "\<Plug>delimitMateCR")
+    imap <expr> <BS> (pumvisible() ? "\<c-y>\<Plug>delimitMateBS" : "\<Plug>delimitMateBS")
+    let g:cm_matcher = {'module': 'cm_matchers.prefix_matcher', 'case': 'case'}
+    imap <silent><expr> <C-N> (pumvisible() ? "\<C-N>" : "\<Plug>(cm_force_refresh)")
+    let g:cm_sources_override = {
+                \ 'cm-tmux': {'enable':0}
+                \ }
+endif

@@ -692,11 +692,6 @@ let g:prettier#autoformat = 0
 let delimitMate_quotes = ""
 let delimitMate_expand_cr = 1
 
-" Ultisnips settings
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-f>"
-let g:UltiSnipsJumpBackwardTrigger="<c-b>"
-
 " Statusline
 " ----------------------------------------------------------------------------
 function! s:create_statusline(mode)

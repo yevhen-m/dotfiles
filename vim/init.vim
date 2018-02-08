@@ -202,22 +202,6 @@ colorscheme base16-eighties
 
 let mapleader=","
 
-" Statusline
-set statusline=
-set statusline+=\ %{expand('%:h')}/  " relative path of file
-set statusline+=%t                   " filename
-set statusline+=\ %<                    " where to truncate
-set statusline+=\ %m%r               " modified, readonly, filetype
-set statusline+=%=                   " switch to right-hand side
-
-set statusline+=%{gutentags#statusline('')}
-set statusline+=%{ObsessionStatus()}        " Obsession status
-set statusline+=%y                          " filetype
-set statusline+=[ALE:%{ALEGetStatusLine()}] " ALE status
-set statusline+=%{fugitive#statusline()}
-set statusline+=[%c:%l/                     " current line in file
-set statusline+=%L]\ |                      " total count of lines in file
-
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
 set autowriteall           " automatically write when leaving a buffer
@@ -712,3 +696,42 @@ let delimitMate_expand_cr = 1
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-f>"
 let g:UltiSnipsJumpBackwardTrigger="<c-b>"
+
+" Statusline
+" ----------------------------------------------------------------------------
+function! s:create_statusline(mode)
+    " Relative path to file
+    " Filename
+    " Where to truncate
+    " Modified, readonly
+    " Switch to right-hand side
+    " Filetype
+    " Current line in file
+    " Total lines count
+    let common = [
+                \ '\ ',
+                \ "%{expand('%:h')}/",
+                \ '%t',
+                \ ]
+    let rest = [
+                \ '\ %<',
+                \ '\ %m%r',
+                \ '%=',
+                \ "%{gutentags#statusline('')}",
+                \ '%{ObsessionStatus()}',
+                \ '%y',
+                \ '[ALE:%{ALEGetStatusLine()}]',
+                \ '%{fugitive#statusline()}',
+                \ '[%c:%l/',
+                \ '%L]',
+                \ '\ ',
+                \ ]
+    let parts = a:mode ==# 'A' ? common + rest : common
+    execute 'setlocal statusline=' . join(parts, '')
+endfunction
+
+augroup MyStatusline
+    autocmd!
+    autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
+    autocmd WinLeave * call s:create_statusline('I')
+augroup END

@@ -714,11 +714,11 @@ function! s:create_statusline(mode)
                 \ '%=',
                 \ "%{gutentags#statusline('')}",
                 \ '%{ObsessionStatus()}',
-                \ '%y',
-                \ '[ALE:%{ALEGetStatusLine()}]',
-                \ '%{fugitive#statusline()}',
-                \ '[%c:%l/',
-                \ '%L]',
+                \ '\ FT:%Y',
+                \ '\ ALE:%{ALEGetStatusLine()}',
+                \ '\ GIT:%{fugitive#head(5)}',
+                \ '\ %c:%l/',
+                \ '%L',
                 \ '\ ',
                 \ ]
     let parts = a:mode ==# 'A' ? common + rest : common

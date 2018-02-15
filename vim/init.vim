@@ -187,7 +187,7 @@ set listchars=tab:\⋮\ ,extends:❯,precedes:❮,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
-set cursorline                " more redrawing
+set nocursorline              " less redrawing
 set scrolloff=0               " offset of 0 lines to top-bottom borders;
                               " don't want to set this bc viewport jumps when
                               " I click with mouse at the top/bottom of the
@@ -246,7 +246,7 @@ set timeoutlen=1000        " default value
 set ttimeout               " for key codes
 set ttimeoutlen=10         " unnoticeable small value
 set undofile               " keep undo history for all file changes
-set updatetime=2000        " used for CursorHold events (gitgutter uses it)
+set updatetime=100         " used for CursorHold events (gitgutter uses it)
 set wildignore+=*.pyc,*/__pycache__/*,*/venv/*,*/env/*
 set wildmenu               " visual autocomplete for command menu
 set wrap
@@ -519,8 +519,7 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 
 " Just make this mapping easier
-" let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
-let g:fzf_layout = {'window': '15split enew'}
+let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_tags_command = 'ctags'
 let g:fzf_commands_expect = 'ctrl-x'

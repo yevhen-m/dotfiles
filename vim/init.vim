@@ -180,7 +180,7 @@ set noruler
 set nosmartindent             " smartindent is not so smart
 set incsearch
 set hlsearch
-set formatoptions+=j          " Delete comment character when joining commented lines
+set formatoptions=tlcqjron1
 set guicursor=                " don't chnage cursor shape in different modes
 set fillchars=diff:-,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:❯,precedes:❮,trail:·
@@ -253,7 +253,7 @@ set wrap
 set wrapscan               " wrap around during search
 set nospell                " don't check spelling
 set nojoinspaces           " don't insert addtional space after joining lines
-set foldcolumn&            " don't show a column to indicate folds
+set foldcolumn=1
 set foldclose&             " don't close a fold when the cursor leaves it
 set grepprg=ag\ --hidden\ --vimgrep\ --column\ --smart-case\ $*
 set grepformat=%f:%l:%c:%m

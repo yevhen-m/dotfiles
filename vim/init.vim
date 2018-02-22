@@ -89,6 +89,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'Raimondi/delimitMate'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
@@ -446,6 +447,7 @@ nnoremap <C-g><C-g> <c-g>
 
 " Yanking mappings
 " Copy from the cursor to the end of the line
+call yankstack#setup()
 nnoremap Y y$
 " Copy in visual mode and move cursor to the end of selection
 vnoremap gy y`>

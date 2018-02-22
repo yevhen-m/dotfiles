@@ -715,7 +715,7 @@ function! s:create_statusline(mode)
                 \ '%=',
                 \ "%{gutentags#statusline('')}",
                 \ '%{ObsessionStatus()}',
-                \ '\ FT:%Y',
+                \ '\ %y',
                 \ '\ ALE:%{ALEGetStatusLine()}',
                 \ '\ GIT:%{fugitive#head(5)}',
                 \ '\ %c:%l/',

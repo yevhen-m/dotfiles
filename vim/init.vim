@@ -470,6 +470,8 @@ nnoremap <silent> tc :tabclose<CR>
 nnoremap <silent> to :tabonly<CR>
 nnoremap <silent> H :tabprev<CR>
 nnoremap <silent> L :tabnext<CR>
+nnoremap <silent> gh H
+nnoremap <silent> gl L
 
 " %% for current file dir path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'

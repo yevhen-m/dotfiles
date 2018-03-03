@@ -430,6 +430,7 @@ cnoremap <c-k> <C-R><C-W>
 
 " Close quickfix and location lists
 nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
+nnoremap <silent> cl :close<CR>
 
 " Save and exit
 nnoremap <silent> <C-q> :q!<cr>

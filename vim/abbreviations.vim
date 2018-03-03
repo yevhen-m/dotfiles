@@ -1,6 +1,4 @@
 " Vim {{{
-cnoreabbrev <expr> ln getcmdtype() == ":" && getcmdline() == 'ln' ? 'lne' : 'ln'
-cnoreabbrev <expr> cl getcmdtype() == ":" && getcmdline() == 'cl' ? 'close' : 'cl'
 iabbrev adn and
 iabbrev waht what
 iabbrev tehn then

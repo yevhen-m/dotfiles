@@ -59,8 +59,8 @@ gr() {
 fzf-checkout() {
   local commits commit
   commits=$(git log --graph --color=always --format="%C(auto)%h%d %s %C(241)%C(bold)%cr %C(auto)%C(blue)%cn") &&
-    commit=$(echo "$commits" | fzf-down --ansi --no-sort --reverse --tiebreak=index) &&
-    git checkout $(echo "$commit" | grep -o "[a-f0-9]\{7,\}")
+    commit=$(echo "$commits" | fzf-down --ansi --no-sort --reverse --tiebreak=index) && echo $commit &&
+    git checkout $(echo "$commit" | grep -o "[a-f0-9]{7,}")
 }
 bindkey -s '^g^o' 'fzf-checkout\n'
 

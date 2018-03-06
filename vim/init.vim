@@ -74,9 +74,6 @@ Plug 'thinca/vim-visualstar'
 " Filesystem browsers
 Plug 'scrooloose/nerdtree'
 
-" Quickfix list enhancement
-Plug 'romainl/vim-qf'
-
 " Linting and formatting
 Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat', {'on': ['Neoformat']}
@@ -359,10 +356,13 @@ function! Grep(...)
         set hlsearch
     endif
     let args = exists('a:1') ? a:000[1:] : []
-    execute 'silent lgrep "' . query . '" ' . join(args, ' ')
+    execute 'silent grep "' . query . '" ' . join(args, ' ')
     redraw!
-    if len(getloclist(win_getid())) == 0
+    if len(getqflist()) == 0
         echo 'No results!'
+    else
+        echo 'Found ' . len(getqflist()) . ' matches.'
+        cwindow | cc
     endif
 endfunction
 
@@ -577,22 +577,6 @@ let g:gitgutter_sign_removed_first_line = '▔'
 let g:gitgutter_sign_modified_removed = '▎'
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
-
-" Vim-qf settings
-" ----------------------------------------------------------------------------
-let g:qf_mapping_ack_style = 0
-let g:qf_auto_open_quickfix = 1
-let g:qf_auto_open_loclist = 1
-" Don't open location list at the bottom, there may be multiple loclists
-let g:qf_loclist_window_bottom = 0
-" Qflist can be only one so I can put it at the bottom
-let g:qf_window_bottom = 1
-" Resizing is handled by vim-qf_resize plugin
-let g:qf_auto_resize = 0
-" Show current entry in statusline
-let g:qf_statusline = {}
-let g:qf_statusline.before = '%f%<\ '
-let g:qf_statusline.after = '\ %=%l\/%-6L\ \ \ \ \ '
 
 " Fugitive settings
 " ----------------------------------------------------------------------------

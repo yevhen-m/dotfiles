@@ -133,14 +133,6 @@ Plug 'junegunn/fzf.vim'
 " Colorscheme
 Plug 'yevhen-m/base16-vim'
 
-" Vim8 only plugins
-if !s:nvim
-    Plug 'haya14busa/incsearch.vim'
-    " Don't use this plugin with neovim until then fix cursor issues in
-    " command line.
-    Plug 'unblevable/quick-scope'
-endif
-
 call plug#end()
 
 function! s:SourceIfExists(path)

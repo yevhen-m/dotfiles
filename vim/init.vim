@@ -236,7 +236,7 @@ set timeoutlen=1000        " default value
 set ttimeout               " for key codes
 set ttimeoutlen=10         " unnoticeable small value
 set undofile               " keep undo history for all file changes
-set updatetime=100         " used for CursorHold events (gitgutter uses it)
+set updatetime=1000         " used for CursorHold events (gitgutter uses it)
 set wildignore+=*.pyc,*/__pycache__/*,*/venv/*,*/env/*
 set wildmenu               " visual autocomplete for command menu
 set wrap

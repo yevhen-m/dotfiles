@@ -529,7 +529,7 @@ command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
 " Match only the first field (much faster)
 command! -bang -nargs=* Tags
-  \ call fzf#vim#tags(<q-args>, {'options': '-n1 --exact --query "^"'}, <bang>0)
+  \ call fzf#vim#tags(<q-args>, {'options': '--exact --query "^"'}, <bang>0)
 
 " Undotree settings
 " ----------------------------------------------------------------------------

@@ -86,8 +86,6 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
-Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'Raimondi/delimitMate'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
@@ -439,7 +437,6 @@ nnoremap <C-g><C-g> <c-g>
 
 " Yanking mappings
 " Copy from the cursor to the end of the line
-call yankstack#setup()
 nnoremap Y y$
 " Copy in visual mode and move cursor to the end of selection
 vnoremap gy y`>
@@ -666,10 +663,6 @@ endif
 
 " Prettier settings
 let g:prettier#autoformat = 0
-
-" Delimitmate settings
-let delimitMate_quotes = ""
-let delimitMate_expand_cr = 1
 
 " Statusline
 " ----------------------------------------------------------------------------

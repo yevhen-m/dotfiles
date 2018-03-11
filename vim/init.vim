@@ -65,9 +65,6 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
             \ 'markdown',
             \ ]}
 
-" HTML
-Plug 'mattn/emmet-vim', {'for': ['html', 'xml']}
-
 " Enhance vim searching.
 Plug 'thinca/vim-visualstar'
 

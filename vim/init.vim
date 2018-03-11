@@ -319,6 +319,7 @@ function! JumpToTag(...)
     endtry
     if len(getloclist(win_getid())) > 1
         lwindow | keepjumps ll
+        execute 'normal zz'
     else
         lclose
     endif
@@ -327,11 +328,11 @@ endfunction
 command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")
 
 " Open tag in vertical split
-nnoremap <C-w><C-]> :vsp<bar>call JumpToTag()<CR>
+nnoremap <C-w><C-]> :vsp<bar>call JumpToTag()<CR>zz
 " Open tag in horizontal split
-nnoremap <C-w><c-w><C-]> :sp<bar>call JumpToTag()<CR>
+nnoremap <C-w><c-w><C-]> :sp<bar>call JumpToTag()<CR>zz
 " Open tag in current window
-nnoremap <C-]> :call JumpToTag()<CR>
+nnoremap <C-]> :call JumpToTag()<CR>zz
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
 
@@ -350,7 +351,7 @@ function! Grep(...)
         echo 'No results!'
     else
         echo 'Found ' . len(getqflist()) . ' matches.'
-        cwindow | cc
+        copen | keepjumps cc
     endif
 endfunction
 
@@ -361,10 +362,10 @@ nnoremap <leader>j :Grep<space>
 nnoremap <silent> <leader>J :call Grep()<CR>
 
 " Quickfix list
-nnoremap ( :cprev<CR>
-nnoremap ) :cnext<CR>
-nnoremap } :lnext<CR>
-nnoremap { :lprev<CR>
+nnoremap ( :cprev<CR>zz
+nnoremap ) :cnext<CR>zz
+nnoremap } :lnext<CR>zz
+nnoremap { :lprev<CR>zz
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z

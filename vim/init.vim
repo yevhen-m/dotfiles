@@ -196,6 +196,7 @@ set autoread               " for vim-tmux-focus-events plugin
 set fileignorecase         " ignore case when autocompleting filenames in command line
 set cmdwinheight=10        " height of command-line window
 set backspace=2
+set complete-=i            " Don't scan included files because it's too slow
 set completeopt-=preview
 set gdefault               " always use 'g' flag when executing substitute command
 set hidden
@@ -231,7 +232,7 @@ set timeoutlen=1000        " default value
 set ttimeout               " for key codes
 set ttimeoutlen=10         " unnoticeable small value
 set undofile               " keep undo history for all file changes
-set updatetime=1000         " used for CursorHold events (gitgutter uses it)
+set updatetime=400         " used for CursorHold events (gitgutter uses it)
 set wildignore+=*.pyc,*/__pycache__/*,*/venv/*,*/env/*
 set wildmenu               " visual autocomplete for command menu
 set wrap

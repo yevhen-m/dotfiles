@@ -161,6 +161,7 @@ else
     set nowritebackup
 endif
 
+set autoindent
 set noruler
 set nosmartindent             " smartindent is not so smart
 set incsearch
@@ -187,6 +188,11 @@ colorscheme base16-eighties
 
 let mapleader=","
 
+set pastetoggle=<F10>
+set pumheight=15           " Maximum height for completion window
+set mousehide              " Hide mouse when typing
+set nomore                 " Don't pause on long listings
+set autowriteall           " Write contents of the file if it has been modified
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
 set autowriteall           " automatically write when leaving a buffer
@@ -217,6 +223,7 @@ set nostartofline
 set noswapfile nobackup
 set nrformats=             " treat all numbers as decimal, not octal
 set number
+set relativenumber
 set path+=**
 set re=1
 set shell=/bin/zsh

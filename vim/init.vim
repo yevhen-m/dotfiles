@@ -50,7 +50,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 
 " Javascript

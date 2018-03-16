@@ -82,6 +82,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'

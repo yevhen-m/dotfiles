@@ -140,7 +140,7 @@ endfunction
 call s:SourceIfExists('~/.config/nvim/abbreviations.vim')
 call s:SourceIfExists('~/.config/nvim/functions.vim')
 
-" Main settings
+" Options
 " ----------------------------------------------------------------------------
 if s:nvim
     set inccommand=split         " Show visual indication when using substitute command
@@ -191,7 +191,7 @@ let mapleader=","
 set pastetoggle=<F10>
 set pumheight=15           " Maximum height for completion window
 set mousehide              " Hide mouse when typing
-set nomore                 " Don't pause on long listings
+set more                   " Pause on long listings
 set autowriteall           " Write contents of the file if it has been modified
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler

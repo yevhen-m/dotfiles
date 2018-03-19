@@ -1,1 +1,1 @@
-autocmd BufNewFile,BufRead requirements.txt set filetype=requirements
+autocmd! BufNewFile,BufRead requirements.txt set filetype=requirements

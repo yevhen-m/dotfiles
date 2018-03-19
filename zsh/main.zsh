@@ -75,10 +75,6 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '^g^g' edit-command-line
 
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -U compinit
-compinit
-
 # Aliases
 # ================================================
 alias ll='ls -l -A -G -h'

@@ -6,4 +6,5 @@ setlocal tabstop=4
 setlocal colorcolumn=80     " Set colocolumn manullay cause textwidth is unset
 setlocal comments=:#
 
-nnoremap <buffer> gd :let varname = '\<<C-R><C-W>\>'<CR>?\<def\><CR>/<C-R>=varname<CR><CR>
+nnoremap <buffer> <leader>ee :call Flake8()<CR>
+iabbrev <buffer> pice from icecream import ic; ic(

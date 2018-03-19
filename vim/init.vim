@@ -51,6 +51,7 @@ Plug 'tpope/vim-rhubarb'
 
 " Python
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
+Plug 'nvie/vim-flake8', {'for': 'python'}
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
@@ -82,6 +83,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'Yggdroot/indentLine'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
@@ -707,3 +709,12 @@ augroup MyStatusline
     autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
     autocmd WinLeave * call s:create_statusline('I')
 augroup END
+
+
+" Flake8 settings
+" ----------------------------------------------------------------------------
+let g:flake8_show_in_gutter = 0
+
+" Indentline settings
+" ----------------------------------------------------------------------------
+let g:indentLine_fileType = ['python', 'vim']

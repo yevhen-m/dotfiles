@@ -7,6 +7,7 @@ export VISUAL='/usr/local/bin/nvim'
 export GREP_COLOR="30;43"
 
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
+export PURE_PROMPT_SYMBOL=❯❯❯
 
 # ZSH options
 HISTFILE="$HOME/.zsh_history"

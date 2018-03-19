@@ -45,6 +45,7 @@ Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 
 " Git
 Plug 'airblade/vim-gitgutter'
+Plug 'gilligan/textobj-gitgutter'
 Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -89,6 +90,8 @@ Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-line'
+Plug 'Julian/vim-textobj-brace'
 Plug 'kana/vim-textobj-entire'
 Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': [

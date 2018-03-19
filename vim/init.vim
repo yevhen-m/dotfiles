@@ -276,6 +276,10 @@ endif
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
+    " Open quickfix/location lists
+    autocmd QuickFixCmdPost [^l]* nested cwindow
+    autocmd QuickFixCmdPost    l* nested lwindow
+
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80
 
@@ -331,10 +335,10 @@ function! JumpToTag(...)
     endtry
     if len(getloclist(win_getid())) > 1
         lwindow | keepjumps ll
-        execute 'normal zz'
     else
         lclose
     endif
+    execute 'normal zz'
 endfunction
 
 command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")

@@ -436,15 +436,15 @@ cnoremap <c-k> <C-R><C-W>
 " Close quickfix and location lists
 nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 
+" Close windows with q
+nnoremap <silent> q :lclose<bar>close<CR>
+
 " Save and exit
 nnoremap <silent> <C-q> :q!<cr>
 
 " ,qq to record, Q to replay
 nnoremap <leader>q q
 nnoremap Q @q
-
-" Disable q key
-nnoremap q :echo "NOOP"<CR>
 
 " Print the current filname, etc.
 " C-g is shadowed by some fzf mappings

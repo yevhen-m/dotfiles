@@ -15,7 +15,7 @@ let s:plug_self_dir = s:nvim ?
 
 if empty(glob(s:plug_self_dir))
     execute '!curl -fLo ' s:plug_self_dir ' --create-dirs ' s:plug_url
-    echo '"vim-plug" successfuly installed'
+    echo '"vim-plug" successfuly installed!'
 endif
 
 " Plugins
@@ -143,7 +143,6 @@ function! s:SourceIfExists(path)
 endfunction
 
 call s:SourceIfExists('~/.config/nvim/abbreviations.vim')
-call s:SourceIfExists('~/.config/nvim/functions.vim')
 
 " Options
 " ----------------------------------------------------------------------------
@@ -725,3 +724,25 @@ let g:flake8_show_in_gutter = 0
 " Indentline settings
 " ----------------------------------------------------------------------------
 let g:indentLine_fileType = ['python', 'vim']
+
+" Custom func to toggle iminsert option
+" ----------------------------------------------------------------------------
+function! ToggleEscapeMapping()
+    if b:escape_mapping
+        let b:escape_mapping = 0
+        inoremap <buffer> <silent> <esc> <esc>l
+        echom 'ESC mapping preserves iminsert value.'
+    else
+        let b:escape_mapping = 1
+        inoremap <buffer> <silent> <esc> <esc>:set iminsert=0<CR>l
+        echom 'ESC mapping resets iminsert value.'
+    endif
+endfunction
+" reset imsert by default
+inoremap <silent> <esc> <esc>:set iminsert=0<CR>l
+augroup toggle_escape
+    autocmd!
+    autocmd BufEnter * let b:escape_mapping = 1
+    autocmd BufEnter * set iminsert=0
+    autocmd BufEnter * nnoremap col :call ToggleEscapeMapping()<CR>
+augroup END

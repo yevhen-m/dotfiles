@@ -227,7 +227,6 @@ set nostartofline
 set noswapfile nobackup
 set nrformats=             " treat all numbers as decimal, not octal
 set number
-set relativenumber
 set path+=**
 set re=1
 set shell=/bin/zsh

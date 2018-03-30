@@ -517,6 +517,7 @@ nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <leader>d :BTags<CR>
 nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
+nnoremap <silent> <C-n> :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <c-g><c-l> :Commits<cr>
 nnoremap <silent> <c-g><c-b> :BCommits<cr>
@@ -601,7 +602,7 @@ let g:vim_g_command = "G"
 let g:vim_g_f_command = "Gf"
 
 " Nerdtree settings
-nnoremap <silent> - :NERDTreeFind<cr>
+nnoremap <silent> - :NERDTreeFind<cr>zz
 nnoremap <silent> _ :NERDTreeClose<cr>
 let NERDTreeIgnore = ['^\.git$', '^\.DS_Store$', '^__pycache__$', '\.pyc$']
 let NERDTreeMinimalUI = 1

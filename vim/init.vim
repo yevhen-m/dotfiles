@@ -700,9 +700,8 @@ function! s:create_statusline(mode)
                 \ "%{gutentags#statusline('')}",
                 \ '%{ObsessionStatus()}',
                 \ '\ %y',
-                \ '\ GIT:%{fugitive#head(5)}',
-                \ '\ %c:%l/',
-                \ '%L',
+                \ '\ {%{fugitive#head(5)}}',
+                \ '\ (%p%%\ %L)',
                 \ '\ ',
                 \ ]
     let parts = a:mode ==# 'A' ? common + rest : common

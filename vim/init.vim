@@ -680,6 +680,11 @@ let g:prettier#autoformat = 0
 
 " Statusline
 " ----------------------------------------------------------------------------
+function! GitBranchSection()
+    let branch = fugitive#head(5)
+    return empty(branch) ? '---' : branch
+endfunction
+
 function! s:create_statusline(mode)
     " Relative path to file
     " Filename
@@ -697,12 +702,11 @@ function! s:create_statusline(mode)
     let rest = [
                 \ '\ %<',
                 \ '\ %m%r',
-                \ '%=',
-                \ "%{gutentags#statusline('')}",
+                \ '%1*%=',
                 \ '%{ObsessionStatus()}',
-                \ '\ %y',
-                \ '\ {%{fugitive#head(5)}}',
-                \ '\ (%p%%\ %L)',
+                \ '\ %y\ ::',
+                \ '\ %{GitBranchSection()}\ ::',
+                \ '\ %p%%\ ::\ %L',
                 \ '\ ',
                 \ ]
     let parts = a:mode ==# 'A' ? common + rest : common

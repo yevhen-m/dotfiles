@@ -120,7 +120,6 @@ bindkey '^Z' fgkey
 # Copy-paste `pyenv init -` wihout rehash call because it's too slow
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 export PYENV_SHELL=zsh
-source '/usr/local/Cellar/pyenv/1.2.2/libexec/../completions/pyenv.zsh'
 pyenv() {
   local command
   command="$1"

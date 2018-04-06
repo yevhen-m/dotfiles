@@ -73,7 +73,6 @@ Plug 'thinca/vim-visualstar'
 Plug 'scrooloose/nerdtree'
 
 " Linting and formatting
-Plug 'w0rp/ale'
 Plug 'sbdchd/neoformat', {'on': ['Neoformat']}
 
 " Tags
@@ -614,25 +613,6 @@ let NERDTreeCreatePrefix = 'silent keepalt keepjumps'
 " ----------------------------------------------------------------------------
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-" ALE settings
-" ----------------------------------------------------------------------------
-let g:ale_sign_error = '●'
-let g:ale_sign_warning = '●'
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_lint_on_text_changed = 0
-let g:ale_open_list = 1
-let g:ale_set_highlights = 0
-let g:ale_set_quickfix = 0
-nnoremap <leader>ee :ALELint<cr>
-
-let g:ale_linters = {
-            \ 'python': ['flake8'],
-            \ 'javascript': ['eslint'],
-            \ }
-let g:ale_python_flake8_executable =  $VIRTUAL_ENV . '/bin/flake8'
 
 " Python highlighting
 let python_self_cls_highlight = 1

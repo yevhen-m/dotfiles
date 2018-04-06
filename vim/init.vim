@@ -658,16 +658,6 @@ let g:jsx_ext_required = 0
 " Detectindent settings
 let g:detectindent_preferred_indent = 4
 
-" Vim8 plugins
-if !s:nvim
-    " Incsearch settings
-    map /  <Plug>(incsearch-forward)
-    map ?  <Plug>(incsearch-backward)
-
-    " Quick-scope settings
-    let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
-endif
-
 " Vim-highlightedyank settings
 hi link HighlightedyankRegion Visual
 let g:highlightedyank_highlight_duration = 500
@@ -718,7 +708,6 @@ augroup MyStatusline
     autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
     autocmd WinLeave * call s:create_statusline('I')
 augroup END
-
 
 " Flake8 settings
 " ----------------------------------------------------------------------------

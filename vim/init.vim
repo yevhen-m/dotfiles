@@ -470,6 +470,7 @@ nnoremap <silent> <leader><leader> :update<CR>
 vnoremap <Leader>p "_dP
 
 " Mapping to move between tabs
+noremap ,m :
 nnoremap <silent> tn :tabnew<CR>
 nnoremap <silent> tc :tabclose<CR>
 nnoremap <silent> to :tabonly<CR>
@@ -568,7 +569,7 @@ let g:neoformat_run_all_formatters = 1
 " ----------------------------------------------------------------------------
 let g:maximizer_set_default_mapping = 0
 let g:maximizer_restore_on_winleave = 1
-noremap <leader>m :MaximizerToggle<CR>
+noremap gm :MaximizerToggle<CR>
 
 " Gitgutter settings
 " ----------------------------------------------------------------------------

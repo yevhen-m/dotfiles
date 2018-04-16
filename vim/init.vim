@@ -309,6 +309,8 @@ if !exists("autocommands_loaded")
     autocmd FileType qf nnoremap <buffer> <cr> <cr>
     autocmd FileType qf setlocal nocursorline
 
+    autocmd FileType GV nmap <buffer> <2-LeftMouse> <CR>
+
     " Set commentstring for jinja
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s

@@ -432,9 +432,6 @@ nnoremap <silent> <leader>c :cclose<bar>lclose<cr>
 " Close windows with q
 nnoremap <silent> q :lclose<bar>close<CR>
 
-" Save and exit
-nnoremap <silent> <C-q> :q!<cr>
-
 " ,qq to record, Q to replay
 nnoremap <leader>q q
 nnoremap Q @q

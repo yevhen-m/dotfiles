@@ -333,7 +333,8 @@ function! JumpToTag(...)
         return
     endtry
     if len(getloclist(win_getid())) > 1
-        lwindow | keepjumps ll
+        " Open loclist window at the top
+        topleft lwindow 7 | keepjumps ll
     else
         lclose
     endif

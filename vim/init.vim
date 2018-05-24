@@ -406,13 +406,6 @@ nnoremap <silent> <2-LeftMouse>
 " Center easily
 nnoremap <cr> zz
 
-" Insert mode mapping
-" Movements
-inoremap <C-h> <left>
-inoremap <C-l> <right>
-inoremap <c-k> <up>
-inoremap <c-j> <down>
-
 " Edit init.vim and abbreviations.vim files
 nnoremap <leader>ev :edit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>

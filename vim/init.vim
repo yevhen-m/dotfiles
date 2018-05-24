@@ -378,10 +378,10 @@ nnoremap <leader>j :Grep<space>
 nnoremap <silent> <leader>J :call Grep()<CR>
 
 " Quickfix list
-nnoremap ( :cprev<CR>zz
-nnoremap ) :cnext<CR>zz
-nnoremap } :lnext<CR>zz
-nnoremap { :lprev<CR>zz
+nnoremap ( :cprev<CR>
+nnoremap ) :cnext<CR>
+nnoremap } :lnext<CR>
+nnoremap { :lprev<CR>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z

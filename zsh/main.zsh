@@ -37,7 +37,7 @@ Z_SCRIPT="$HOME/.config/z/z.sh"
 [ -f ~/.fzf-utils.zsh ] && source ~/.fzf-utils.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border --bind=alt-a:select-all+accept'
+export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 100% --no-reverse --border --bind=alt-a:select-all+accept'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--no-reverse'
 
@@ -81,7 +81,6 @@ alias ll='ls -l -A -G -h'
 alias l='ls -l -A -G -h'
 alias r=ranger
 alias ag='ag --mmap'
-alias grep='ag --mmap'
 
 # Aliases for Linux setups
 if [[ $(uname -s) = Linux ]]; then
@@ -103,7 +102,8 @@ alias gl='git lg'
 alias rm=trash
 
 # Vim aliases
-alias vi="/usr/local/bin/vim"
+alias _vim="/usr/local/bin/vim"
+alias vi="/usr/local/bin/nvim"
 alias vim="/usr/local/bin/nvim"
 
 # Tmux aliases

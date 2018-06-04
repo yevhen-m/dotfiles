@@ -17,15 +17,10 @@
 [difftool "nvimdiff"]
     cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
 [alias]
+    amend = commit -a --amend --no-edit
 	ss = status -s
 	s = status
 	stash-unapply = !git stash show -p | git apply -R
-	can = commit --amend --no-edit
-	ca = commit --amend
-	cv = commit -v
-    co = checkout
-	cb = checkout -b
-	au = add -u
     fix = commit --fixup
     squ = commit --squash
 	ctags = !.git/hooks/ctags

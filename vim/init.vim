@@ -461,15 +461,13 @@ nnoremap <silent> <leader><leader> :update<CR>
 " (delete selected text to the black hole register)
 vnoremap <Leader>p "_dP
 
-" Mapping to move between tabs
 noremap ,m :
+
+" Mapping to move between tabs
 nnoremap <silent> tn :tabnew<CR>
 nnoremap <silent> tc :tabclose<CR>
 nnoremap <silent> to :tabonly<CR>
-nnoremap <silent> H :tabprev<CR>
-nnoremap <silent> L :tabnext<CR>
-nnoremap <silent> gh H
-nnoremap <silent> gl L
+nnoremap <silent> tt gt
 
 " %% for current file dir path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'

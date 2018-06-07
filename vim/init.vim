@@ -130,7 +130,7 @@ Plug 'junegunn/fzf', {
 Plug 'junegunn/fzf.vim'
 
 " Colorscheme
-Plug 'yevhen-m/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
@@ -186,8 +186,11 @@ let $LANG = 'en' | set langmenu=none  " set vim language
 
 " Colorscheme
 set background=dark
-let base16colorspace = 256    " base16-shell script should be sourced
-colorscheme base16-eighties
+
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif
 
 let mapleader=","
 
@@ -705,3 +708,9 @@ augroup toggle_escape
     autocmd BufEnter * set iminsert=0
     autocmd BufEnter * nnoremap col :call ToggleEscapeMapping()<CR>
 augroup END
+
+" Highlighting
+" ----------------------------------------------------------------------------
+highlight! link VertSplit Comment
+highlight Search cterm=bold
+highlight WildMenu cterm=bold ctermfg=0

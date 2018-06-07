@@ -576,10 +576,12 @@ nmap <leader>gs :Gstatus<cr>gg<C-N>
 " ----------------------------------------------------------------------------
 let g:gutentags_enabled = 1
 let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_missing = 1
-let g:gutentags_generate_on_empty_buffer = 1
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_project_root = ['.git']
 let g:gutentags_add_default_project_roots = 0
+
 " Vim-g settings
 " ----------------------------------------------------------------------------
 let g:vim_g_command = "G"

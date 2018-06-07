@@ -399,12 +399,6 @@ nnoremap S mwi<cr><esc>`w
 " Duplicate and comment out duplicate.
 nmap gcp :t.<CR>k<Plug>CommentaryLinej
 
-" Scrolling
-noremap <C-u> 8<C-u>
-noremap <C-d> 8<C-d>
-noremap <C-f> 16<C-d>
-noremap <C-b> 16<C-u>
-
 " Use space to clear highlighting
 nnoremap <silent> <space> :nohlsearch<cr>
 nnoremap <silent> <2-LeftMouse>

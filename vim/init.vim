@@ -488,17 +488,11 @@ xnoremap <silent> <C-l> >gv
 
 " Operate on display lines
 " Only normal and visual mode, not operator mode
-nnoremap k gk
-nnoremap j gj
-nnoremap ^ g^
-nnoremap $ g$
-nnoremap 0 g0
-
-xnoremap k gk
-xnoremap j gj
-xnoremap ^ g^
-xnoremap $ g$
-xnoremap 0 g0
+noremap k gk
+noremap j gj
+noremap ^ g0
+noremap $ g$
+noremap 0 g^
 
 " FZF settings
 " ----------------------------------------------------------------------------

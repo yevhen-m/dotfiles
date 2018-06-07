@@ -276,10 +276,6 @@ endif
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
 
-    " Open quickfix/location lists
-    autocmd QuickFixCmdPost [^l]* nested cwindow
-    autocmd QuickFixCmdPost    l* nested lwindow
-
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80
 
@@ -392,6 +388,7 @@ nnoremap ( :cprev<CR>
 nnoremap ) :cnext<CR>
 nnoremap } :lnext<CR>
 nnoremap { :lprev<CR>
+nnoremap <silent> cop :copen<CR>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -682,6 +679,7 @@ augroup END
 " Flake8 settings
 " ----------------------------------------------------------------------------
 let g:flake8_show_in_gutter = 0
+let g:flake8_show_quickfix=0
 
 " Indentline settings
 " ----------------------------------------------------------------------------

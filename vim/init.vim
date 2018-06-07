@@ -659,11 +659,11 @@ function! s:create_statusline(mode)
     let rest = [
                 \ '\ %<',
                 \ '\ %m%r',
-                \ '%1*%=',
+                \ '%=',
                 \ '%{ObsessionStatus()}',
-                \ '\ %y\ ●',
-                \ '\ %{GitBranchSection()}\ ●',
-                \ '\ %p%%\ ●\ %L',
+                \ '\ %y\ ◌',
+                \ '\ %{GitBranchSection()}\ ◌',
+                \ '\ %p%%\ ◌\ %L',
                 \ '\ ',
                 \ ]
     let parts = a:mode ==# 'A' ? common + rest : common

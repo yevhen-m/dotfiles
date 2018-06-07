@@ -355,19 +355,26 @@ cnoreabbrev <expr> tag
 function! Grep(...)
     if exists('a:1')
         let query = a:1
+        let args = a:000[1:]
     else
         let query = escape(expand("<cword>"), '\')
+        " Word search by default when searching current word
+        let args = ['-w']
         let @/ = expand("<cword>")
         set hlsearch
     endif
-    let args = exists('a:1') ? a:000[1:] : []
+    " If -t was provided, skip searching tests modules
+    if (index(args, '-t') >= 0)
+        let args = filter(args, 'v:val !=# "-t"')
+        call add(args, '--ignore "*test*"')
+    endif
+
     execute 'silent grep "' . query . '" ' . join(args, ' ')
     redraw!
     if len(getqflist()) == 0
         echo 'No results!'
     else
-        echo 'Found ' . len(getqflist()) . ' matches.'
-        copen | keepjumps cc
+        keepjumps cc
     endif
 endfunction
 

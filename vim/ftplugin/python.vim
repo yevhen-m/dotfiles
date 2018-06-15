@@ -6,13 +6,18 @@ setlocal tabstop=4
 setlocal colorcolumn=80     " Set colocolumn manullay cause textwidth is unset
 setlocal comments=:#
 
+setlocal equalprg=black\ --quiet\ --line-length\ 79\ --skip-string-normalization\ -
+
 nnoremap <buffer> <leader>ee :call Flake8()<CR>
 iabbrev <buffer> pice from icecream import ic; ic(
 
-" Bind ,E to save file if modified and execute python script in a buffer.
-nnoremap <buffer> <silent> <leader>E :call SaveAndExecutePython()<CR>
+function! s:Black(line1, line2)
+    execute a:line1 . "," . a:line2 . "!" . &l:equalprg
+endfunction
 
-function! SaveAndExecutePython()
+command! -range=% Black call s:Black(<line1>, <line2>)
+
+function! s:Python()
     " SOURCE [reusable window]:
     " https://github.com/fatih/vim-go/blob/master/autoload/go/ui.vim
 
@@ -69,3 +74,5 @@ function! SaveAndExecutePython()
     redraw
     echom 'Python: done.'
 endfunction
+
+command! -nargs=0 Python call s:Python()

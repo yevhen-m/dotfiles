@@ -72,9 +72,6 @@ Plug 'thinca/vim-visualstar'
 " Filesystem browsers
 Plug 'scrooloose/nerdtree'
 
-" Linting and formatting
-Plug 'sbdchd/neoformat', {'on': ['Neoformat']}
-
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -530,22 +527,6 @@ command! -bang -nargs=* Ag
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
 nnoremap U :UndotreeToggle<CR>
-
-" Neoformat settings
-" ----------------------------------------------------------------------------
-let g:neoformat_python_autopep8 = {
-            \ 'exe': 'autopep8',
-            \ 'stdin': 0,
-            \ }
-
-let g:neoformat_enabled_python = ['autopep8']
-" Enable alignment
-let g:neoformat_basic_format_align = 1
-" Enable tab to spaces conversion
-let g:neoformat_basic_format_retab = 1
-" Enable trimmming of trailing whitespace
-let g:neoformat_basic_format_trim = 1
-let g:neoformat_run_all_formatters = 1
 
 " Maximizer plugin settings
 " ----------------------------------------------------------------------------

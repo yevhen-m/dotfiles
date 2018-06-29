@@ -391,7 +391,7 @@ nnoremap <silent> cop :copen<CR>
 nnoremap J mzJ`z
 
 " Split line (sister to [J]oin lines)
-nnoremap S mwi<cr><esc>`w
+nnoremap S i<cr><esc>
 
 " Duplicate and comment out duplicate.
 nmap gcp :t.<CR>k<Plug>CommentaryLinej
@@ -464,7 +464,8 @@ noremap ,m :
 nnoremap <silent> tn :tabnew<CR>
 nnoremap <silent> tc :tabclose<CR>
 nnoremap <silent> to :tabonly<CR>
-nnoremap <silent> tt gt
+nnoremap <silent> H :tabprev<CR>
+nnoremap <silent> L :tabnext<CR>
 
 " %% for current file dir path
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
@@ -519,7 +520,7 @@ let g:fzf_action = {
             \ 'ctrl-v': 'vsplit' }
 
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
+            \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('up:50%'), 1)
 " Match only the first field (much faster)
 
 " Undotree settings
@@ -693,3 +694,6 @@ augroup END
 highlight! link VertSplit Comment
 highlight Search cterm=bold
 highlight WildMenu cterm=bold ctermfg=0
+highlight Pmenu ctermfg=20
+
+nnoremap cob :%bd!<CR>

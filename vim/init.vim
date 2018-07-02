@@ -51,8 +51,9 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'yevhen-m/python-syntax', {'for': 'python'}
+" Plug 'yevhen-m/python-syntax', {'for': 'python'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'numirias/semshi', {'for': 'python'}
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
@@ -697,3 +698,7 @@ highlight WildMenu cterm=bold ctermfg=0
 highlight Pmenu ctermfg=20
 
 nnoremap cob :%bd!<CR>
+
+" Semshi
+" ----------------------------------------------------------------------------
+let g:semshi#update_delay_factor = 0.0001

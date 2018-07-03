@@ -59,15 +59,6 @@ function! s:Python()
     " add the console output using vim's filter functionality
     silent execute ".!python " . shellescape(s:current_buffer_file_path, 1)
 
-    " resize window to content length Note: This is annoying because if you
-    " print a lot of lines then your code buffer is forced to a height of one
-    " line every time you run this function. However without this line the
-    " buffer starts off as a default size and if you resize the buffer then it
-    " keeps that custom size after repeated runs of this function. But if you
-    " close the output buffer then it returns to using the default size when
-    " its recreated
-    execute 'resize' . line('$')
-
     " make the buffer non modifiable
     setlocal readonly
     setlocal nomodifiable
@@ -75,4 +66,6 @@ function! s:Python()
     echom 'Python: done.'
 endfunction
 
-command! -nargs=0 Python call s:Python()
+command! -nargs=0 Py call s:Python()
+command! -nargs=0 PY call s:Python()
+

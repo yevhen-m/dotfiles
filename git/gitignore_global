@@ -1,4 +1,5 @@
 .ignore
+.isort.cfg
 .envrc
 .nvimrc
 .exrc

@@ -114,11 +114,6 @@ alias tat="tmux attach -t"
 alias ta="tmux attach"
 alias td="tmux detach"
 
-# Use the same key to go foreground
-fgkey() { fg }
-zle -N fgkey
-bindkey '^Z' fgkey
-
 # Copy-paste `pyenv init -` wihout rehash call because it's too slow
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 export PYENV_SHELL=zsh

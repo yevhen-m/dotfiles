@@ -54,6 +54,7 @@ Plug 'tpope/vim-rhubarb'
 " Plug 'yevhen-m/python-syntax', {'for': 'python'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'numirias/semshi', {'for': 'python'}
+Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
@@ -386,7 +387,7 @@ nnoremap ( :cprev<CR>
 nnoremap ) :cnext<CR>
 nnoremap } :lnext<CR>
 nnoremap { :lprev<CR>
-nnoremap <silent> cop :copen<CR>
+nnoremap <silent> ,l :copen<CR>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
@@ -476,6 +477,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-j> <c-w>j
 nnoremap <c-h> <C-w>h
 nnoremap <c-l> <C-w>l
+nnoremap <C-w># :topleft vsp #<CR>
 
 " Visual mode -- moving lines
 xnoremap <silent> <C-k> :move-2<cr>gv
@@ -701,4 +703,14 @@ nnoremap cob :%bd!<CR>
 
 " Semshi
 " ----------------------------------------------------------------------------
-let g:semshi#update_delay_factor = 0.0001
+let g:semshi#error_sign = v:false
+
+
+" Jedi-vim
+" ----------------------------------------------------------------------------
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+let g:jedi#use_tag_stack = 0
+let g:jedi#completions_command = ""
+let g:jedi#goto_assignments_command = ""
+let g:jedi#smart_auto_mappings = 0

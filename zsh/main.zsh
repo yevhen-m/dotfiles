@@ -37,15 +37,11 @@ Z_SCRIPT="$HOME/.config/z/z.sh"
 [ -f ~/.fzf-utils.zsh ] && source ~/.fzf-utils.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 100% --no-reverse --border --bind=alt-a:select-all+accept'
+export FZF_DEFAULT_OPTS='
+    --color=bg+:#353a41,fg+:#ABB2BF
+    --bind=ctrl-z:toggle-up --inline-info --height 100% --no-reverse --border --bind=alt-a:select-all+accept'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--no-reverse'
-
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 # virtualenv-wrapper
 export WORKON_HOME=~/.virtualenvs

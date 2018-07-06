@@ -129,7 +129,7 @@ Plug 'junegunn/fzf', {
 Plug 'junegunn/fzf.vim'
 
 " Colorscheme
-Plug 'chriskempson/base16-vim'
+Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
@@ -182,14 +182,6 @@ set scrolloff=0               " offset of 0 lines to top-bottom borders;
                               " screen.
 
 let $LANG = 'en' | set langmenu=none  " set vim language
-
-" Colorscheme
-set background=dark
-
-if filereadable(expand("~/.vimrc_background"))
-  let base16colorspace=256
-  source ~/.vimrc_background
-endif
 
 let mapleader=","
 
@@ -274,6 +266,30 @@ endif
 " ----------------------------------------------------------------------------
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
+
+    " Override the `Identifier` background color in GUI mode
+    autocmd ColorScheme * call onedark#extend_highlight("StatusLine", { "bg": { "gui": "#353a41" } })
+    autocmd ColorScheme * call onedark#extend_highlight("StatusLineNC", { "bg": { "gui": "#2c323c" } })
+    autocmd ColorScheme * call onedark#extend_highlight("TabLineSel", { "bg": { "gui": "#353a41" } })
+    autocmd ColorScheme * call onedark#extend_highlight("TabLine", { "bg": { "gui": "#2c323c" } })
+
+    " Green
+    autocmd ColorScheme * call onedark#extend_highlight("DiffAdd", { "bg": { "gui": "#313641" }, "fg": {"gui": "#98c379"} })
+    " Blue
+    autocmd ColorScheme * call onedark#extend_highlight("DiffChange", { "bg": { "gui": "#313641" }, "fg": {"gui": "#61afef" }})
+    " Red
+    autocmd ColorScheme * call onedark#extend_highlight("DiffDelete", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e06c75"} })
+    " Yellow
+    autocmd ColorScheme * call onedark#extend_highlight("DiffText", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e5c07b"} })
+
+    " Colorscheme (should be after autocommands that redefine colors)
+    set background=dark
+    set termguicolors
+    colorscheme onedark
+
+     " `bg` will not be styled since there is no `bg` setting
+    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
 
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80

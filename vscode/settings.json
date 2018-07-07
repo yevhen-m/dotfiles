@@ -1,0 +1,89 @@
+{
+    "editor.fontSize": 12,
+    "editor.fontFamily": "Monaco",
+    "editor.cursorStyle": "block",
+    "editor.rulers": [
+        79
+    ],
+    "editor.smoothScrolling": true,
+    "editor.cursorBlinking": "solid",
+    "editor.renderLineHighlight": "all",
+    "editor.minimap.enabled": true,
+    "workbench.fontAliasing": "antialiased",
+    "workbench.editor.swipeToNavigate": true,
+    "workbench.startupEditor": "none",
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "telemetry.enableTelemetry": false,
+    "vim.statusBarColorControl": true,
+    "vim.useSystemClipboard": true,
+    "vim.substituteGlobalFlag": true,
+    "vim.textwidth": 79,
+    "vim.enableNeovim": false,
+    "vim.neovimPath": "nvim",
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<Cr>"
+            ],
+            "after": [
+                "z",
+                "z"
+            ]
+        }
+    ],
+    "vim.insertModeKeyBindingsNonRecursive": [
+        {
+            "before": [
+                "<C-f>"
+            ],
+            "after": [
+                "right"
+            ]
+        },
+        {
+            "before": [
+                "<C-b>"
+            ],
+            "after": [
+                "left"
+            ]
+        },
+    ],
+    "vim.leader": ",",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.colorTheme": "One Dark Pro",
+    "files.autoSave": "afterDelay",
+    "editor.highlightActiveIndentGuide": false,
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": true,
+        "strings": true
+    },
+    "editor.renderWhitespace": "boundary",
+    "editor.scrollBeyondLastLine": true,
+    "editor.wordBasedSuggestions": true,
+    "window.clickThroughInactive": false,
+    "window.nativeTabs": true,
+    "window.restoreFullscreen": true,
+    "window.restoreWindows": "all",
+    "search.location": "panel",
+    "search.smartCase": true,
+    "search.useRipgrep": false,
+    "terminal.explorerKind": "external",
+    "terminal.external.osxExec": "iTerm.app",
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--quiet", "--line-length=79", "--skip-string-normalization"
+    ],
+    "python.linting.pylintEnabled": false,
+    "python.venvPath": "~/.virtualenvs",
+    "workbench.editor.tabCloseButton": "left",
+    "workbench.tree.horizontalScrolling": true,
+    "gitlens.advanced.messages": {
+        "suppressShowKeyBindingsNotice": true
+    },
+}

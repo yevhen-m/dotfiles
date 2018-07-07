@@ -422,14 +422,6 @@ nnoremap <silent> <2-LeftMouse>
 " Center easily
 nnoremap <cr> zz
 
-" Edit init.vim and abbreviations.vim files
-nnoremap <leader>ev :edit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-
-let abbr_file = fnamemodify($MYVIMRC, ':p:h')."/abbreviations.vim"
-nnoremap <leader>ea :execute("edit ".abbr_file)<cr>
-nnoremap <leader>sa :execute("source ".abbr_file)<cr>
-
 " Copy current file's path to clipboard (shift for absolute path)
 function! PathToClipboard(absolute)
     let l:pattern = a:absolute ? "%:p" : "%"

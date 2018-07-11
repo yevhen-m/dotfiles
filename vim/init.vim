@@ -54,7 +54,6 @@ Plug 'tpope/vim-rhubarb'
 " Plug 'yevhen-m/python-syntax', {'for': 'python'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'numirias/semshi', {'for': 'python'}
-Plug 'davidhalter/jedi-vim', {'for': 'python'}
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
@@ -711,16 +710,6 @@ nnoremap cob :%bd!<CR>
 " Semshi
 " ----------------------------------------------------------------------------
 let g:semshi#error_sign = v:false
-
-
-" Jedi-vim
-" ----------------------------------------------------------------------------
-let g:jedi#popup_on_dot = 0
-let g:jedi#popup_select_first = 0
-let g:jedi#use_tag_stack = 0
-let g:jedi#completions_command = ""
-let g:jedi#goto_assignments_command = ""
-let g:jedi#smart_auto_mappings = 0
 
 " Unimpaired
 " ----------------------------------------------------------------------------

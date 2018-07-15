@@ -8,7 +8,7 @@ setlocal comments=:#
 
 setlocal equalprg=black\ --quiet\ --line-length\ 79\ --skip-string-normalization\ -
 
-nnoremap <buffer> <leader>ee :call Flake8()<CR>
+nnoremap <buffer> <leader>f :call Flake8()<CR>
 iabbrev <buffer> pice from icecream import ic; ic(
 
 function! s:Black(line1, line2)

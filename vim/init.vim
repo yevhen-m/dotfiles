@@ -558,7 +558,7 @@ let g:gitgutter_eager = 1
 " Fugitive settings
 " ----------------------------------------------------------------------------
 nnoremap <leader>gd :Gvdiff<cr>gg]c
-nnoremap <leader>gc :Gcommit -v -q<cr>
+nnoremap <leader>gc :Gwrite<bar>Gcommit -v<CR>
 nnoremap <leader>gv :GV<cr>
 nnoremap <leader>gb :Gblame<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>

@@ -1,6 +1,6 @@
 {
   "editor.cursorBlinking": "solid",
-  "editor.cursorStyle": "block",
+  "editor.cursorStyle": "line",
   "editor.fontFamily": "Monaco",
   "editor.fontSize": 12,
   "editor.highlightActiveIndentGuide": false,
@@ -31,22 +31,6 @@
   "telemetry.enableTelemetry": false,
   "terminal.explorerKind": "external",
   "terminal.external.osxExec": "iTerm.app",
-  "vim.enableNeovim": false,
-  "vim.hlsearch": true,
-  "vim.insertModeKeyBindingsNonRecursive": [
-    {"after": ["right"], "before": ["<C-f>"]},
-    {"after": ["left"], "before": ["<C-b>"]}
-  ],
-  "vim.leader": ",",
-  "vim.neovimPath": "nvim",
-  "vim.normalModeKeyBindingsNonRecursive": [
-    {"after": ["z", "z"], "before": ["<Cr>"]}
-  ],
-  "vim.statusBarColorControl": true,
-  "vim.substituteGlobalFlag": true,
-  "vim.textwidth": 79,
-  "vim.useSystemClipboard": true,
-  "vim.visualstar": true,
   "window.clickThroughInactive": false,
   "window.nativeTabs": true,
   "window.restoreFullscreen": true,

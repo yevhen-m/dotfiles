@@ -501,7 +501,9 @@ xnoremap <silent> <C-l> >gv
 " Operate on display lines
 " Only normal and visual mode, not operator mode
 noremap k gk
+ounmap k
 noremap j gj
+ounmap j
 noremap ^ g0
 noremap $ g$
 noremap 0 g^
@@ -509,6 +511,7 @@ noremap 0 g^
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>
+nnoremap <silent> <leader>e :Commands<CR>
 " Search files from vim's cwd
 nnoremap <silent> <C-p> :Files<CR>
 " Search files in the current file's directory

@@ -270,6 +270,7 @@ if !exists("autocommands_loaded")
     autocmd ColorScheme * call onedark#extend_highlight("StatusLineNC", { "bg": { "gui": "#2c323c" } })
     autocmd ColorScheme * call onedark#extend_highlight("TabLineSel", { "bg": { "gui": "#353a41" } })
     autocmd ColorScheme * call onedark#extend_highlight("TabLine", { "bg": { "gui": "#2c323c" } })
+    autocmd ColorScheme * call onedark#extend_highlight("CursorLine", {"bg": {"gui": "#383c44"} })
 
     " Green
     autocmd ColorScheme * call onedark#extend_highlight("DiffAdd", { "bg": { "gui": "#313641" }, "fg": {"gui": "#98c379"} })
@@ -280,6 +281,10 @@ if !exists("autocommands_loaded")
     " Yellow
     autocmd ColorScheme * call onedark#extend_highlight("DiffText", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e5c07b"} })
 
+    let g:onedark_color_overrides = {
+                \ "white": { "gui": "#bbc1cb", "cterm": "145", "cterm16": "7" },
+                \}
+
     " Colorscheme (should be after autocommands that redefine colors)
     set background=dark
     set termguicolors
@@ -288,6 +293,8 @@ if !exists("autocommands_loaded")
      " `bg` will not be styled since there is no `bg` setting
     let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
     autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
+
+    highlight! link QuickFixLine CursorLine
 
     " Hack to get colorcolumn always shown in python buffers
     autocmd BufEnter *.py setlocal colorcolumn=80

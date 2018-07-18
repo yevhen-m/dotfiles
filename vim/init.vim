@@ -364,6 +364,9 @@ nnoremap <C-]> :call JumpToTag()<CR>zz
 cnoreabbrev <expr> tag
             \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
 
+" Close all buffers
+nnoremap cob :%bd!<CR>
+
 function! Grep(...)
     if exists('a:1')
         let query = a:1
@@ -692,8 +695,6 @@ highlight! link VertSplit Comment
 highlight Search cterm=bold
 highlight WildMenu cterm=bold ctermfg=0
 highlight Pmenu ctermfg=20
-
-nnoremap cob :%bd!<CR>
 
 " Semshi
 " ----------------------------------------------------------------------------

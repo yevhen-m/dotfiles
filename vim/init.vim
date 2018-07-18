@@ -107,7 +107,6 @@ Plug 'Valloric/MatchTagAlways', {'for': [
             \ 'htmldjango',
             \ 'jinja',
             \ ]}
-Plug 'junegunn/vim-easy-align', {'on': '<Plug>(EasyAlign)'}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
 Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
@@ -583,11 +582,6 @@ let NERDTreeMinimalUI = 1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeShowHidden = 1
 let NERDTreeCreatePrefix = 'silent keepalt keepjumps'
-
-" Vim-easy-align settings
-" ----------------------------------------------------------------------------
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
 
 " Python highlighting
 let python_self_cls_highlight = 1

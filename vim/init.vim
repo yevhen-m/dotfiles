@@ -80,15 +80,15 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'Julian/vim-textobj-brace'
 Plug 'Yggdroot/indentLine'
-Plug 'vim-scripts/ReplaceWithRegister'
+Plug 'christoomey/vim-sort-motion'
+Plug 'kana/vim-textobj-entire'
+Plug 'kana/vim-textobj-line'
+Plug 'kana/vim-textobj-user'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
-Plug 'christoomey/vim-sort-motion'
-Plug 'kana/vim-textobj-user'
-Plug 'kana/vim-textobj-line'
-Plug 'Julian/vim-textobj-brace'
-Plug 'kana/vim-textobj-entire'
+Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': [
             \ 'python',
@@ -100,7 +100,6 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-rsi'
 Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
-Plug 'PeterRincker/vim-argumentative'
 Plug 'Shougo/junkfile.vim', {'on': 'JunkfileOpen'}
 Plug 'Valloric/MatchTagAlways', {'for': [
             \ 'xml',

@@ -125,6 +125,16 @@ Plug 'joshdick/onedark.vim'
 
 call plug#end()
 
+" Colorscheme
+" ----------------------------------------------------------------------------
+let g:onedark_color_overrides = {
+            \ "white": { "gui": "#bbc1cb", "cterm": "145", "cterm16": "7" },
+            \}
+
+set background=dark
+set termguicolors
+colorscheme onedark
+
 function! s:SourceIfExists(path)
     let path = expand(a:path)
     if filereadable(path)
@@ -275,17 +285,8 @@ if !exists("autocommands_loaded")
     " Yellow
     autocmd ColorScheme * call onedark#extend_highlight("DiffText", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e5c07b"} })
 
-    let g:onedark_color_overrides = {
-                \ "white": { "gui": "#bbc1cb", "cterm": "145", "cterm16": "7" },
-                \}
-
-    " Colorscheme (should be after autocommands that redefine colors)
-    set background=dark
-    set termguicolors
-    colorscheme onedark
-
      " `bg` will not be styled since there is no `bg` setting
-    let s:white = { "gui": "#ABB2BF", "cterm": "145", "cterm16" : "7" }
+    let s:white = { "gui": "#bbc1cb", "cterm": "145", "cterm16" : "7" }
     autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
 
     highlight! link QuickFixLine CursorLine

@@ -46,7 +46,6 @@ Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'gilligan/textobj-gitgutter'
-Plug 'junegunn/gv.vim', {'on': 'GV'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
@@ -327,8 +326,6 @@ if !exists("autocommands_loaded")
     autocmd FileType qf nnoremap <buffer> <cr> <cr>
     autocmd FileType qf setlocal nocursorline
 
-    autocmd FileType GV nmap <buffer> <2-LeftMouse> <CR>
-
     " Set commentstring for jinja
     autocmd FileType jinja setlocal commentstring=<!--\ %s-->
     autocmd FileType cfg setlocal commentstring=#\ %s
@@ -568,7 +565,6 @@ let g:gitgutter_eager = 1
 " ----------------------------------------------------------------------------
 nnoremap <leader>gd :Gvdiff<cr>gg]c
 nnoremap <leader>gc :Gwrite<bar>Gcommit -v<CR>
-nnoremap <leader>gv :GV<cr>
 nnoremap <leader>gb :Gblame<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>
 

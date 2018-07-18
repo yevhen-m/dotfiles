@@ -98,7 +98,6 @@ Plug 'michaeljsmith/vim-indent-object', {'for': [
             \ ]}
 Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-rsi'
 Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }

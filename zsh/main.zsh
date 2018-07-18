@@ -38,7 +38,7 @@ Z_SCRIPT="$HOME/.config/z/z.sh"
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
 export FZF_DEFAULT_OPTS='
-    --color=bg+:#353a41,fg+:#ABB2BF
+    --color=bg+:#2f343a,fg+:#ABB2BF
     --bind=ctrl-z:toggle-up --inline-info --height 100% --no-reverse --border --bind=alt-a:select-all+accept'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--no-reverse'

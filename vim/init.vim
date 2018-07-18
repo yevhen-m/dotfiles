@@ -115,7 +115,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
-Plug 'tpope/vim-obsession'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.fzf',
             \ 'do': './install --all --no-update-rc'
@@ -593,9 +592,6 @@ nmap ga <Plug>(EasyAlign)
 " Python highlighting
 let python_self_cls_highlight = 1
 
-" Obsession settings
-nnoremap coo :Obsession<CR>
-
 " RSI settings
 let g:rsi_no_meta = 1
 
@@ -649,7 +645,6 @@ function! s:create_statusline(mode)
                 \ '\ %<',
                 \ '\ %m%r',
                 \ '%=',
-                \ '%{ObsessionStatus()}',
                 \ '\ %y\ ◌',
                 \ '\ %{GitBranchSection()}\ ◌',
                 \ '\ %p%%\ ◌\ %L',

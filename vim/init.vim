@@ -110,7 +110,6 @@ Plug 'Valloric/MatchTagAlways', {'for': [
 Plug 'junegunn/vim-easy-align', {'on': '<Plug>(EasyAlign)'}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
-Plug 'szw/vim-g', {'on': ['Gf', 'G']}
 Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -576,11 +575,6 @@ let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_project_root = ['.git']
 let g:gutentags_add_default_project_roots = 0
-
-" Vim-g settings
-" ----------------------------------------------------------------------------
-let g:vim_g_command = "G"
-let g:vim_g_f_command = "Gf"
 
 " Nerdtree settings
 nnoremap <silent> - :NERDTreeFind<cr>zz

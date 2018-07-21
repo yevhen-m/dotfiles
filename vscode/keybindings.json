@@ -1,0 +1,160 @@
+// Place your key bindings in this file to overwrite the defaults
+[
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.quickInputBack",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.quickInputBack",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "cmd+right",
+        "command": "workbench.action.navigateForward"
+    },
+    {
+        "key": "ctrl+shift+-",
+        "command": "-workbench.action.navigateForward"
+    },
+    {
+        "key": "cmd+left",
+        "command": "workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+-",
+        "command": "-workbench.action.navigateBack"
+    },
+    {
+        "key": "ctrl+shift+g g",
+        "command": "-workbench.view.scm",
+        "when": "gitlens:enabled && gitlens:keymap == 'chorded'"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.execSelectionInTerminal",
+        "when": "editorFocus && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+cmd+up",
+        "command": "workbench.action.focusAboveGroup"
+    },
+    {
+        "key": "cmd+k cmd+up",
+        "command": "-workbench.action.focusAboveGroup"
+    },
+    {
+        "key": "shift+cmd+down",
+        "command": "workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "cmd+k cmd+down",
+        "command": "-workbench.action.focusBelowGroup"
+    },
+    {
+        "key": "ctrl+i",
+        "command": "tab",
+        "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+    },
+    {
+        "key": "tab",
+        "command": "tab",
+        "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "-editor.action.selectAll",
+        "when": "editorFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "cursorLineStart",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-cursorLineStart",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+n",
+        "command": "scrollLineDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+pagedown",
+        "command": "-scrollLineDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+p",
+        "command": "scrollLineUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+pageup",
+        "command": "-scrollLineUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pagedown",
+        "command": "scrollPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+pagedown",
+        "command": "-scrollPageDown",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "scrollPageUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+pageup",
+        "command": "-scrollPageUp",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+l",
+        "command": "workbench.action.focusLastEditorGroup"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "-workbench.action.openPreviousRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "-workbench.action.openNextRecentlyUsedEditorInGroup"
+    },
+    {
+        "key": "pagedown",
+        "command": "-workbench.action.terminal.scrollDownPage",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "pageup",
+        "command": "-workbench.action.terminal.scrollUpPage",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "ctrl+x ctrl+o",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    }
+]

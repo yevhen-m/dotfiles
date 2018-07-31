@@ -10,3 +10,4 @@ Session.vim
 fugitive:/
 node_modules/
 tags*
+.vscode/

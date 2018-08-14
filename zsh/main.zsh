@@ -8,6 +8,7 @@ export GREP_COLOR="30;43"
 
 export PIPENV_DEFAULT_PYTHON_VERSION=3.6
 export PURE_PROMPT_SYMBOL=❯❯❯
+unset VIRTUAL_ENV_DISABLE_PROMPT
 
 # ZSH options
 HISTFILE="$HOME/.zsh_history"

@@ -69,9 +69,6 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
 " Enhance vim searching.
 Plug 'thinca/vim-visualstar'
 
-" Filesystem browsers
-Plug 'scrooloose/nerdtree'
-
 " Tags
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -577,15 +574,6 @@ let g:gutentags_generate_on_missing = 0
 let g:gutentags_generate_on_empty_buffer = 0
 let g:gutentags_project_root = ['.git']
 let g:gutentags_add_default_project_roots = 0
-
-" Nerdtree settings
-nnoremap <silent> - :NERDTreeFind<cr>zz
-nnoremap <silent> _ :NERDTreeClose<cr>
-let NERDTreeIgnore = ['^\.git$', '^\.DS_Store$', '^__pycache__$', '\.pyc$']
-let NERDTreeMinimalUI = 1
-let NERDTreeAutoDeleteBuffer = 1
-let NERDTreeShowHidden = 1
-let NERDTreeCreatePrefix = 'silent keepalt keepjumps'
 
 " Python highlighting
 let python_self_cls_highlight = 1

@@ -52,7 +52,9 @@ Plug 'tpope/vim-rhubarb'
 " Python
 Plug 'yevhen-m/python-syntax', {'for': 'python'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
-Plug 'numirias/semshi', {'for': 'python'}
+
+Plug 'justinmk/vim-dirvish'
+Plug 'kristijanhusak/vim-dirvish-git'
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [

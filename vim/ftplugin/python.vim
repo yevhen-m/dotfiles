@@ -68,11 +68,3 @@ endfunction
 
 command! -nargs=0 Py call s:Python()
 command! -nargs=0 PY call s:Python()
-
-
-if !exists("python_autocommands_loaded")
-    let python_autocommands_loaded = 1
-
-    autocmd InsertEnter *.py Semshi pause
-    autocmd InsertLeave *.py Semshi enable
-endif

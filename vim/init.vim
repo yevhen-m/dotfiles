@@ -50,7 +50,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-" Plug 'yevhen-m/python-syntax', {'for': 'python'}
+Plug 'yevhen-m/python-syntax', {'for': 'python'}
 Plug 'nvie/vim-flake8', {'for': 'python'}
 Plug 'numirias/semshi', {'for': 'python'}
 
@@ -661,10 +661,6 @@ highlight Search cterm=bold
 highlight WildMenu cterm=bold ctermfg=0
 highlight Pmenu ctermfg=20
 highlight StatusLine cterm=bold
-
-" Semshi
-" ----------------------------------------------------------------------------
-let g:semshi#error_sign = v:false
 
 " Unimpaired
 " ----------------------------------------------------------------------------

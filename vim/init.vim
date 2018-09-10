@@ -117,20 +117,17 @@ Plug 'junegunn/fzf', {
             \ }
 Plug 'junegunn/fzf.vim'
 
-" Colorscheme
-Plug 'joshdick/onedark.vim'
+Plug 'lifepillar/vim-solarized8'
 
 call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
-let g:onedark_color_overrides = {
-            \ "white": { "gui": "#bbc1cb", "cterm": "145", "cterm16": "7" },
-            \}
-
 set background=dark
 set termguicolors
-colorscheme onedark
+let g:solarized_termcolors=256
+let g:solarized_statusline = "default"
+colorscheme solarized8
 
 function! s:SourceIfExists(path)
     let path = expand(a:path)
@@ -265,26 +262,6 @@ endif
 " ----------------------------------------------------------------------------
 if !exists("autocommands_loaded")
     let autocommands_loaded = 1
-
-    " Override the `Identifier` background color in GUI mode
-    autocmd ColorScheme * call onedark#extend_highlight("StatusLine", { "bg": { "gui": "#353a41" } })
-    autocmd ColorScheme * call onedark#extend_highlight("StatusLineNC", { "bg": { "gui": "#2c323c" } })
-    autocmd ColorScheme * call onedark#extend_highlight("TabLineSel", { "bg": { "gui": "#353a41" } })
-    autocmd ColorScheme * call onedark#extend_highlight("TabLine", { "bg": { "gui": "#2c323c" } })
-    autocmd ColorScheme * call onedark#extend_highlight("CursorLine", {"bg": {"gui": "#383c44"} })
-
-    " Green
-    autocmd ColorScheme * call onedark#extend_highlight("DiffAdd", { "bg": { "gui": "#313641" }, "fg": {"gui": "#98c379"} })
-    " Blue
-    autocmd ColorScheme * call onedark#extend_highlight("DiffChange", { "bg": { "gui": "#313641" }, "fg": {"gui": "#61afef" }})
-    " Red
-    autocmd ColorScheme * call onedark#extend_highlight("DiffDelete", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e06c75"} })
-    " Yellow
-    autocmd ColorScheme * call onedark#extend_highlight("DiffText", { "bg": { "gui": "#313641" }, "fg": {"gui": "#e5c07b"} })
-
-     " `bg` will not be styled since there is no `bg` setting
-    let s:white = { "gui": "#bbc1cb", "cterm": "145", "cterm16" : "7" }
-    autocmd ColorScheme * call onedark#set_highlight("Normal", { "fg": s:white })
 
     highlight! link QuickFixLine CursorLine
 
@@ -683,6 +660,7 @@ highlight! link VertSplit Comment
 highlight Search cterm=bold
 highlight WildMenu cterm=bold ctermfg=0
 highlight Pmenu ctermfg=20
+highlight StatusLine cterm=bold
 
 " Semshi
 " ----------------------------------------------------------------------------

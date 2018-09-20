@@ -119,17 +119,15 @@ Plug 'junegunn/fzf', {
             \ }
 Plug 'junegunn/fzf.vim'
 
-Plug 'lifepillar/vim-solarized8'
+Plug 'yevhen-m/base16-vim'
 
 call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
 set background=dark
-set termguicolors
-let g:solarized_termcolors=256
-let g:solarized_statusline = "default"
-colorscheme solarized8
+let base16colorspace = 256
+colorscheme base16-eighties
 
 function! s:SourceIfExists(path)
     let path = expand(a:path)
@@ -660,9 +658,7 @@ augroup END
 " ----------------------------------------------------------------------------
 highlight! link VertSplit Comment
 highlight Search cterm=bold
-highlight WildMenu cterm=bold ctermfg=0
 highlight Pmenu ctermfg=20
-highlight StatusLine cterm=bold
 
 " Unimpaired
 " ----------------------------------------------------------------------------

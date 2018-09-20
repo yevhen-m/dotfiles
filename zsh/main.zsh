@@ -38,11 +38,13 @@ Z_SCRIPT="$HOME/.config/z/z.sh"
 [ -f ~/.fzf-utils.zsh ] && source ~/.fzf-utils.zsh
 
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_DEFAULT_OPTS='
-    --color=bg+:#073642,fg+:#ABB2BF
-    --bind=ctrl-z:toggle-up --inline-info --height 100% --no-reverse --border --bind=alt-a:select-all+accept'
+export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border --bind=alt-a:select-all+accept'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--no-reverse'
+
+# Base16 colorscheme
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # virtualenv-wrapper
 export WORKON_HOME=~/.virtualenvs

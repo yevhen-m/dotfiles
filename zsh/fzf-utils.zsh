@@ -60,7 +60,7 @@ fzf-checkout() {
   local commits commit
   commits=$(git log --graph --color=always --format="%C(auto)%h%d %s %C(241)%C(bold)%cr %C(auto)%C(blue)%cn") &&
     commit=$(echo "$commits" | fzf-down --ansi --no-sort --reverse --tiebreak=index) && echo $commit &&
-    git checkout $(echo "$commit" | grep -o "[a-f0-9]{7,}")
+    git checkout $(echo "$commit" | grep -E -o "[a-f0-9]{7,}")
 }
 bindkey -s '^g^o' 'fzf-checkout\n'
 
@@ -73,21 +73,6 @@ fzf-branch() {
         git checkout $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }
 bindkey -s '^g^k' 'fzf-branch\n'
-
-# Browse git commits
-fzf-show() {
-    is_in_git_repo || return
-    git log --color=always \
-        --format="%Cred%h%Creset %Cgreen(%cr)%Creset %C(bold blue)<%an>%Creset %s" "$@" |
-    fzf-down --height 100% --ansi --no-sort --reverse --tiebreak=index --bind=ctrl-s:toggle-sort \
-        --bind "ctrl-m:execute:
-    (grep -o '[a-f0-9]\{7\}' | head -1 |
-    xargs -I % sh -c 'git show --color=always % | diff-so-fancy | less --tabs=4 -RX') << 'FZF-EOF'
-    {}
-    FZF-EOF"
-}
-bindkey -s '^g^l' 'fzf-show\n'
-
 
 join-lines() {
   local item

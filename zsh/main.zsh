@@ -78,8 +78,8 @@ bindkey '^g^g' edit-command-line
 
 # Aliases
 # ================================================
-alias ll='ls -l -A -G -h'
-alias l='ls -l -A -G -h'
+alias ll='exa -la'
+alias l='exa -la'
 alias r=ranger
 alias ag='ag --mmap'
 

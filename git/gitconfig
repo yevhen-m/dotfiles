@@ -10,11 +10,11 @@
 	; (check that their names match)
 	default = simple
 [diff]
-	tool = nvimdiff
+	tool = code
 [difftool]
 	prompt = false
-[difftool "nvimdiff"]
-    cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+[difftool "code"]
+    cmd = "code --wait --diff $LOCAL $REMOTE"
 [alias]
     amend = commit -a --amend --no-edit
 	ss = status -s
@@ -25,8 +25,7 @@
 	ctags = !.git/hooks/ctags
 	lg = log --color --graph --pretty=format:'%C(yellow)%d%Creset %Cred%h%Creset %Cgreen(%cr)%Creset %C(bold blue)<%an>%Creset %s' --abbrev-commit
 [merge]
-	tool = nvimdiff
-	conflictstyle = diff3
+	tool = code
 [color "branch"]
 	current = blue
 	local = yellow

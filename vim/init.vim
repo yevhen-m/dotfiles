@@ -113,6 +113,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
+Plug 'RRethy/vim-illuminate'
 Plug 'junegunn/fzf', {
             \ 'dir': '~/.fzf',
             \ 'do': './install --all --no-update-rc'
@@ -659,6 +660,7 @@ augroup END
 highlight! link VertSplit Comment
 highlight Search cterm=bold
 highlight Pmenu ctermfg=20
+highlight illuminatedWord cterm=underline gui=underline
 
 " Unimpaired
 " ----------------------------------------------------------------------------

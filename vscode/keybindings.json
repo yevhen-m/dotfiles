@@ -37,7 +37,7 @@
         "when": "editorFocus && editorLangId == 'python'"
     },
     {
-        "key": "shift+cmd+up",
+        "key": "cmd+up",
         "command": "workbench.action.focusAboveGroup"
     },
     {
@@ -45,7 +45,7 @@
         "command": "-workbench.action.focusAboveGroup"
     },
     {
-        "key": "shift+cmd+down",
+        "key": "cmd+down",
         "command": "workbench.action.focusBelowGroup"
     },
     {
@@ -66,11 +66,6 @@
         "key": "cmd+a",
         "command": "-editor.action.selectAll",
         "when": "editorFocus"
-    },
-    {
-        "key": "cmd+a",
-        "command": "cursorLineStart",
-        "when": "textInputFocus"
     },
     {
         "key": "ctrl+a",
@@ -225,5 +220,79 @@
     {
         "key": "shift+cmd+s",
         "command": "-workbench.action.files.saveAs"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "home",
+        "command": "-cursorHome",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "-workbench.action.terminal.selectAll",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "-editor.action.selectAll",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "cursorLineStart"
+    },
+    {
+        "key": "cmd+e",
+        "command": "editor.action.marker.next"
+    },
+    {
+        "key": "shift+cmd+e",
+        "command": "editor.action.marker.prev"
+    },
+    {
+        "key": "f8",
+        "command": "-editor.action.marker.nextInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+f8",
+        "command": "-editor.action.marker.prevInFiles",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+up",
+        "command": "-cursorTop",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "cmd+down",
+        "command": "-cursorBottom",
+        "when": "textInputFocus"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.showPreviousWindowTab"
+    },
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.showNextWindowTab"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.datascience.runcurrentcelladvance",
+        "when": "editorFocus && python.datascience.featureenabled && python.datascience.hascodecells"
+    },
+    {
+        "key": "shift+enter",
+        "command": "-python.execSelectionInTerminal",
+        "when": "editorFocus && !findInputFocussed && !python.datascience.hascodecells && !replaceInputFocussed && editorLangId == 'python'"
+    },
+    {
+        "key": "shift+cmd+]",
+        "command": "-workbench.action.nextEditor"
     }
 ]

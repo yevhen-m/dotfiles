@@ -82,6 +82,7 @@ alias ll='exa -la'
 alias l='exa -la'
 alias r=ranger
 alias ag='ag --mmap'
+alias ww='workon $(basename `pwd`)'
 
 # Aliases for Linux setups
 if [[ $(uname -s) = Linux ]]; then

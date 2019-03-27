@@ -539,6 +539,9 @@ let g:gitgutter_eager = 1
 " Fugitive settings
 " ----------------------------------------------------------------------------
 nnoremap <leader>gd :Gvdiff<cr>gg]c
+" Merging conflicts
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 nnoremap <leader>gc :Gwrite<bar>Gcommit -v<CR>
 nnoremap <leader>gb :Gblame<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>

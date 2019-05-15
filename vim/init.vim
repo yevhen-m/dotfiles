@@ -100,12 +100,6 @@ Plug 'tpope/vim-rsi'
 Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'Shougo/junkfile.vim', {'on': 'JunkfileOpen'}
-Plug 'Valloric/MatchTagAlways', {'for': [
-            \ 'xml',
-            \ 'html',
-            \ 'htmldjango',
-            \ 'jinja',
-            \ ]}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
 Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}

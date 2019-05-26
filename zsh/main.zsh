@@ -131,5 +131,6 @@ pyenv() {
     command pyenv "$command" "$@";;
   esac
 }
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
 
 eval "$(direnv hook zsh)"

@@ -470,7 +470,7 @@ ounmap k
 noremap j gj
 ounmap j
 noremap ^ g0
-noremap $ g$
+nnoremap $ g$
 noremap 0 g^
 
 " FZF settings

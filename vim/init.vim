@@ -492,6 +492,7 @@ nnoremap <silent> <c-g><c-b> :BCommits<cr>
 
 imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-k> <c-o>D
 
 " Just make this mapping easier
 let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}

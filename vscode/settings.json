@@ -32,7 +32,7 @@
   "terminal.external.osxExec": "iTerm.app",
   "window.clickThroughInactive": true,
   "window.nativeTabs": true,
-  "window.restoreFullscreen": true,
+  "window.restoreFullscreen": false,
   "window.restoreWindows": "all",
   "workbench.editor.swipeToNavigate": true,
   "workbench.editor.tabCloseButton": "left",
@@ -133,5 +133,22 @@
   "git.openDiffOnClick": false,
   "gitlens.views.compare.avatars": false,
   "gitlens.views.repositories.avatars": false,
-  "gitlens.views.search.avatars": false
+  "gitlens.views.search.avatars": false,
+  "vsnotes.defaultNotePath": "/Users/yevhen/.cache/vsnotes",
+  "python.testing.autoTestDiscoverOnSaveEnabled": false,
+  "python.testing.promptToConfigure": false,
+  "search.useReplacePreview": false,
+  "python.linting.flake8Enabled": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[csharp]": {
+    "editor.defaultFormatter": "ms-vscode.csharp"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

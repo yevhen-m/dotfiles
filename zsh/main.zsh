@@ -37,8 +37,35 @@ Z_SCRIPT="$HOME/.config/z/z.sh"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f ~/.fzf-utils.zsh ] && source ~/.fzf-utils.zsh
 
+_gen_fzf_default_opts() {
+
+local color00='#2d2d2d'
+local color01='#393939'
+local color02='#515151'
+local color03='#747369'
+local color04='#a09f93'
+local color05='#d3d0c8'
+local color06='#e8e6df'
+local color07='#f2f0ec'
+local color08='#f2777a'
+local color09='#f99157'
+local color0A='#ffcc66'
+local color0B='#99cc99'
+local color0C='#66cccc'
+local color0D='#6699cc'
+local color0E='#cc99cc'
+local color0F='#d27b53'
+
+export FZF_DEFAULT_OPTS="
+  --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
+  --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
+  --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
+  --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border --bind=alt-a:select-all+accept"
+}
+_gen_fzf_default_opts
+
 export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
-export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border --bind=alt-a:select-all+accept'
+# export FZF_DEFAULT_OPTS='--color=dark,bg+:18 --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border --bind=alt-a:select-all+accept'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_CTRL_T_OPTS='--no-reverse'
 

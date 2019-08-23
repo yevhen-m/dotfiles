@@ -127,6 +127,8 @@ alias gc='git checkout'
 alias gcb='git checkout -b'
 alias glg='git lg'
 alias gl='git lg'
+alias gam='git add -u && git commit --amend --no-edit'
+alias gcv='git add -u && git commit -v'
 
 alias rm=trash
 

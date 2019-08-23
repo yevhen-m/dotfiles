@@ -108,10 +108,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
 Plug 'RRethy/vim-illuminate'
-Plug 'junegunn/fzf', {
-            \ 'dir': '~/.fzf',
-            \ 'do': './install --all --no-update-rc'
-            \ }
+Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'yevhen-m/base16-vim'
@@ -213,7 +210,6 @@ set nrformats=             " treat all numbers as decimal, not octal
 set number
 set path+=**
 set re=1
-set shell=/bin/zsh
 set shiftwidth=4           " number of spaces per <<
 set shortmess+=cI          " silence vim messages
 set splitbelow splitright

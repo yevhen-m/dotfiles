@@ -67,6 +67,7 @@ fi
 
 # Aliases
 alias l='exa -la'
+alias zsh='bash'
 # Linux related
 if [[ $(uname -s) = Linux ]]
 then
@@ -128,6 +129,6 @@ then
 fi
 
 # Prompt
-export PS1='\[\e[35m\]\w ❯❯❯ \[\e[0m\]'
+export PS1='\[\e[01;35m\]\w ❯❯❯ \[\e[0m\]'
 
 eval "$(direnv hook bash)"

@@ -128,7 +128,15 @@ then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# Git support
+source /usr/local/etc/bash_completion.d/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWCOLORHINTS=1
+
 # Prompt
-export PS1='\[\e[01;35m\]\w ❯❯❯ \[\e[0m\]'
+export PS1="\[\e[01;35m\]\w \$(__git_ps1 '[%s]') ❯❯❯ \[\e[0m\]"
 
 eval "$(direnv hook bash)"

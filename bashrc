@@ -6,6 +6,7 @@ set -o noclobber
 shopt -s cmdhist
 shopt -s histappend
 shopt -s nocaseglob
+shopt -s interactive_comments
 HISTSIZE=1000000
 HISTFILESIZE=1000000
 HISTCONTROL=ignorespace:erasedups

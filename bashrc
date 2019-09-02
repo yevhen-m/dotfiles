@@ -39,6 +39,7 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_CTRL_T_OPTS='--no-reverse'
+    source ~/.fzf-utils.bash
 fi
 
 if [[ -f ~/.config/z/z.sh ]]

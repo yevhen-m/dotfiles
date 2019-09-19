@@ -1,6 +1,7 @@
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR='/usr/local/bin/nvim'
+export PIP_REQUIRE_VIRTUALENV=true
 
 set -o noclobber
 shopt -s cmdhist

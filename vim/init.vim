@@ -490,6 +490,22 @@ imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-k> <c-o>D
 
+" Define fzf colors for light and dark colorschemes
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
 " Just make this mapping easier
 let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
 let g:fzf_history_dir = '~/.fzf-history'

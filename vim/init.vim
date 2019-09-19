@@ -112,14 +112,21 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 Plug 'yevhen-m/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
-set background=dark
-let base16colorspace = 256
-colorscheme base16-eighties
+if has("gui_vimr")
+    set termguicolors
+    colorscheme PaperColor
+    set background=light
+else
+    let base16colorspace = 256
+    colorscheme base16-eighties
+    set background=dark
+endif
 
 function! s:SourceIfExists(path)
     let path = expand(a:path)

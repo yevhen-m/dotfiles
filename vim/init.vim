@@ -71,9 +71,6 @@ Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
 " Enhance vim searching.
 Plug 'thinca/vim-visualstar'
 
-" Tags
-Plug 'ludovicchabant/vim-gutentags'
-
 " Tmux
 Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
@@ -560,16 +557,6 @@ nnoremap <leader>gc :Gwrite<bar>Gcommit -v<CR>
 nnoremap <leader>gb :Gblame<cr>
 nmap <leader>gs :Gstatus<cr>gg<C-N>
 
-" Gutentags settings
-" ----------------------------------------------------------------------------
-let g:gutentags_enabled = 1
-let g:gutentags_generate_on_write = 1
-let g:gutentags_generate_on_new = 0
-let g:gutentags_generate_on_missing = 0
-let g:gutentags_generate_on_empty_buffer = 0
-let g:gutentags_project_root = ['.git']
-let g:gutentags_add_default_project_roots = 0
-
 " Python highlighting
 let python_self_cls_highlight = 1
 
@@ -579,11 +566,6 @@ let g:rsi_no_meta = 1
 " ArgWrap settings
 nnoremap gw :ArgWrap<CR>
 let g:argwrap_tail_comma = 1
-
-" Add one more tags file from virtualenv
-if !empty($VIRTUAL_ENV)
-    set tags=tags,$VIRTUAL_ENV/tags
-endif
 
 " Vim-jsx settings
 let g:jsx_ext_required = 0

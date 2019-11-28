@@ -8,6 +8,8 @@ shopt -s cmdhist
 shopt -s histappend
 shopt -s nocaseglob
 shopt -s interactive_comments
+shopt -s cdspell
+shopt -s dirspell
 HISTSIZE=1000000
 HISTFILESIZE=1000000
 HISTCONTROL=ignorespace:erasedups
@@ -68,8 +70,12 @@ fi
 # Set TERM variable correctly in and out of tmux
 [[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="screen-256color"
 
+# Completion
+export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
+[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
 # Aliases
-alias l='exa -la'
+alias l='exa -lha'
 alias zsh='bash'
 # Linux related
 if [[ $(uname -s) = Linux ]]
@@ -111,22 +117,10 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 
 export PYENV_SHELL=bash
-source '/usr/local/Cellar/pyenv/1.2.13/libexec/../completions/pyenv.bash'
-# command pyenv rehash 2>/dev/null
-pyenv() {
-  local command
-  command="${1:-}"
-  if [ "$#" -gt 0 ]; then
-    shift
-  fi
-
-  case "$command" in
-  activate|deactivate|rehash|shell)
-    eval "$(pyenv "sh-$command" "$@")";;
-  *)
-    command pyenv "$command" "$@";;
-  esac
-}
+if command -v pyenv 1>/dev/null 2>&1
+then
+    eval "$(pyenv init -)"
+fi
 if which pyenv-virtualenv-init > /dev/null
 then
     eval "$(pyenv virtualenv-init -)"

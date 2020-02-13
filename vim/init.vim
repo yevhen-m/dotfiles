@@ -463,16 +463,6 @@ xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap <silent> <C-h> <gv
 xnoremap <silent> <C-l> >gv
 
-" Operate on display lines
-" Only normal and visual mode, not operator mode
-noremap k gk
-ounmap k
-noremap j gj
-ounmap j
-noremap ^ g0
-nnoremap $ g$
-noremap 0 g^
-
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>

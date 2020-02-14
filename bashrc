@@ -4,6 +4,7 @@ export EDITOR='/usr/local/bin/nvim'
 export PIP_REQUIRE_VIRTUALENV=true
 
 set -o noclobber
+set -o emacs
 shopt -s cmdhist
 shopt -s histappend
 shopt -s nocaseglob

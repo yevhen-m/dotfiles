@@ -3,14 +3,22 @@ export LC_CTYPE=en_US.UTF-8
 export EDITOR='/usr/local/bin/nvim'
 export PIP_REQUIRE_VIRTUALENV=true
 
+# Prevent file overwrite on stdout redirection
+# Use `>|` to force redirection to an existing file
 set -o noclobber
 set -o emacs
 shopt -s cmdhist
+# Append to the history file, don't overwrite it
 shopt -s histappend
+# Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
+# Save multi-line commands as one command
+shopt -s cmdhist
 shopt -s interactive_comments
 shopt -s cdspell
+# Correct spelling errors during tab-completion
 shopt -s dirspell
+
 HISTSIZE=1000000
 HISTFILESIZE=1000000
 HISTCONTROL=ignorespace:erasedups
@@ -72,6 +80,14 @@ fi
 [[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="screen-256color"
 
 # Completion
+# Perform file completion in a case insensitive fashion
+bind "set completion-ignore-case on"
+# Treat hyphens and underscores as equivalent
+bind "set completion-map-case on"
+# Display matches for ambiguous patterns at first tab press
+bind "set show-all-if-ambiguous on"
+# Immediately add a trailing slash when autocompleting symlinks to directories
+bind "set mark-symlinked-directories on"
 export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 

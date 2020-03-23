@@ -41,10 +41,51 @@
                         ]
                     },
                     {
+                        "description": "Change input source to ua",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_alt",
+                                    "modifiers": {
+                                        "mandatory": ["left_shift"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "org.unknown.keylayout.Українська"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Change input source to ru",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "key_code": "right_alt",
+                                    "modifiers": {
+                                        "mandatory": ["left_control"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "select_input_source": {
+                                            "input_source_id": "org.unknown.keylayout.Русская"
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Change input source to en with right alt",
                         "manipulators": [
                             {
-                                "type": "basic",
                                 "from": {
                                     "key_code": "right_alt"
                                 },
@@ -54,7 +95,8 @@
                                             "input_source_id": "com.apple.keylayout.US"
                                         }
                                     }
-                                ]
+                                ],
+                                "type": "basic"
                             }
                         ]
                     }
@@ -160,6 +202,9 @@
                 }
             ],
             "name": "Default profile",
+            "parameters": {
+                "delay_milliseconds_before_open_device": 1000
+            },
             "selected": true,
             "simple_modifications": [
                 {

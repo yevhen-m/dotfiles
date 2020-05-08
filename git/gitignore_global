@@ -11,3 +11,4 @@ fugitive:/
 node_modules/
 tags*
 .vscode/
+.idea/

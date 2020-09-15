@@ -39,66 +39,6 @@
                                 "type": "basic"
                             }
                         ]
-                    },
-                    {
-                        "description": "Change input source to ua",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_alt",
-                                    "modifiers": {
-                                        "mandatory": ["left_shift"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "org.unknown.keylayout.Українська"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change input source to ru",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_alt",
-                                    "modifiers": {
-                                        "mandatory": ["left_control"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "org.unknown.keylayout.Русская"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Change input source to en with right alt",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "right_alt"
-                                },
-                                "to_if_alone": [
-                                    {
-                                        "select_input_source": {
-                                            "input_source_id": "com.apple.keylayout.US"
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
                     }
                 ]
             },

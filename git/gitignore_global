@@ -6,6 +6,7 @@
 .python-version
 .DS_Store
 .tern-port
+.teams.vim
 Session.vim
 fugitive:/
 node_modules/

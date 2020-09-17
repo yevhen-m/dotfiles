@@ -10,6 +10,8 @@ set -o emacs
 shopt -s cmdhist
 # Append to the history file, don't overwrite it
 shopt -s histappend
+# Update history immediately
+PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 # Save multi-line commands as one command
@@ -130,7 +132,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/Software/arcanist/bin/:$PATH"
+export PATH="$HOME/Software/arcanist/bin:$PATH"
 
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 

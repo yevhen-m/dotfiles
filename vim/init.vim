@@ -303,39 +303,6 @@ if !exists("autocommands_loaded")
 
 endif
 
-" Mappings
-" ----------------------------------------------------------------------------
-function! JumpToTag(...)
-    let word = exists('a:1') ? a:1 : expand("<cword>")
-    try
-        execute "silent ltag " . word
-    catch
-        echo 'Tag not found!'
-        return
-    endtry
-    if len(getloclist(win_getid())) > 1
-        " Open loclist window at the top
-        topleft lwindow 7 | keepjumps ll
-    else
-        lclose
-    endif
-    execute 'normal zz'
-endfunction
-
-command! -nargs=1 -complete=tag_listfiles JumpToTag call JumpToTag("<args>")
-
-" Open tag in vertical split
-nnoremap <C-w><C-]> :vsp<bar>call JumpToTag()<CR>zz
-" Open tag in horizontal split
-nnoremap <C-w><c-w><C-]> :sp<bar>call JumpToTag()<CR>zz
-" Open tag in current window
-nnoremap <C-]> :call JumpToTag()<CR>zz
-cnoreabbrev <expr> tag
-            \ getcmdtype() == ":" && getcmdline() == 'tag' ? 'JumpToTag' : 'tag'
-
-" Close all buffers
-nnoremap cob :%bd!<CR>
-
 function! Grep(...)
     if exists('a:1')
         let query = a:1
@@ -472,8 +439,6 @@ nnoremap <silent> <C-p> :Files<CR>
 " Search files in the current file's directory
 nnoremap <silent> <C-g><C-p> :execute 'FZF ' . expand('%:h').'/'<cr>
 nnoremap <silent> <C-_> :BLines<CR>
-nnoremap <silent> <leader>d :BTags<CR>
-nnoremap <silent> <leader>t :Tags<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <C-n> :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
@@ -503,7 +468,6 @@ let g:fzf_colors =
 " Just make this mapping easier
 let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
 let g:fzf_history_dir = '~/.fzf-history'
-let g:fzf_tags_command = 'ctags'
 let g:fzf_commands_expect = 'ctrl-x'
 let g:fzf_action = {
             \ 'ctrl-t': 'tab split',

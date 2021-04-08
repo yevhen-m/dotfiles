@@ -94,7 +94,8 @@ export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
 [[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
 
 # Aliases
-alias l='exa -lha'
+alias l='exa -lha --time-style long-iso'
+alias lt='exa -lhaT --time-style long-iso'
 alias zsh='bash'
 # Linux related
 if [[ $(uname -s) = Linux ]]

@@ -1,6 +1,0 @@
---recurse=yes
---languages=python
---python-kinds=-i
---fields=+l
-
---exclude=.git

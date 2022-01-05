@@ -47,8 +47,6 @@
 	prompt = false
 [clean]
 	requireForce = false
-[init]
-	templatedir = ~/.git_template
 [rebase]
 	autoSquash = true
 [url "git@github.com:"]

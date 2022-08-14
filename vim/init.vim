@@ -124,7 +124,7 @@ set listchars=tab:\⋮\ ,extends:❯,precedes:❮,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
-set nocursorline              " less redrawing
+set cursorline
 set scrolloff=0               " offset of 0 lines to top-bottom borders;
                               " don't want to set this bc viewport jumps when
                               " I click with mouse at the top/bottom of the

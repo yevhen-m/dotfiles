@@ -96,6 +96,7 @@ export BASH_COMPLETION_COMPAT_DIR=`brew --prefix`/etc/bash_completion.d
 
 # Aliases
 alias l='exa -lha --time-style long-iso'
+alias ll='exa -lha --time-style long-iso'
 alias lt='exa -lhaT --time-style long-iso'
 alias zsh='bash'
 # Linux related

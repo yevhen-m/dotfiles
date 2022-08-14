@@ -1,17 +1,7 @@
-let s:nvim = has('nvim')
-if !s:nvim
-    unlet! skip_defaults_vim
-    silent! source $VIMRUNTIME/defaults.vim
-
-    set nocompatible
-endif
-
 " Autoinstall vim-plug
 " ----------------------------------------------------------------------------
 let s:plug_url = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-let s:plug_self_dir = s:nvim ?
-            \ '~/.config/nvim/autoload/plug.vim' :
-            \ '~/.vim/autoload/plug.vim'
+let s:plug_self_dir = '~/.config/nvim/autoload/plug.vim'
 
 if empty(glob(s:plug_self_dir))
     execute '!curl -fLo ' s:plug_self_dir ' --create-dirs ' s:plug_url
@@ -21,9 +11,7 @@ endif
 " Plugins
 " ----------------------------------------------------------------------------
 let g:plug_window = 'enew'
-let s:plug_plugins_dir = s:nvim ?
-            \ '~/.config/nvim/plugged' :
-            \ '~/.vim/plugged'
+let s:plug_plugins_dir = '~/.config/nvim/plugged'
 call plug#begin(s:plug_plugins_dir)
 
 " Syntax
@@ -115,45 +103,17 @@ call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
-if has("gui_vimr")
-    set termguicolors
-    colorscheme PaperColor
-    set background=light
-else
-    let base16colorspace = 256
-    colorscheme base16-eighties
-    set background=dark
-endif
-
-function! s:SourceIfExists(path)
-    let path = expand(a:path)
-    if filereadable(path)
-        execute 'source ' . path
-    endif
-endfunction
-
-call s:SourceIfExists('~/.config/nvim/abbreviations.vim')
+let base16colorspace = 256
+colorscheme base16-eighties
+set background=dark
 
 " Options
 " ----------------------------------------------------------------------------
-if s:nvim
-    set inccommand=split         " Show visual indication when using substitute command
-    set signcolumn=auto          " Draw signcolumn when signs are available
-    set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
-    set iminsert=0 imsearch=0    " order of this options matters!
-    set clipboard^=unnamedplus   " use system clipboard
-else
-    filetype plugin indent on
-    syntax on
-    runtime macros/matchit.vim
-    set laststatus=2             " Always show statusline
-    set clipboard=unnamed        " OSX does not have plus clipboard
-    set encoding=utf-8
-    set undodir=                 " Dont' create undofiles
-    set ttyfast                  " Assume fast terminal connection
-    set nobackup
-    set nowritebackup
-endif
+set inccommand=split         " Show visual indication when using substitute command
+set signcolumn=auto          " Draw signcolumn when signs are available
+set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
+set iminsert=0 imsearch=0    " order of this options matters!
+set clipboard^=unnamedplus   " use system clipboard
 
 set autoindent
 set noruler
@@ -244,7 +204,7 @@ set exrc secure            " enable sourcing of project's .nvimrc
 " ----------------------------------------------------------------------------
 let s:nvim_python2 = '~/.virtualenvs/neovim2/bin/python'
 let s:nvim_python3 = '~/.virtualenvs/neovim3/bin/python'
-if s:nvim && filereadable(glob(s:nvim_python2))
+if filereadable(glob(s:nvim_python2))
     let g:python_host_prog = glob(s:nvim_python2)
 endif
 " I suppose vim-hug-neovim-rpc plugin needs this var `pytho3_host_prog`
@@ -466,7 +426,7 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 
 " Just make this mapping easier
-let g:fzf_layout = s:nvim ? {'window': 'enew'} : {'down': '~40%'}
+let g:fzf_layout = {'window': 'enew'}
 let g:fzf_history_dir = '~/.fzf-history'
 let g:fzf_commands_expect = 'ctrl-x'
 let g:fzf_action = {

@@ -25,11 +25,6 @@ Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
 
-" Arcanist
-Plug 'solarnz/arcanist.vim', {'for': 'arcanistdiff'}
-Plug 'yevhen-m/arcanist-omnicomplete.vim', {'for': 'arcanistdiff'}
-Plug 'yevhen-m/arc-diff-jira-issue', {'for': 'arcanistdiff'}
-
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'gilligan/textobj-gitgutter'

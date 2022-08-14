@@ -1,6 +1,6 @@
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
-export EDITOR='/usr/local/bin/nvim'
+export EDITOR=`brew --prefix`/bin/nvim
 export PIP_REQUIRE_VIRTUALENV=true
 
 # Prevent file overwrite on stdout redirection
@@ -56,9 +56,9 @@ then
     source ~/.fzf-utils.bash
 fi
 
-if [[ -f ~/.config/z/z.sh ]]
+if [[ -f `brew --prefix`/etc/profile.d/z.sh ]]
 then
-    source ~/.config/z/z.sh
+    source `brew --prefix`/etc/profile.d/z.sh
     unalias z 2> /dev/null
     z() {
       [ $# -gt 0 ] && _z "$*" && return
@@ -70,11 +70,11 @@ fi
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-VIRTUALENVWRAPPER="/usr/local/bin/virtualenvwrapper_lazy.sh"
+VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper_lazy.sh"
 if [[ -s $VIRTUALENVWRAPPER ]]
 then
     export WORKON_HOME=~/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python
+    export VIRTUALENVWRAPPER_PYTHON=`brew --prefix`/bin/python3
     source $VIRTUALENVWRAPPER
 fi
 
@@ -90,8 +90,9 @@ bind "set completion-map-case on"
 bind "set show-all-if-ambiguous on"
 # Immediately add a trailing slash when autocompleting symlinks to directories
 bind "set mark-symlinked-directories on"
-export BASH_COMPLETION_COMPAT_DIR="/usr/local/etc/bash_completion.d"
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+
+export BASH_COMPLETION_COMPAT_DIR=`brew --prefix`/etc/bash_completion.d
+[[ -r `brew --prefix`/etc/profile.d/bash_completion.sh ]] && . `brew --prefix`/etc/profile.d/bash_completion.sh
 
 # Aliases
 alias l='exa -lha --time-style long-iso'
@@ -123,18 +124,15 @@ alias tat="tmux attach -t"
 alias ta="tmux attach"
 alias td="tmux detach"
 # Vim aliases
-alias _vim="/usr/local/bin/vim"
-alias vi="/usr/local/bin/nvim"
-alias vim="/usr/local/bin/nvim"
+alias _vim=/usr/bin/vim
+alias vi="`brew --prefix`/bin/nvim"
+alias vim="`brew --prefix`/bin/nvim"
 
 # PATH manipulations
 [[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
-export PATH="/usr/local/opt/node@10/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/Software/arcanist/bin:$PATH"
-
+export PATH=`brew --prefix`/opt/node@14/bin:$PATH
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 
 export PYENV_SHELL=bash
@@ -148,7 +146,7 @@ then
 fi
 
 # Git support
-source /usr/local/etc/bash_completion.d/git-prompt.sh
+source `brew --prefix`/etc/bash_completion.d/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1

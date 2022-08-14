@@ -13,3 +13,9 @@ node_modules/
 tags*
 .vscode/
 .idea/
+__pycache__/
+*.pyc
+env/
+venv/
+dist/
+build/

@@ -19,7 +19,6 @@ Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
 Plug 'cespare/vim-toml', {'for': 'toml'}
 Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
 Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'javascript.jsx']}
 Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
 Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
@@ -38,11 +37,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 " Python
-Plug 'yevhen-m/python-syntax', {'for': 'python'}
-Plug 'nvie/vim-flake8', {'for': 'python'}
+Plug 'kh3phr3n/python-syntax', {'for': 'python'}
 
-Plug 'justinmk/vim-dirvish'
-Plug 'kristijanhusak/vim-dirvish-git'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Javascript
 Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
@@ -73,7 +71,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'foosoft/vim-argwrap', {'for': ['python', 'javascript']}
 Plug 'michaeljsmith/vim-indent-object', {'for': [
             \ 'python',
             \ 'javascript',
@@ -477,33 +474,23 @@ let python_self_cls_highlight = 1
 " RSI settings
 let g:rsi_no_meta = 1
 
-" ArgWrap settings
-nnoremap gw :ArgWrap<CR>
-let g:argwrap_tail_comma = 1
-
-" Vim-jsx settings
-let g:jsx_ext_required = 0
-
 " Detectindent settings
 let g:detectindent_preferred_indent = 4
 
 " Vim-highlightedyank settings
 hi link HighlightedyankRegion Visual
 let g:highlightedyank_highlight_duration = 500
-if !s:nvim
-    map y <Plug>(highlightedyank)
-endif
 
 " Prettier settings
 let g:prettier#autoformat = 0
 
+" NERDTree
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
 " Statusline
 " ----------------------------------------------------------------------------
-function! GitBranchSection()
-    let branch = fugitive#head(5)
-    return empty(branch) ? '---' : branch
-endfunction
-
 function! s:create_statusline(mode)
     " Relative path to file
     " Filename
@@ -523,7 +510,7 @@ function! s:create_statusline(mode)
                 \ '\ %m%r',
                 \ '%=',
                 \ '\ %y\ /',
-                \ '\ %{GitBranchSection()}\ /',
+                \ '\ %{FugitiveHead()}\ /',
                 \ '\ %p%%\ /\ %L',
                 \ '\ ',
                 \ ]
@@ -536,11 +523,6 @@ augroup MyStatusline
     autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
     autocmd WinLeave * call s:create_statusline('I')
 augroup END
-
-" Flake8 settings
-" ----------------------------------------------------------------------------
-let g:flake8_show_in_gutter = 0
-let g:flake8_show_quickfix=0
 
 " Indentline settings
 " ----------------------------------------------------------------------------

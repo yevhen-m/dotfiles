@@ -100,11 +100,10 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
 Plug 'RRethy/vim-illuminate'
-Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/fzf'
 
 Plug 'yevhen-m/base16-vim'
-Plug 'NLKNguyen/papercolor-theme'
 
 call plug#end()
 
@@ -397,24 +396,22 @@ xnoremap <silent> <C-j> :move'>+<cr>gv
 xnoremap <silent> <C-h> <gv
 xnoremap <silent> <C-l> >gv
 
+" Remove to the end of line from insert mode
+imap <c-k> <c-o>D
+
 " FZF settings
 " ----------------------------------------------------------------------------
 nnoremap <silent> <C-g><C-j> :GFiles?<CR>
-nnoremap <silent> <leader>e :Commands<CR>
 " Search files from vim's cwd
 nnoremap <silent> <C-p> :Files<CR>
 " Search files in the current file's directory
 nnoremap <silent> <C-g><C-p> :execute 'FZF ' . expand('%:h').'/'<cr>
-nnoremap <silent> <C-_> :BLines<CR>
 nnoremap <silent> <leader>b :Buffers<CR>
-nnoremap <silent> <C-n> :Buffers<CR>
 nnoremap <silent> <leader>hh :History<CR>
 nnoremap <silent> <c-g><c-l> :Commits<cr>
 nnoremap <silent> <c-g><c-b> :BCommits<cr>
 
-imap <c-x><c-l> <plug>(fzf-complete-buffer-line)
 imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-k> <c-o>D
 
 " Define fzf colors for light and dark colorschemes
 let g:fzf_colors =

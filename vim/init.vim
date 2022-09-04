@@ -14,6 +14,21 @@ let g:plug_window = 'enew'
 let s:plug_plugins_dir = '~/.config/nvim/plugged'
 call plug#begin(s:plug_plugins_dir)
 
+" Autocomplete
+let g:coq_settings = {
+            \    'auto_start': 'shut-up',
+            \    'keymap': {
+                \ 'manual_complete': "<C-n>",
+                \ 'bigger_preview': v:null,
+                \ },
+            \    'display': {
+                \ 'icons': {'mode': 'none'},
+                \ 'preview': {'border': 'solid'},
+                \ },
+            \ }
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+
 " Syntax
 Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
 Plug 'cespare/vim-toml', {'for': 'toml'}

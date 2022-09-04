@@ -36,9 +36,9 @@ Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
 Plug 'elzr/vim-json', {'for': 'json'}
 Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
 Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
-Plug 'moskytw/nginx-contrib-vim', {'for': 'nginx'}
 Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
 Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
+Plug 'chr4/nginx.vim', {'for': 'nginx'}
 
 " Git
 Plug 'airblade/vim-gitgutter'

@@ -269,6 +269,7 @@ if !exists("autocommands_loaded")
 
 endif
 
+" Search using ag and load results into quickfix list window
 function! Grep(...)
     if exists('a:1')
         let query = a:1
@@ -310,7 +311,6 @@ nnoremap <silent> ,l :copen<CR>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
-
 " Split line (sister to [J]oin lines)
 nnoremap S i<cr><esc>
 
@@ -517,7 +517,7 @@ function! s:create_statusline(mode)
                 \ '\ %m%r',
                 \ '%=',
                 \ '\ %y\ /',
-                \ '\ %{FugitiveHead()}\ /',
+                \ '\ %{FugitiveStatusline()}\ /',
                 \ '\ %p%%\ /\ %L',
                 \ '\ ',
                 \ ]
@@ -564,7 +564,7 @@ highlight Search cterm=bold
 highlight Pmenu ctermfg=20
 highlight illuminatedWord cterm=underline gui=underline
 
-" Unimpaired
+" Unimpaired -- move lines, add blank lines above/below
 " ----------------------------------------------------------------------------
 function! s:BlankUp(count) abort
   put!=repeat(nr2char(10), a:count)
@@ -583,7 +583,6 @@ nnoremap <silent> <Plug>unimpairedBlankDown :<C-U>call <SID>BlankDown(v:count1)<
 
 nmap [<Space> <Plug>unimpairedBlankUp
 nmap ]<Space> <Plug>unimpairedBlankDown
-
 
 function! s:ExecMove(cmd) abort
   let old_fdm = &foldmethod

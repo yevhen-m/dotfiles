@@ -29,40 +29,14 @@ let g:coq_settings = {
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
 Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 
-" Syntax
-Plug 'Glench/Vim-Jinja2-Syntax',  {'for': 'jinja'}
-Plug 'cespare/vim-toml', {'for': 'toml'}
-Plug 'chase/vim-ansible-yaml', {'for': 'ansible'}
-Plug 'elzr/vim-json', {'for': 'json'}
-Plug 'mxw/vim-jsx', {'for': 'javascript.jsx'}
-Plug 'othree/javascript-libraries-syntax.vim', {'for': 'javascript'}
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-Plug 'aklt/plantuml-syntax', {'for': 'plantuml'}
-Plug 'chr4/nginx.vim', {'for': 'nginx'}
-
 " Git
 Plug 'airblade/vim-gitgutter'
 Plug 'gilligan/textobj-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
-" Python
-Plug 'kh3phr3n/python-syntax', {'for': 'python'}
-
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-
-" Javascript
-Plug 'prettier/vim-prettier', { 'do': 'npm install', 'for': [
-            \ 'javascript',
-            \ 'typescript',
-            \ 'css',
-            \ 'less',
-            \ 'scss',
-            \ 'json',
-            \ 'graphql',
-            \ 'markdown',
-            \ ]}
 
 " Enhance vim searching.
 Plug 'thinca/vim-visualstar'
@@ -73,7 +47,6 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
 Plug 'Julian/vim-textobj-brace'
-Plug 'Yggdroot/indentLine'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-line'
@@ -81,11 +54,6 @@ Plug 'kana/vim-textobj-user'
 Plug 'kopischke/vim-fetch'
 Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'michaeljsmith/vim-indent-object', {'for': [
-            \ 'python',
-            \ 'javascript',
-            \ 'vim',
-            \ ]}
 Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-rsi'
@@ -99,7 +67,6 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
-Plug 'RRethy/vim-illuminate'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
@@ -465,19 +432,6 @@ let g:gitgutter_sign_modified_removed = '▎'
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 
-" Fugitive settings
-" ----------------------------------------------------------------------------
-nnoremap <leader>gd :Gvdiff<cr>gg]c
-" Merging conflicts
-nnoremap gdh :diffget //2<CR>
-nnoremap gdl :diffget //3<CR>
-nnoremap <leader>gc :Gwrite<bar>Gcommit -v<CR>
-nnoremap <leader>gb :Gblame<cr>
-nmap <leader>gs :Gstatus<cr>gg<C-N>
-
-" Python highlighting
-let python_self_cls_highlight = 1
-
 " RSI settings
 let g:rsi_no_meta = 1
 
@@ -487,9 +441,6 @@ let g:detectindent_preferred_indent = 4
 " Vim-highlightedyank settings
 hi link HighlightedyankRegion Visual
 let g:highlightedyank_highlight_duration = 500
-
-" Prettier settings
-let g:prettier#autoformat = 0
 
 " NERDTree
 nnoremap <C-n> :NERDTree<CR>
@@ -529,32 +480,6 @@ augroup MyStatusline
     autocmd!
     autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
     autocmd WinLeave * call s:create_statusline('I')
-augroup END
-
-" Indentline settings
-" ----------------------------------------------------------------------------
-let g:indentLine_fileType = ['python', 'vim']
-
-" Custom func to toggle iminsert option
-" ----------------------------------------------------------------------------
-function! ToggleEscapeMapping()
-    if b:escape_mapping
-        let b:escape_mapping = 0
-        inoremap <buffer> <silent> <esc> <esc>l
-        echom 'ESC mapping preserves iminsert value.'
-    else
-        let b:escape_mapping = 1
-        inoremap <buffer> <silent> <esc> <esc>:set iminsert=0<CR>l
-        echom 'ESC mapping resets iminsert value.'
-    endif
-endfunction
-" reset imsert by default
-inoremap <silent> <esc> <esc>:set iminsert=0<CR>l
-augroup toggle_escape
-    autocmd!
-    autocmd BufEnter * let b:escape_mapping = 1
-    autocmd BufEnter * set iminsert=0
-    autocmd BufEnter * nnoremap col :call ToggleEscapeMapping()<CR>
 augroup END
 
 " Highlighting

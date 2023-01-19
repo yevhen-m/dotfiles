@@ -48,7 +48,7 @@ then
       --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
       --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
       --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
-      --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border=horizontal --bind=alt-a:select-all+accept"
+      --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border=rounded --bind=alt-a:select-all+accept"
     unset -v color0{0..9} color0{A..F}
     export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"

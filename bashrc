@@ -144,7 +144,7 @@ alias vim="`brew --prefix`/bin/nvim"
 [[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
-export PATH=`brew --prefix`/opt/node@14/bin:$PATH
+export PATH=`brew --prefix`/opt/node@16/bin:$PATH
 export PATH="/Users/yevhen/.pyenv/shims:${PATH}"
 
 export PYENV_SHELL=bash

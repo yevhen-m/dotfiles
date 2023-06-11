@@ -11,7 +11,7 @@ shopt -s cmdhist
 # Append to the history file, don't overwrite it
 shopt -s histappend
 # Update history immediately
-PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 # Case-insensitive globbing (used in pathname expansion)
 shopt -s nocaseglob
 # Save multi-line commands as one command
@@ -23,7 +23,8 @@ shopt -s dirspell
 
 HISTSIZE=1000000
 HISTFILESIZE=1000000
-HISTCONTROL=ignorespace:erasedups
+HISTCONTROL=ignoreboth:erasedups
+HISTIGNORE='l':'workon':'j':'gl':'gs':'gd'
 
 if [[ -f ~/.fzf.bash ]]
 then

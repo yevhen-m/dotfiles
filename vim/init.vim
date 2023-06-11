@@ -70,14 +70,14 @@ Plug 'tpope/vim-capslock'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
-Plug 'yevhen-m/base16-vim'
+Plug 'chriskempson/base16-vim'
 
 call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
 let base16colorspace = 256
-colorscheme base16-eighties
+colorscheme base16-classic-light
 set background=dark
 
 " Options

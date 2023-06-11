@@ -29,31 +29,39 @@ HISTIGNORE='l':'workon':'j':'gl':'gs':'gd'
 if [[ -f ~/.fzf.bash ]]
 then
     source ~/.fzf.bash
-    color00='#2d2d2d'
-    color01='#393939'
-    color02='#515151'
-    color03='#747369'
-    color04='#a09f93'
-    color05='#d3d0c8'
-    color06='#e8e6df'
-    color07='#f2f0ec'
-    color08='#f2777a'
-    color09='#f99157'
-    color0A='#ffcc66'
-    color0B='#99cc99'
-    color0C='#66cccc'
-    color0D='#6699cc'
-    color0E='#cc99cc'
-    color0F='#d27b53'
-    export FZF_DEFAULT_OPTS="
-      --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D
-      --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C
-      --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D
-      --bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border=rounded --bind=alt-a:select-all+accept"
-    unset -v color0{0..9} color0{A..F}
+    export FZF_DEFAULT_OPTS="--bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border=rounded --bind=alt-a:select-all+accept"
     export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_CTRL_T_OPTS='--no-reverse'
+
+    _gen_fzf_default_opts() {
+
+    local color00='#f5f5f5'
+    local color01='#e0e0e0'
+    local color02='#d0d0d0'
+    local color03='#b0b0b0'
+    local color04='#505050'
+    local color05='#303030'
+    local color06='#202020'
+    local color07='#151515'
+    local color08='#ac4142'
+    local color09='#d28445'
+    local color0A='#f4bf75'
+    local color0B='#90a959'
+    local color0C='#75b5aa'
+    local color0D='#6a9fb5'
+    local color0E='#aa759f'
+    local color0F='#8f5536'
+
+    export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
+" --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D"\
+" --color=fg:$color04,header:$color0D,info:$color0A,pointer:$color0C"\
+" --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
+
+    }
+
+    _gen_fzf_default_opts
+
     source ~/.fzf-utils.bash
 fi
 
@@ -68,7 +76,7 @@ then
     alias j=z
 fi
 
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-classic-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper_lazy.sh"

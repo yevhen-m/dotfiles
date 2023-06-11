@@ -79,11 +79,11 @@ fi
 BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-classic-light.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
-VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper_lazy.sh"
+VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper.sh"
 if [[ -s $VIRTUALENVWRAPPER ]]
 then
     export WORKON_HOME=~/.virtualenvs
-    export VIRTUALENVWRAPPER_PYTHON=`brew --prefix python@3.9`/bin/python3.9
+    export VIRTUALENVWRAPPER_PYTHON=`brew --prefix python@3.9`/bin/python
     source $VIRTUALENVWRAPPER
 fi
 

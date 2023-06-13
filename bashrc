@@ -36,22 +36,22 @@ then
 
     _gen_fzf_default_opts() {
 
-    local color00='#f5f5f5'
-    local color01='#e0e0e0'
-    local color02='#d0d0d0'
-    local color03='#b0b0b0'
-    local color04='#505050'
-    local color05='#303030'
-    local color06='#202020'
-    local color07='#151515'
-    local color08='#ac4142'
-    local color09='#d28445'
-    local color0A='#f4bf75'
-    local color0B='#90a959'
-    local color0C='#75b5aa'
-    local color0D='#6a9fb5'
-    local color0E='#aa759f'
-    local color0F='#8f5536'
+    local color00='#2d2d2d'
+    local color01='#393939'
+    local color02='#515151'
+    local color03='#747369'
+    local color04='#a09f93'
+    local color05='#d3d0c8'
+    local color06='#e8e6df'
+    local color07='#f2f0ec'
+    local color08='#f2777a'
+    local color09='#f99157'
+    local color0A='#ffcc66'
+    local color0B='#99cc99'
+    local color0C='#66cccc'
+    local color0D='#6699cc'
+    local color0E='#cc99cc'
+    local color0F='#d27b53'
 
     export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS"\
 " --color=bg+:$color01,bg:$color00,spinner:$color0C,hl:$color0D"\
@@ -76,7 +76,7 @@ then
     alias j=z
 fi
 
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-classic-light.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper.sh"

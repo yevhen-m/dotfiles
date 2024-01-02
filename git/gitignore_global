@@ -2,6 +2,7 @@
 .isort.cfg
 .envrc
 .nvimrc
+.nvmrc
 .exrc
 .python-version
 .DS_Store

@@ -14,23 +14,8 @@ let g:plug_window = 'enew'
 let s:plug_plugins_dir = '~/.config/nvim/plugged'
 call plug#begin(s:plug_plugins_dir)
 
-" Autocomplete
-let g:coq_settings = {
-            \    'auto_start': 'shut-up',
-            \    'keymap': {
-                \ 'manual_complete': "<C-n>",
-                \ 'bigger_preview': v:null,
-                \ },
-            \    'display': {
-                \ 'icons': {'mode': 'none'},
-                \ 'preview': {'border': 'solid'},
-                \ },
-            \ }
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
-
 " Git
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 Plug 'gilligan/textobj-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -71,6 +56,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
 Plug 'yevhen-m/base16-vim'
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'RRethy/nvim-base16'
 
 call plug#end()
 
@@ -140,7 +128,7 @@ set mouse=a
 set noacd
 set nofoldenable           " open all folds
 set noshowcmd
-set showmode
+set noshowmode
 set nostartofline
 set noswapfile nobackup
 set nrformats=             " treat all numbers as decimal, not octal
@@ -231,9 +219,6 @@ if !exists("autocommands_loaded")
 
     " Vim filetype
     autocmd FileType vim nnoremap <buffer> <leader>ss :source %<CR>
-
-    autocmd! User FzfStatusLine setlocal statusline=\ >\ fzf
-
 endif
 
 " Search using ag and load results into quickfix list window
@@ -546,3 +531,46 @@ nmap [e <Plug>unimpairedMoveUp
 nmap ]e <Plug>unimpairedMoveDown
 xmap [e <Plug>unimpairedMoveSelectionUp
 xmap ]e <Plug>unimpairedMoveSelectionDown
+
+lua << END
+require('lualine').setup {
+  options = {
+    icons_enabled = true,
+    theme = 'base16',
+    component_separators = { left = '󰿟', right = '󰿟'},
+    section_separators = { left = '', right = ''},
+    disabled_filetypes = {
+      statusline = {},
+      winbar = {},
+    },
+    ignore_focus = {},
+    always_divide_middle = true,
+    globalstatus = false,
+    refresh = {
+      statusline = 1000,
+      tabline = 1000,
+      winbar = 1000,
+    }
+  },
+  sections = {
+    lualine_a = {'mode'},
+    lualine_b = {'branch', 'diff', 'diagnostics'},
+    lualine_c = {'filename'},
+    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_y = {'progress'},
+    lualine_z = {'location'}
+  },
+  inactive_sections = {
+    lualine_a = {},
+    lualine_b = {},
+    lualine_c = {'filename'},
+    lualine_x = {'location'},
+    lualine_y = {},
+    lualine_z = {}
+  },
+  tabline = {},
+  winbar = {},
+  inactive_winbar = {},
+  extensions = {}
+}
+END

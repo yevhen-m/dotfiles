@@ -104,9 +104,9 @@ export BASH_COMPLETION_COMPAT_DIR=`brew --prefix`/etc/bash_completion.d
 [[ -r `brew --prefix`/etc/profile.d/bash_completion.sh ]] && . `brew --prefix`/etc/profile.d/bash_completion.sh
 
 # Aliases
-alias l='exa -lha --time-style long-iso'
-alias ll='exa -lha --time-style long-iso'
-alias lt='exa -lhaT --time-style long-iso'
+alias l='eza -lha --time-style long-iso'
+alias ll='eza -lha --time-style long-iso'
+alias lt='eza -lhaT --time-style long-iso'
 alias zsh='bash'
 # Linux related
 if [[ $(uname -s) = Linux ]]
@@ -166,7 +166,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 GIT_PS1_SHOWCOLORHINTS=1
 
 # Prompt
-export PS1="\[\e[01;35m\]\w \$(__git_ps1 '[%s]')\n❯❯❯ \[\e[0m\]"
+export PS1="\[\e[01;34m\]\w \$(__git_ps1 ' %s')\n\[\e[01;35m\]❯❯❯ \[\e[0m\]"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

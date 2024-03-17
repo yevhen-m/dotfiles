@@ -44,13 +44,14 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-/:toggle-preview'
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
-  --header 'Press CTRL-Y to copy command into clipboard'"# Integration with z
+  --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target
   --preview 'tree -C {}'"
 
+# Integration with z
 unalias z 2> /dev/null
 z() {
   [ $# -select-tag 0 ] && _z "$*" && return

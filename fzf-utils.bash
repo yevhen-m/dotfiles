@@ -31,9 +31,7 @@ then
 " --color=marker:$color0C,fg+:$color06,prompt:$color0A,hl+:$color0D"
 
     }
-
     _gen_fzf_default_opts
-
     source ~/Dotfiles/fzf-git.sh
 fi
 
@@ -44,11 +42,13 @@ export FZF_CTRL_R_OPTS="
   --bind 'ctrl-/:toggle-preview'
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
+  --border-label '📜 History'
+  --border-label-pos 2
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="
-  --walker-skip .git,node_modules,target
+  --walker-skip .git,node_modules,target --border-label '📁 Folders' --border-label-pos 2 --height=~100%
   --preview 'tree -C {}'"
 
 # Integration with z

@@ -1,0 +1,123 @@
+let mapleader=","
+
+""" Plugins  --------------------------------
+set matchit
+set surround
+set nerdtree
+set easymotion
+set multiple-cursors
+set commentary
+set argtextobj
+set textobj-entire
+set textobj-indent
+set vim-paragraph-motion
+set ReplaceWithRegister
+set highlightedyank
+set exchange
+set quickscope
+
+""" Plugin settings -------------------------
+let g:argtextobj_pairs="[:],(:),<:>"
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+""" Common settings -------------------------
+set clipboard+=unnamed
+set clipboard+=ideaput
+set showmode
+set scrolloff=5
+set sidescrolloff=5
+set incsearch
+set visualbell
+set ignorecase
+set smartcase
+set hlsearch
+set number
+set incsearch
+
+""" Idea specific settings ------------------
+set ideajoin
+set idearefactormode=keep
+set ideastatusicon=gray
+set idearefactormode=keep
+
+""" Mappings --------------------------------
+" To copy text to the end-of-line, press Y.
+" This mapping sets up Y to be consistent with
+" the C and D operators, which act from the cursor
+" to the end of the line. The default behavior of Y
+" is to yank the whole line.
+nnoremap Y y$
+
+" Add empty lines below / above cursor
+nnoremap ] o<Esc>k
+nnoremap [ O<Esc>j
+
+nnoremap <Space> :nohlsearch<CR>
+
+map <leader>f <Plug>(easymotion-s)
+map <leader>e <Plug>(easymotion-f)
+
+map <leader>r <Action>(RenameElement)
+map <leader>s <Action>(SelectInProjectView)
+
+nnoremap <C-p> :action SearchEverywhere<CR>
+
+" When in normal mode and I hit Enter,
+" then save file please
+nmap <CR> :action ReformatCode<CR> :write<CR>
+nnoremap <leader>F :action ReformatCode<CR> :write<CR>
+
+" Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
+nmap <C-g> <Plug>NextWholeOccurrence
+xmap <C-g> <Plug>NextWholeOccurrence
+nmap g<C-g> <Plug>NextOccurrence
+xmap g<C-g> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence
+
+" Window navigation
+nnoremap <c-\> :action SplitVertically<CR>
+nnoremap <c--> :action SplitHorizontally<CR>
+nnoremap <c-=> :action Unsplit<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <leader>en :action EditSourceInNewWindow<CR>
+nnoremap <leader>n :action NextWindow<CR>
+nnoremap <leader>qc :action CloseContent<CR>
+nnoremap <leader>qa :action CloseAllEditors<CR>
+
+" Greatest remap EVER!!
+" Let me explain, this remap while in visual mode
+" will delete what is currently highlighted and replace it
+" with what is in the register BUT it will YANK (delete) it
+" to a VOID register. Meaning I still have what I originally had
+" when I pasted. I don't loose the previous thing I YANKED!
+vnoremap <leader>p "_dP
+
+" Move visual blocks
+vnoremap J :m'>+<CR>gv=gv
+vnoremap K :m-2<CR>gv=gv
+
+nnoremap L $
+nnoremap J 6j
+nnoremap K 6k
+nnoremap H ^
+vnoremap L $
+vnoremap H ^
+
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap ]e :action GotoNextError<CR>
+nnoremap [E :action GotoPreviousError<CR>
+
+" Keys from vim-gitgutter
+nmap ]c <Action>(VcsShowNextChangeMarker)
+nmap [c <Action>(VcsShowPrevChangeMarker)

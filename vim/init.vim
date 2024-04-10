@@ -428,9 +428,7 @@ hi link HighlightedyankRegion Visual
 let g:highlightedyank_highlight_duration = 500
 
 " NERDTree
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :NERDTreeFind<CR>
+nnoremap <C-t> :NERDTreeFind<CR>
 
 " Statusline
 " ----------------------------------------------------------------------------

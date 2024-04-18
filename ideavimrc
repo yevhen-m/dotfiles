@@ -28,16 +28,15 @@ set scrolloff=5
 set sidescrolloff=5
 set incsearch
 set visualbell
+set incsearch
 set ignorecase
 set smartcase
 set hlsearch
 set number
-set incsearch
 
 """ Idea specific settings ------------------
 set ideajoin
-set idearefactormode=keep
-set ideastatusicon=gray
+set ideastatusicon=enabled
 set idearefactormode=keep
 
 """ Mappings --------------------------------
@@ -48,24 +47,33 @@ set idearefactormode=keep
 " is to yank the whole line.
 nnoremap Y y$
 
-" Add empty lines below / above cursor
-nnoremap ] o<Esc>k
-nnoremap [ O<Esc>j
+inoremap <C-a> <Home>
+inoremap <C-e> <End>
+inoremap <C-f> <Right>
+cnoremap <C-F> <Right>
+inoremap <C-b> <Left>
+cnoremap <C-b> <Left>
+inoremap <C-d> <Del>
+cnoremap <C-d> <Del>
+inoremap <C-k> <C-o>D<Right>
 
 nnoremap <Space> :nohlsearch<CR>
 
-map <leader>f <Plug>(easymotion-s)
-map <leader>e <Plug>(easymotion-f)
+" EasyMotion mappings
+map <leader>f <Plug>(easymotion-F)
+map H <Plug>(easymotion-F)
+map <leader>F <Plug>(easymotion-f)
+map L <Plug>(easymotion-f)
 
 map <leader>r <Action>(RenameElement)
-map <leader>s <Action>(SelectInProjectView)
+map <leader>u <Action>(FindUsages)
+map <leader>n <Action>(NextOccurence)
+map <leader>N <Action>(PreviousOccurence)
 
-nnoremap <C-p> :action SearchEverywhere<CR>
+nmap <C-p> <Action>(SearchEverywhere)
 
-" When in normal mode and I hit Enter,
-" then save file please
+" When in normal mode and I hit Enter, then save file please
 nmap <CR> :action ReformatCode<CR> :write<CR>
-nnoremap <leader>F :action ReformatCode<CR> :write<CR>
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
 nmap <C-g> <Plug>NextWholeOccurrence
@@ -86,15 +94,8 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
-nnoremap <TAB> :action NextTab<CR>
-nnoremap <s-TAB> :action PreviousTab<CR>
-nnoremap <leader>en :action EditSourceInNewWindow<CR>
-nnoremap <leader>n :action NextWindow<CR>
-nnoremap <leader>qc :action CloseContent<CR>
-nnoremap <leader>qa :action CloseAllEditors<CR>
 
-" Greatest remap EVER!!
-" Let me explain, this remap while in visual mode
+" While in visual mode
 " will delete what is currently highlighted and replace it
 " with what is in the register BUT it will YANK (delete) it
 " to a VOID register. Meaning I still have what I originally had
@@ -105,19 +106,21 @@ vnoremap <leader>p "_dP
 vnoremap J :m'>+<CR>gv=gv
 vnoremap K :m-2<CR>gv=gv
 
-nnoremap L $
-nnoremap J 6j
-nnoremap K 6k
-nnoremap H ^
-vnoremap L $
-vnoremap H ^
+" Join and split lines
+nnoremap S i<CR><ESC>
 
-vnoremap < <gv
-vnoremap > >gv
+vnoremap < <gv vnoremap > >gv
 
-nnoremap ]e :action GotoNextError<CR>
-nnoremap [E :action GotoPreviousError<CR>
+nmap ]e :action GotoNextError<CR>
+nmap [e :action GotoPreviousError<CR>
 
 " Keys from vim-gitgutter
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
+
+" Marks
+nnoremap M `
+nmap md <Action>(ToggleBookmark)
+
+" Focus project window
+nmap - <Action>(ActivateProjectToolWindow)

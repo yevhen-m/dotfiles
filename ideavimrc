@@ -60,15 +60,19 @@ inoremap <C-k> <C-o>D<Right>
 nnoremap <Space> :nohlsearch<CR>
 
 " EasyMotion mappings
-map <leader>f <Plug>(easymotion-F)
+map <leader>F <Plug>(easymotion-F)
 map H <Plug>(easymotion-F)
-map <leader>F <Plug>(easymotion-f)
+map <leader>f <Plug>(easymotion-f)
 map L <Plug>(easymotion-f)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 map <leader>r <Action>(RenameElement)
 map <leader>u <Action>(FindUsages)
 map <leader>n <Action>(NextOccurence)
 map <leader>N <Action>(PreviousOccurence)
+map <C-r> <Action>(Rerun)
+nnoremap U <C-r>
 
 nmap <C-p> <Action>(SearchEverywhere)
 

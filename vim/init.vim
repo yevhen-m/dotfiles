@@ -31,6 +31,7 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
+Plug 'easymotion/vim-easymotion'
 Plug 'Julian/vim-textobj-brace'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-entire'
@@ -41,13 +42,12 @@ Plug 'machakann/vim-highlightedyank'
 Plug 'vim-scripts/ReplaceWithRegister'
 Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
 Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-rsi'
-Plug 'junegunn/vader.vim', {'on': 'Vader'}
 Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
 Plug 'Shougo/junkfile.vim', {'on': 'JunkfileOpen'}
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'pbrisbin/vim-mkdir'
 Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
+Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
@@ -398,7 +398,8 @@ command! -bang -nargs=* Ag
 " ----------------------------------------------------------------------------
 let g:undotree_SetFocusWhenToggle = 1
 let g:undotree_WindowLayout = 2
-nnoremap U :UndotreeToggle<CR>
+nnoremap gu :UndotreeToggle<CR>
+nnoremap U <C-r>
 
 " Maximizer plugin settings
 " ----------------------------------------------------------------------------
@@ -572,3 +573,18 @@ require('lualine').setup {
   extensions = {}
 }
 END
+
+""" Easymotion settings
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+let g:EasyMotion_smartcase = 1
+nmap L <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-f)
+nmap H <Plug>(easymotion-F)
+map <leader>f <Plug>(easymotion-F)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map  / <Plug>(easymotion-fn)
+map  ? <Plug>(easymotion-Fn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)

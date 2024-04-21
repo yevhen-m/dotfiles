@@ -41,9 +41,6 @@ then
     alias j=z
 fi
 
-BASE16_SHELL="$HOME/.config/base16-shell/scripts/base16-eighties.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
 VIRTUALENVWRAPPER="`brew --prefix`/bin/virtualenvwrapper.sh"
 if [[ -s $VIRTUALENVWRAPPER ]]
 then

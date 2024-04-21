@@ -22,6 +22,7 @@ Plug 'tpope/vim-rhubarb'
 
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Enhance vim searching.
 Plug 'thinca/vim-visualstar'
@@ -55,25 +56,22 @@ Plug 'tpope/vim-capslock'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
 
-Plug 'yevhen-m/base16-vim'
 Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'RRethy/nvim-base16'
+" Plug 'nvim-tree/nvim-web-devicons'
+Plug 'ryanoasis/vim-devicons'
+Plug 'folke/tokyonight.nvim'
 
 call plug#end()
 
 " Colorscheme
 " ----------------------------------------------------------------------------
-let base16colorspace = 256
-colorscheme base16-eighties
-set background=dark
+colorscheme tokyonight-night
+set termguicolors
 
 " Options
 " ----------------------------------------------------------------------------
 set inccommand=split         " Show visual indication when using substitute command
 set signcolumn=auto          " Draw signcolumn when signs are available
-set keymap=russian-jcukenwin " alternative keymap (+keymap feature for vim)
-set iminsert=0 imsearch=0    " order of this options matters!
 set clipboard^=unnamedplus   " use system clipboard
 
 set autoindent
@@ -82,37 +80,27 @@ set nosmartindent             " smartindent is not so smart
 set incsearch
 set hlsearch
 set formatoptions=tlcqjron1
-set guicursor=                " don't chnage cursor shape in different modes
 set fillchars=diff:-,vert:│          " nice window separator char
 set listchars=tab:\⋮\ ,extends:❯,precedes:❮,trail:·
 let &showbreak = '↪ '         " mark soft linebreaks
 set linebreak                 " this is soft breaking (without linebreak added)
 set nobreakindent             " don't indent wrapped lines
 set cursorline
-set scrolloff=0               " offset of 0 lines to top-bottom borders;
-                              " don't want to set this bc viewport jumps when
-                              " I click with mouse at the top/bottom of the
-                              " screen.
+set scrolloff=10
 
 let $LANG = 'en' | set langmenu=none  " set vim language
 
 let mapleader=","
 
-set pastetoggle=<F10>
-set pumheight=15           " Maximum height for completion window
 set mousehide              " Hide mouse when typing
 set more                   " Pause on long listings
 set autowriteall           " Write contents of the file if it has been modified
 set nolazyredraw           " don't set this cause vim disappears when new tmux pane is split
 set diffopt=filler
 set autowriteall           " automatically write when leaving a buffer
-set winheight=15           " minimum height for active window
-set winminwidth=3          " minimum number of lines for any window
-set autoread               " for vim-tmux-focus-events plugin
 set fileignorecase         " ignore case when autocompleting filenames in command line
 set cmdwinheight=10        " height of command-line window
 set backspace=2
-set complete-=i            " Don't scan included files because it's too slow
 set completeopt-=preview
 set gdefault               " always use 'g' flag when executing substitute command
 set hidden
@@ -122,14 +110,9 @@ set ignorecase
 set smartcase              " ovveride ignorecase when pattern contains uppercase
 set isfname-==             " remove = from filename pattern
 set list                   " show tab characters
-set showmatch              " show matching parens (see 'matchtime' setting)
-set matchtime=4            " .4 seconds to show matching paren
-set mouse=a
-set noacd
 set nofoldenable           " open all folds
 set noshowcmd
 set noshowmode
-set nostartofline
 set noswapfile nobackup
 set nrformats=             " treat all numbers as decimal, not octal
 set number
@@ -429,7 +412,7 @@ hi link HighlightedyankRegion Visual
 let g:highlightedyank_highlight_duration = 500
 
 " NERDTree
-nnoremap <C-t> :NERDTreeFind<CR>
+nnoremap <silent> - :NERDTreeFind<CR>
 
 " Statusline
 " ----------------------------------------------------------------------------
@@ -535,9 +518,9 @@ lua << END
 require('lualine').setup {
   options = {
     icons_enabled = true,
-    theme = 'base16',
-    component_separators = { left = '󰿟', right = '󰿟'},
-    section_separators = { left = '', right = ''},
+    theme = 'tokyonight',
+    component_separators = { left = '', right = ''},
+    section_separators = { left = '', right = ''},
     disabled_filetypes = {
       statusline = {},
       winbar = {},
@@ -563,7 +546,7 @@ require('lualine').setup {
     lualine_a = {},
     lualine_b = {},
     lualine_c = {'filename'},
-    lualine_x = {'location'},
+    lualine_x = {},
     lualine_y = {},
     lualine_z = {}
   },

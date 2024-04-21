@@ -101,6 +101,7 @@ alias td="tmux detach"
 alias _vim=/usr/bin/vim
 alias vi="`brew --prefix`/bin/nvim"
 alias vim="`brew --prefix`/bin/nvim"
+alias vim-kickstart='NVIM_APPNAME="nvim-kickstart" nvim'
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # PATH manipulations

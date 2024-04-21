@@ -10,10 +10,12 @@
     navigate = true
     light = false
     side-by-side = false
+    line-numbers = true
     paging = never
+    features = tokyonight_night
+[include]
+    path = ~/.config/nvim/plugged/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
 [interactive]
-	; Push only the current branch to the one that git pull will pull from
-	; (check that their names match)
     diffFilter = delta --color-only
 [push]
 	default = simple

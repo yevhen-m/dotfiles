@@ -17,7 +17,6 @@ call plug#begin(s:plug_plugins_dir)
 " Git
 Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 Plug 'gilligan/textobj-gitgutter'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 
 Plug 'preservim/nerdtree'
@@ -413,41 +412,6 @@ let g:highlightedyank_highlight_duration = 500
 
 " NERDTree
 nnoremap <silent> - :NERDTreeFind<CR>
-
-" Statusline
-" ----------------------------------------------------------------------------
-function! s:create_statusline(mode)
-    " Relative path to file
-    " Filename
-    " Where to truncate
-    " Modified, readonly
-    " Switch to right-hand side
-    " Filetype
-    " Current line in file
-    " Total lines count
-    let common = [
-                \ '\ ',
-                \ "%{expand('%:h')}/",
-                \ '%t',
-                \ ]
-    let rest = [
-                \ '\ %<',
-                \ '\ %m%r',
-                \ '%=',
-                \ '\ %y\ /',
-                \ '\ %{FugitiveStatusline()}\ /',
-                \ '\ %p%%\ /\ %L',
-                \ '\ ',
-                \ ]
-    let parts = a:mode ==# 'A' ? common + rest : common
-    execute 'setlocal statusline=' . join(parts, '')
-endfunction
-
-augroup MyStatusline
-    autocmd!
-    autocmd WinEnter,BufWinEnter * call s:create_statusline('A')
-    autocmd WinLeave * call s:create_statusline('I')
-augroup END
 
 " Highlighting
 " ----------------------------------------------------------------------------

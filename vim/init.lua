@@ -139,6 +139,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Set custom config file path for lazygit.nvim
+vim.g.lazygit_use_custom_config_file_path = 1
+vim.g.lazygit_config_file_path = '/Users/yevhen/.config/lazygit'
+
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -174,6 +178,25 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
+  {
+    "kdheepak/lazygit.nvim",
+    cmd = {
+      "LazyGit",
+      "LazyGitConfig",
+      "LazyGitCurrentFile",
+      "LazyGitFilter",
+      "LazyGitFilterCurrentFile",
+    },
+    -- optional for floating window border decoration
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+    },
+    -- setting the keybinding for LazyGit with 'keys' is recommended in
+    -- order to load the plugin when the command is run for the first time
+    keys = {
+       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
+    }
+  },
 	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",

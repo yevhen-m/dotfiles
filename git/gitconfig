@@ -9,7 +9,8 @@
 [delta]
     navigate = true
     light = false
-    side-by-side = true
+    side-by-side = false
+    paging = never
 [interactive]
 	; Push only the current branch to the one that git pull will pull from
 	; (check that their names match)

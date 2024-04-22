@@ -22,14 +22,6 @@ nmap <C-o> :back
 exmap forward obcommand app:go-forward
 nmap <C-i> :forward
 
-" HJKL behaves like hjkl, but bigger distance
-noremap H g0
-noremap L g$
-nnoremap J 6gj
-nnoremap K 6gk
-vnoremap J 6j
-vnoremap K 6k
-
 " dj = delete 2 lines, dJ = delete 3 lines
 onoremap J 2j
 
@@ -49,26 +41,7 @@ exmap 0 goLineLeftSmart
 exmap $ goLineRight
 
 exmap surround_wiki surround [[ ]]
-exmap surround_double_quotes surround " "
-exmap surround_single_quotes surround ' '
-exmap surround_backticks surround ` `
-exmap surround_brackets surround ( )
-exmap surround_square_brackets surround [ ]
-exmap surround_curly_brackets surround { }
-
 map [[ :surround_wiki
-nunmap s
-vunmap s
-map s" :surround_double_quotes
-map s' :surround_single_quotes
-map s` :surround_backticks
-map sb :surround_brackets
-map s( :surround_brackets
-map s) :surround_brackets
-map s[ :surround_square_brackets
-map s[ :surround_square_brackets
-map s{ :surround_curly_brackets
-map s} :surround_curly_brackets
 
 exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
 nmap gs :jumpToLink

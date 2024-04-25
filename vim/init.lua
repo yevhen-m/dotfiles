@@ -59,6 +59,7 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
+vim.opt.tabstop = 2
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -79,6 +80,9 @@ vim.opt.scrolloff = 10
 --  See `:help vim.keymap.set()`
 vim.keymap.set("n", "<leader><leader>", "<cmd>write<CR>")
 
+-- Map U for undos
+vim.keymap.set("n", "U", "<C-r>")
+
 -- Location and quickfix lists
 vim.keymap.set("n", "<leader>xl", "<cmd>copen<CR>")
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
@@ -88,7 +92,7 @@ vim.keymap.set("n", "<leader>xl", "<cmd>lopen<CR>")
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Space>", "<cmd>nohlsearch<CR>")
-vim.keymap.set({ "n", "i" }, "<Esc>", "<Esc><cmd>nohlsearch<CR>")
+vim.keymap.set({ "n", "i" }, "<Esc>", "<Esc><cmd>nohlsearch<CR>l")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
@@ -141,7 +145,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 
 -- Set custom config file path for lazygit.nvim
 vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = '/Users/yevhen/.config/lazygit'
+vim.g.lazygit_config_file_path = "/Users/yevhen/.config/lazygit"
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 --    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
@@ -178,25 +182,41 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 	-- "gc" to comment visual regions/lines
 	{ "numToStr/Comment.nvim", opts = {} },
-  {
-    "kdheepak/lazygit.nvim",
-    cmd = {
-      "LazyGit",
-      "LazyGitConfig",
-      "LazyGitCurrentFile",
-      "LazyGitFilter",
-      "LazyGitFilterCurrentFile",
-    },
-    -- optional for floating window border decoration
-    dependencies = {
-        "nvim-lua/plenary.nvim",
-    },
-    -- setting the keybinding for LazyGit with 'keys' is recommended in
-    -- order to load the plugin when the command is run for the first time
-    keys = {
-       { "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" }
-    }
-  },
+	{
+		"kdheepak/lazygit.nvim",
+		cmd = {
+			"LazyGit",
+			"LazyGitConfig",
+			"LazyGitCurrentFile",
+			"LazyGitFilter",
+			"LazyGitFilterCurrentFile",
+		},
+		-- optional for floating window border decoration
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		-- setting the keybinding for LazyGit with 'keys' is recommended in
+		-- order to load the plugin when the command is run for the first time
+		keys = {
+			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
+		},
+	},
+	{
+		"ggandor/leap.nvim",
+		dependencies = {
+			"tpope/vim-repeat",
+		},
+		config = function()
+			require("leap").create_default_mappings()
+			-- Override some old defaults - use backspace instead of tab (see issue #165).
+			require("leap").opts.special_keys.prev_target = "<backspace>"
+			require("leap").opts.special_keys.prev_group = "<backspace>"
+
+			-- Use the traversal keys to repeat the previous motion without explicitly
+			-- invoking Leap.
+			require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+		end,
+	},
 	-- Statusline
 	{
 		"nvim-lualine/lualine.nvim",
@@ -251,15 +271,30 @@ require("lazy").setup({
 	-- See `:help gitsigns` to understand what the configuration keys do
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
 		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
+		config = function()
+			require("gitsigns").setup({
+				on_attach = function(buffer)
+					local gs = package.loaded.gitsigns
+
+					local function map(mode, l, r, desc)
+						vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+					end
+          -- stylua: ignore start
+          map("n", "]h", gs.next_hunk, "Next Hunk")
+          map("n", "[h", gs.prev_hunk, "Prev Hunk")
+          map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
+          map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+          map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
+          map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
+          map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+          map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
+          map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+          map("n", "<leader>ghd", gs.diffthis, "Diff This")
+          map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+          map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
+				end,
+			})
+		end,
 	},
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
@@ -808,13 +843,6 @@ require("lazy").setup({
 			--  - yinq - [Y]ank [I]nside [N]ext [']quote
 			--  - ci'  - [C]hange [I]nside [']quote
 			require("mini.ai").setup({ n_lines = 500 })
-
-			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
-			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-			-- - sd'   - [S]urround [D]elete [']quotes
-			-- - sr)'  - [S]urround [R]eplace [)] [']
-			require("mini.surround").setup()
 		end,
 	},
 	{ -- Highlight, edit, and navigate code
@@ -876,6 +904,9 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+		},
+		keys = {
+			{ "-", "<cmd>Neotree reveal<cr>", desc = "Neotree" },
 		},
 	},
 	-- require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps

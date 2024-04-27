@@ -46,3 +46,4 @@ map [[ :surround_wiki
 exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
 nunmap s
 nmap s :jumpToLink
+nmap S :jumpToLink

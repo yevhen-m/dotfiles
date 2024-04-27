@@ -31,7 +31,6 @@ Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Helpful
-Plug 'easymotion/vim-easymotion'
 Plug 'Julian/vim-textobj-brace'
 Plug 'christoomey/vim-sort-motion'
 Plug 'kana/vim-textobj-entire'
@@ -50,10 +49,10 @@ Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
 Plug 'tpope/vim-capslock'
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf'
+Plug 'ggandor/leap.nvim'
 
 Plug 'nvim-lualine/lualine.nvim'
 " Plug 'nvim-tree/nvim-web-devicons'
@@ -245,14 +244,14 @@ nnoremap <silent> ,l :copen<CR>
 
 " Keep the cursor in place while joining lines
 nnoremap J mzJ`z
-" Split line (sister to [J]oin lines)
-nnoremap S i<cr><esc>
 
 " Duplicate and comment out duplicate.
 nmap gcp :t.<CR>k<Plug>CommentaryLinej
 
 " Use space to clear highlighting
 nnoremap <silent> <space> :nohlsearch<cr>
+" Don't move cursor when exiting the insert mode
+inoremap <Esc> <Esc>l
 nnoremap <silent> <2-LeftMouse>
             \ :let @/='\V\<'.escape(expand('<cword>'), '\').'\>'<cr>:set hlsearch<cr>
 
@@ -521,17 +520,4 @@ require('lualine').setup {
 }
 END
 
-""" Easymotion settings
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-let g:EasyMotion_smartcase = 1
-nmap L <Plug>(easymotion-f)
-map <leader>F <Plug>(easymotion-f)
-nmap H <Plug>(easymotion-F)
-map <leader>f <Plug>(easymotion-F)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map  / <Plug>(easymotion-fn)
-map  ? <Plug>(easymotion-Fn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
+lua require('leap').create_default_mappings()

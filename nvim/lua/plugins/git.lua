@@ -8,6 +8,10 @@ return {
 			"LazyGitFilter",
 			"LazyGitFilterCurrentFile",
 		},
+		init = function()
+			vim.g.lazygit_use_custom_config_file_path = 1
+			vim.g.lazygit_config_file_path = "/Users/yevhen/.config/lazygit"
+		end,
 		-- optional for floating window border decoration
 		dependencies = {
 			"nvim-lua/plenary.nvim",
@@ -45,4 +49,6 @@ return {
 			})
 		end,
 	},
+	"almo7aya/openingh.nvim",
 }
+-- vim: ts=2 sts=2 sw=2 et

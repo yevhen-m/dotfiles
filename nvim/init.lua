@@ -1,5 +1,3 @@
--- Set <space> as the leader key
--- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = ","
 vim.g.maplocalleader = ","
@@ -66,6 +64,9 @@ vim.opt.tabstop = 2
 vim.opt.list = true
 -- tab:\⋮\ ,extends:❯,precedes:❮,trail:·
 vim.opt.listchars = { tab = "⋮ ", trail = "·", nbsp = "␣", extends = "❯", precedes = "❮" }
+vim.opt.showbreak = "↪ "
+vim.opt.linebreak = true
+vim.opt.breakindent = false
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -76,9 +77,17 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
 
+vim.opt.autowriteall = true
+vim.opt.fileignorecase = true
+vim.opt.swapfile = false
+vim.opt.grepprg = "ag --hidden --vimgrep --column --smart-case $*"
+vim.opt.grepformat = "%f:%l:%c:%m"
+
 -- [[ Basic Keymaps ]]
+-- Use backslash to jump to the previous match
+vim.keymap.set("n", "\\", ",")
 --  See `:help vim.keymap.set()`
-vim.keymap.set("n", "<leader><leader>", "<cmd>write<CR>")
+vim.keymap.set("n", "<leader><leader>", "<cmd>update<CR>")
 
 -- Map U for undos
 vim.keymap.set("n", "U", "<C-r>")
@@ -142,10 +151,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
-
--- Set custom config file path for lazygit.nvim
-vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = "/Users/yevhen/.config/lazygit"
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

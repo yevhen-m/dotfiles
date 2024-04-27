@@ -1,174 +1,4 @@
--- Set <space> as the leader key
--- See `:help mapleader`
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
-vim.g.mapleader = ","
-vim.g.maplocalleader = ","
-
--- Hide mouse when typing
-vim.g.mousehide = true
-
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
-
--- [[ Setting options ]]
--- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
-
--- Make line numbers default
-vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = "a"
-
--- Pause on long listings
-vim.opt.more = true
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.opt.clipboard = "unnamedplus"
-
--- Enable break indent
-vim.opt.breakindent = true
-
--- Save undo history
-vim.opt.undofile = true
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
-vim.opt.tabstop = 2
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
--- tab:\⋮\ ,extends:❯,precedes:❮,trail:·
-vim.opt.listchars = { tab = "⋮ ", trail = "·", nbsp = "␣", extends = "❯", precedes = "❮" }
-
--- Preview substitutions live, as you type!
-vim.opt.inccommand = "split"
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
-
--- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
-vim.keymap.set("n", "<leader><leader>", "<cmd>write<CR>")
-
--- Map U for undos
-vim.keymap.set("n", "U", "<C-r>")
-
--- Location and quickfix lists
-vim.keymap.set("n", "<leader>xl", "<cmd>copen<CR>")
-vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
-vim.keymap.set("n", "[q", "<cmd>cprev<CR>")
-vim.keymap.set("n", "<leader>xl", "<cmd>lopen<CR>")
-
--- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
-vim.keymap.set("n", "<Space>", "<cmd>nohlsearch<CR>")
-vim.keymap.set({ "n", "i" }, "<Esc>", "<Esc><cmd>nohlsearch<CR>l")
-
--- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
-
--- Keybinds to make split navigation easier.
---  Use CTRL+<hjkl> to switch between windows
---
---  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
-
--- Resize windows
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +5<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase window width" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decreasee window width" })
-
--- [[ Basic Autocommands ]]
---  See `:help lua-guide-autocommands`
-
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
-vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
-})
-
--- Set custom config file path for lazygit.nvim
-vim.g.lazygit_use_custom_config_file_path = 1
-vim.g.lazygit_config_file_path = "/Users/yevhen/.config/lazygit"
-
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-end ---@diagnostic disable-next-line: undefined-field
-vim.opt.rtp:prepend(lazypath)
-
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
-require("lazy").setup({
-	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
+return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"tpope/vim-rsi",
 	"RRethy/vim-illuminate",
@@ -214,25 +44,6 @@ require("lazy").setup({
 	},
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
-		"kdheepak/lazygit.nvim",
-		cmd = {
-			"LazyGit",
-			"LazyGitConfig",
-			"LazyGitCurrentFile",
-			"LazyGitFilter",
-			"LazyGitFilterCurrentFile",
-		},
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		-- setting the keybinding for LazyGit with 'keys' is recommended in
-		-- order to load the plugin when the command is run for the first time
-		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-		},
-	},
-	{
 		"ggandor/leap.nvim",
 		dependencies = {
 			"tpope/vim-repeat",
@@ -246,85 +57,6 @@ require("lazy").setup({
 			-- Use the traversal keys to repeat the previous motion without explicitly
 			-- invoking Leap.
 			require("leap.user").set_repeat_keys("<enter>", "<backspace>")
-		end,
-	},
-	-- Statusline
-	{
-		"nvim-lualine/lualine.nvim",
-		config = function()
-			require("lualine").setup({
-				options = {
-					icons_enabled = true,
-					theme = "tokyonight",
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
-					disabled_filetypes = {
-						statusline = {},
-						winbar = {},
-					},
-					ignore_focus = {},
-					always_divide_middle = true,
-					globalstatus = false,
-					refresh = {
-						statusline = 1000,
-						tabline = 1000,
-						winbar = 1000,
-					},
-				},
-				sections = {
-					lualine_a = { "mode" },
-					lualine_b = { "branch", "diff", "diagnostics" },
-					lualine_c = { "filename" },
-					lualine_x = { "encoding", "fileformat", "filetype" },
-					lualine_y = { "progress" },
-					lualine_z = { "location" },
-				},
-				inactive_sections = {
-					lualine_a = {},
-					lualine_b = {},
-					lualine_c = { "filename" },
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = {},
-				},
-				tabline = {},
-				winbar = {},
-				inactive_winbar = {},
-				extensions = {},
-			})
-		end,
-	},
-
-	-- Here is a more advanced example where we pass configuration
-	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
-	--    require('gitsigns').setup({ ... })
-	--
-	-- See `:help gitsigns` to understand what the configuration keys do
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup({
-				on_attach = function(buffer)
-					local gs = package.loaded.gitsigns
-
-					local function map(mode, l, r, desc)
-						vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
-					end
-          -- stylua: ignore start
-          map("n", "]h", gs.next_hunk, "Next Hunk")
-          map("n", "[h", gs.prev_hunk, "Prev Hunk")
-          map({ "n", "v" }, "<leader>ghs", ":Gitsigns stage_hunk<CR>", "Stage Hunk")
-          map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-          map("n", "<leader>ghS", gs.stage_buffer, "Stage Buffer")
-          map("n", "<leader>ghu", gs.undo_stage_hunk, "Undo Stage Hunk")
-          map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-          map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-          map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-          map("n", "<leader>ghd", gs.diffthis, "Diff This")
-          map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
-          map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
-				end,
-			})
 		end,
 	},
 
@@ -695,7 +427,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		lazy = false,
@@ -749,23 +480,8 @@ require("lazy").setup({
 					end
 					return "make install_jsregexp"
 				end)(),
-				dependencies = {
-					-- `friendly-snippets` contains a variety of premade snippets.
-					--    See the README about individual language/framework/plugin snippets:
-					--    https://github.com/rafamadriz/friendly-snippets
-					-- {
-					--   'rafamadriz/friendly-snippets',
-					--   config = function()
-					--     require('luasnip.loaders.from_vscode').lazy_load()
-					--   end,
-					-- },
-				},
 			},
 			"saadparwaiz1/cmp_luasnip",
-
-			-- Adds other completion capabilities.
-			--  nvim-cmp does not ship with all sources by default. They are split
-			--  into multiple repos for maintenance purposes.
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-path",
 		},
@@ -837,25 +553,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
-	{ -- You can easily change to a different colorscheme.
-		-- Change the name of the colorscheme plugin below, and then
-		-- change the command in the config to whatever the name of that colorscheme is.
-		--
-		-- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			-- Load the colorscheme here.
-			-- Like many other themes, this one has different styles, and you could load
-			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
-
-			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
-		end,
-	},
-
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
@@ -956,31 +653,10 @@ require("lazy").setup({
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
 		},
+		opts = {},
 		keys = {
 			{ "-", "<cmd>Neotree reveal<cr>", desc = "Neotree" },
 		},
 	},
-}, {
-	ui = {
-		-- If you are using a Nerd Font: set icons to an empty table which will use the
-		-- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
-		icons = vim.g.have_nerd_font and {} or {
-			cmd = "⌘",
-			config = "🛠",
-			event = "📅",
-			ft = "📂",
-			init = "⚙",
-			keys = "🗝",
-			plugin = "🔌",
-			runtime = "💻",
-			require = "🌙",
-			source = "📄",
-			start = "🚀",
-			task = "📌",
-			lazy = "💤 ",
-		},
-	},
-})
-
--- The line beneath this is called `modeline`. See `:help modeline`
+}
 -- vim: ts=2 sts=2 sw=2 et

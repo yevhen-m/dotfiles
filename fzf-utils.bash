@@ -5,7 +5,7 @@ then
     export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
     export FZF_CTRL_T_OPTS='--no-reverse'
-    source ~/.config/nvim/plugged/tokyonight.nvim/extras/fzf/tokyonight_night.zsh
+    source ~/.local/share/nvim/lazy/tokyonight.nvim/extras/fzf/tokyonight_night.zsh
 fi
 
 # CTRL-/ to toggle small preview window to see the full command

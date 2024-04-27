@@ -47,7 +47,7 @@ set idearefactormode=keep
 " is to yank the whole line.
 nnoremap Y y$
 
-inoremap <C-a> <Home>
+inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
 cnoremap <C-F> <Right>
@@ -58,12 +58,16 @@ cnoremap <C-d> <Del>
 inoremap <C-k> <C-o>D<Right>
 
 nnoremap <Space> :nohlsearch<CR>
+inoremap <Esc> <Esc>l
 
 " EasyMotion mappings
 let g:EasyMotion_do_mapping = 0
-nmap s         <Plug>(easymotion-s2)
-xmap s         <Plug>(easymotion-s2)
-omap s         <Plug>(easymotion-s2)
+nmap s         <Plug>(easymotion-f2)
+xmap s         <Plug>(easymotion-f2)
+omap s         <Plug>(easymotion-f2)
+nmap S         <Plug>(easymotion-F2)
+xmap S         <Plug>(easymotion-F2)
+omap S         <Plug>(easymotion-F2)
 
 map <leader>r <Action>(RenameElement)
 map <leader>u <Action>(FindUsages)
@@ -104,14 +108,8 @@ nnoremap <c-k> <c-w>k
 " when I pasted. I don't loose the previous thing I YANKED!
 vnoremap <leader>p "_dP
 
-" Move visual blocks
-vnoremap J :m'>+<CR>gv=gv
-vnoremap K :m-2<CR>gv=gv
-
-" Join and split lines
-nnoremap S i<CR><ESC>
-
-vnoremap < <gv vnoremap > >gv
+vnoremap < <gv
+vnoremap > >gv
 
 nmap ]e :action GotoNextError<CR>
 nmap [e :action GotoPreviousError<CR>

@@ -84,6 +84,17 @@ vim.opt.grepprg = "ag --hidden --vimgrep --column --smart-case $*"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]
+-- Change record/replay for macros
+vim.keymap.set("n", "q", "<cmd>lclose<bar>close<cr>")
+vim.keymap.set("n", "Q", "q")
+
+-- Quit all
+vim.keymap.set("n", "<leader>qq", "<cmd>:xa<cr>")
+
+-- Move in insert mode
+vim.keymap.set("i", "<A-j>", "<C-o>j")
+vim.keymap.set("i", "<A-k>", "<C-o>k")
+
 -- Use backslash to jump to the previous match
 vim.keymap.set("n", "\\", ",")
 --  See `:help vim.keymap.set()`
@@ -94,6 +105,7 @@ vim.keymap.set("n", "U", "<C-r>")
 
 -- Location and quickfix lists
 vim.keymap.set("n", "<leader>xl", "<cmd>copen<CR>")
+
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>")
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<CR>")

@@ -16,14 +16,15 @@ return {
 			"tpope/vim-repeat",
 		},
 		config = function()
-			require("leap").create_default_mappings()
+			vim.keymap.set({ "n", "x", "o" }, "s", "<Plug>(leap-forward)")
+			vim.keymap.set({ "n", "x", "o" }, "S", "<Plug>(leap-backward)")
 			-- Override some old defaults - use backspace instead of tab (see issue #165).
 			require("leap").opts.special_keys.prev_target = "<backspace>"
 			require("leap").opts.special_keys.prev_group = "<backspace>"
 
 			-- Use the traversal keys to repeat the previous motion without explicitly
 			-- invoking Leap.
-			require("leap.user").set_repeat_keys("<enter>", "<backspace>")
+			require("leap.user").set_repeat_keys("s<enter>", "s<backspace>")
 		end,
 	},
 	{ -- Collection of various small independent plugins/modules

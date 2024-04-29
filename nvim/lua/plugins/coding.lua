@@ -1,7 +1,6 @@
 return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"tpope/vim-rsi",
-	"RRethy/vim-illuminate",
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"windwp/nvim-autopairs",

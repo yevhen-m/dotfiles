@@ -13,6 +13,9 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Disable intro message
+vim.opt.shortmess = "I"
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -66,7 +69,8 @@ vim.opt.list = true
 vim.opt.listchars = { tab = "⋮ ", trail = "·", nbsp = "␣", extends = "❯", precedes = "❮" }
 vim.opt.showbreak = "↪ "
 vim.opt.linebreak = true
-vim.opt.breakindent = false
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"

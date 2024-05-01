@@ -154,6 +154,9 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease window 
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase window width" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decreasee window width" })
 
+vim.keymap.set("n", "[<Space>", "O<C-u><Esc>j")
+vim.keymap.set("n", "]<Space>", "o<C-u><Esc>k")
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -165,6 +168,17 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
+	end,
+})
+
+-- Persistent Cursor
+vim.api.nvim_create_autocmd("BufReadPost", {
+	callback = function()
+		local mark = vim.api.nvim_buf_get_mark(0, '"')
+		local lcount = vim.api.nvim_buf_line_count(0)
+		if mark[1] > 0 and mark[1] <= lcount then
+			pcall(vim.api.nvim_win_set_cursor, 0, mark)
+		end
 	end,
 })
 

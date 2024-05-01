@@ -50,7 +50,7 @@ then
 fi
 
 # Set TERM variable correctly in and out of tmux
-[[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="screen-256color"
+[[ $TMUX = "" ]] && export TERM="xterm-256color" || TERM="tmux-256color"
 
 # Completion
 # Perform file completion in a case insensitive fashion

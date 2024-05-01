@@ -154,8 +154,8 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease window 
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase window width" })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decreasee window width" })
 
-vim.keymap.set("n", "[<Space>", "O<C-u><Esc>j")
-vim.keymap.set("n", "]<Space>", "o<C-u><Esc>k")
+vim.keymap.set("n", "[<Space>", "<cmd>call append(line('.') - 1, '')<CR>")
+vim.keymap.set("n", "]<Space>", "<cmd>call append(line('.'), '')<CR>")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

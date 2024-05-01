@@ -22,9 +22,6 @@ nmap <C-o> :back
 exmap forward obcommand app:go-forward
 nmap <C-i> :forward
 
-" dj = delete 2 lines, dJ = delete 3 lines
-onoremap J 2j
-
 " Go to last change (HACK, only works to jump to the last location)
 nnoremap gc u<C-r>
 
@@ -47,3 +44,6 @@ exmap jumpToLink obcommand mrj-jump-to-link:activate-lightspeed-jump
 nunmap s
 nmap s :jumpToLink
 nmap S :jumpToLink
+
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k

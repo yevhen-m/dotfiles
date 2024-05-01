@@ -124,3 +124,7 @@ nmap md <Action>(ToggleBookmark)
 
 " Focus project window
 nmap - <Action>(ActivateProjectToolWindow)
+
+" Insert empty lines around the current line
+nnoremap [<Space> O<Esc>j
+nnoremap ]<Space> o<Esc>k

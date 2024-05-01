@@ -39,7 +39,7 @@ return {
 			tabline = {},
 			winbar = {},
 			inactive_winbar = {},
-			extensions = { "neo-tree", "lazy" },
+			extensions = { "neo-tree", "lazy", "quickfix", "trouble" },
 		})
 	end,
 }

@@ -1,6 +1,7 @@
 return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"tpope/vim-rsi",
+	{ "michaeljsmith/vim-indent-object", ft = { "python", "lua" } },
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"windwp/nvim-autopairs",

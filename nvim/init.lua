@@ -88,6 +88,8 @@ vim.opt.grepprg = "ag --hidden --vimgrep --column --smart-case $*"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]
+-- Delete to the end of the line in insert mode
+vim.keymap.set("i", "<C-k>", "<C-o>D")
 -- Change record/replay for macros
 vim.keymap.set("n", "q", "<cmd>lclose<bar>close<cr>")
 vim.keymap.set("n", "Q", "q")
@@ -156,6 +158,12 @@ vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decreas
 
 vim.keymap.set("n", "[<Space>", "<cmd>call append(line('.') - 1, '')<CR>")
 vim.keymap.set("n", "]<Space>", "<cmd>call append(line('.'), '')<CR>")
+
+-- Split windows
+vim.keymap.set("n", "<C-w>-", "<C-w>s")
+vim.keymap.set("n", "<C-w><C-->", "<C-w>s")
+vim.keymap.set("n", "<C-w>\\", "<C-w>v")
+vim.keymap.set("n", "<C-w><C-\\>", "<C-w>v")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

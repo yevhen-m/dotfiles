@@ -84,7 +84,7 @@ vim.opt.scrolloff = 10
 vim.opt.autowriteall = true
 vim.opt.fileignorecase = true
 vim.opt.swapfile = false
-vim.opt.grepprg = "ag --hidden --vimgrep --column --smart-case $*"
+vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]

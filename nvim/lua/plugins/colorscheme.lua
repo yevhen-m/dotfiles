@@ -19,6 +19,15 @@ return {
 			sidebars = "dark", -- style for sidebars, see below
 			floats = "dark", -- style for floating windows
 		},
+		on_highlights = function(hl, c)
+			-- Don't show orange prompts in the Telescope window
+			hl.TelescopePromptBorder = {
+				fg = c.keywords,
+			}
+			hl.TelescopePromptTitle = {
+				fg = c.keywords,
+			}
+		end,
 	},
 }
 -- vim: ts=2 sts=2 sw=2 et

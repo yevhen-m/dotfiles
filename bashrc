@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 export LC_ALL=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export EDITOR=`brew --prefix`/bin/nvim
@@ -108,6 +110,7 @@ alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # Bat
 export BAT_THEME=tokyonight_night
+alias cat=bat
 
 # PATH manipulations
 [[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"

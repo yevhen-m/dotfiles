@@ -81,18 +81,6 @@ return {
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
-
-		-- Set Telescope highlight groups
-		local colors = require("tokyonight.colors").setup({})
-		vim.api.nvim_set_hl(0, "TelescopeBorder", { fg = colors.comment })
-		vim.api.nvim_set_hl(0, "TelescopePromptNormal", { fg = colors.teal, bold = true, bg = colors.none })
-		vim.api.nvim_set_hl(0, "TelescopePromptBorder", { fg = colors.comment })
-		vim.api.nvim_set_hl(0, "TelescopePromptTitle", { fg = colors.comment })
-		vim.api.nvim_set_hl(0, "TelescopePromptPrefix", { fg = colors.purple })
-		vim.api.nvim_set_hl(0, "TelescopeMatching", { fg = colors.orange, bg = colors.none, bold = true })
-		vim.api.nvim_set_hl(0, "TelescopeMultiSelection", { fg = colors.blue, bg = colors.none })
-		vim.api.nvim_set_hl(0, "TelescopeMultiIcon", { fg = colors.purple, bg = colors.none })
-		vim.api.nvim_set_hl(0, "TelescopeSelection", { fg = colors.fg, bg = colors.bg_visual, bold = true })
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et

@@ -106,6 +106,9 @@ alias vim="`brew --prefix`/bin/nvim"
 # Lazygit
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
+# Bat
+export BAT_THEME=tokyonight_night
+
 # PATH manipulations
 [[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"

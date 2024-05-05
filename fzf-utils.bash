@@ -2,17 +2,15 @@ if [[ -f ~/.fzf.bash ]]
 then
     source ~/.fzf.bash
     export FZF_DEFAULT_OPTS="--bind=ctrl-z:toggle-up --inline-info --height 50% --no-reverse --border=rounded --bind=alt-a:select-all+accept"
-    export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+    export FZF_DEFAULT_COMMAND='fd --type f'
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-    export FZF_CTRL_T_OPTS='--no-reverse'
+    export FZF_CTRL_T_OPTS="--no-reverse --preview 'bat -n --color=always --line-range :500 {}'"
     source ~/.local/share/nvim/lazy/tokyonight.nvim/extras/fzf/tokyonight_night.zsh
 fi
 
-# CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
-  --preview 'echo {}' --preview-window up:3:hidden:wrap
-  --bind 'ctrl-/:toggle-preview'
+  --preview 'echo {} | bat -l bash -p --color=always' --preview-window up:3:wrap
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --border-label '📜 History'
@@ -22,7 +20,19 @@ export FZF_CTRL_R_OPTS="
 # Print tree structure in the preview window
 export FZF_ALT_C_OPTS="
   --walker-skip .git,node_modules,target --border-label '📁 Folders' --border-label-pos 2 --height=~100%
-  --preview 'tree -C {}'"
+  --preview 'eza --tree --color=always {} --icons=always | head -200'"
+
+# Use bat for fzf previews
+_fzf_comprun() {
+  local command=$1
+  shift
+  case "$command" in
+    cd) fzf --preview 'eza --tree --color=always --icons=always {} | head -200' "$@";;
+    export|unset) fzf --preview "eval 'echo \$'{} | bat --color=always -l bash -p" --preview-window right:50%:wrap "$@";;
+    ssh) fzf --preview 'dig {}' "$@";;
+    *) fzf --preview 'bat -n --color=always --line-range :500 {}' "$@";;
+  esac
+}
 
 # Integration with z
 unalias z 2> /dev/null

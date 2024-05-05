@@ -1418,7 +1418,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<false/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<true/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
@@ -1680,6 +1680,8 @@
 			<true/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>0.10000000000000001</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -2318,6 +2320,8 @@
 			<false/>
 			<key>Smart Cursor Color</key>
 			<false/>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Status Bar Layout</key>
 			<dict>
 				<key>advanced configuration</key>
@@ -2367,7 +2371,7 @@
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>
-			<integer>0</integer>
+			<integer>12</integer>
 			<key>Working Directory</key>
 			<string>/Users/yevhen</string>
 		</dict>
@@ -2386,6 +2390,8 @@
 	<dict/>
 	<key>PreferSpeedToFullLigatureSupport</key>
 	<false/>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SeparateWindowTitlePerTab</key>
@@ -2414,6 +2420,8 @@
 	<false/>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<true/>
+	<key>UseBorder</key>
+	<false/>
 	<key>UseLionStyleFullscreen</key>
 	<false/>
 	<key>UseModernScrollWheelAccumulator</key>
@@ -2425,6 +2433,8 @@
 	<key>VerticalBarCursorWidth</key>
 	<real>1</real>
 	<key>VisualIndicatorForEsc</key>
+	<false/>
+	<key>WindowNumber</key>
 	<false/>
 	<key>disableMetalWhenUnplugged</key>
 	<false/>

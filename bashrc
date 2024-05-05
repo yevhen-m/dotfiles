@@ -66,41 +66,44 @@ export BASH_COMPLETION_COMPAT_DIR=`brew --prefix`/etc/bash_completion.d
 [[ -r `brew --prefix`/etc/profile.d/bash_completion.sh ]] && . `brew --prefix`/etc/profile.d/bash_completion.sh
 
 # Aliases
-alias l='eza -lha --time-style long-iso'
-alias ll='eza -lha --time-style long-iso'
-alias lt='eza -lhaT --time-style long-iso'
+alias l='eza -lha --time-style long-iso --icons=always --color=always --git'
+alias ll=l
+alias ls=l
+# For "short" ls output
+alias lss='l -1 --icons=never'
+
 alias zsh='bash'
-# Linux related
-if [[ $(uname -s) = Linux ]]
-then
-    alias pbcopy='xclip -sel clip'
-    alias pbpaste='xclip -sel clip -o'
-fi
+alias ag=rg
+alias grep=rg
+
 # Git aliases
-alias gd='git diff -w'
-alias gdc='git diff --cached -w'
-alias gp='git push origin HEAD'
-alias gu='git pull'
-alias gst='git status'
-alias gs='git status -sb'
+alias gd='lg'
+alias gdc='lg'
+alias gp='git pull'
+alias gP='git push origin HEAD'
+alias gs=lg
+alias gst=lg
 alias gc='git checkout'
-alias gcb='git checkout -b'
-alias glg='git lg'
-alias gl='git lg'
-alias gam='git add -u && git commit --amend --no-edit'
-alias gcv='git add -u && git commit -v'
+alias gcb='gc -b'
+alias gl=lg
+alias glg=lg
+alias gc='git add -u && git commit'
+alias gca='gc --amend --no-edit'
 alias gpr='gh pr view -w'
 
 alias rm=trash
+
 # Tmux aliases
-alias tl="tmux ls | cut -d ' ' -f 1 | sed 's/://'"
-alias tat="tmux attach -t"
 alias ta="tmux attach"
+alias tat="ta -t"
 alias td="tmux detach"
+alias tl="tmux ls | rg '^(\w+):' -or '\$1' --color=never"
+
 # Vim aliases
-alias _vim=/usr/bin/vim
 alias vi="`brew --prefix`/bin/nvim"
 alias vim="`brew --prefix`/bin/nvim"
+
+# Lazygit
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # PATH manipulations

@@ -146,6 +146,7 @@ return { -- LSP Configuration & Plugins
 		local servers = {
 			jsonls = {},
 			pyright = {},
+			taplo = {},
 			tsserver = {},
 			lua_ls = {
 				-- cmd = {...},

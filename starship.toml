@@ -1,3 +1,5 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
 format = """
 (bg:#769ff0 fg:#a3aed2)\
 $directory\
@@ -5,19 +7,44 @@ $directory\
 $git_branch\
 $git_status\
 [](fg:#394260 bg:#212736)\
-[](fg:#1d2230)\
+$python\
+$nodejs\
+$lua\
+[](fg:#212736 bg:#1d2230)\
+$cmd_duration\
+[ ](fg:#1d2230)\
 \n$character"""
 
 [directory]
-truncate_to_repo = false
+truncate_to_repo = true
+truncation_length = 6
 style = "bold fg:#15161e bg:#769ff0"
 format = "[ $path ]($style)"
 
 [git_branch]
 symbol = ""
-style = "bg:#394260"
-format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+style = "fg:#769ff0 bg:#394260"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:#394260"
-format = '[[($all_status$ahead_behind )](fg:#769ff0 bg:#394260)]($style)'
+style = "fg:#769ff0 bg:#394260"
+format = '[($all_status$ahead_behind )]($style)'
+
+[python]
+symbol = "󰌠"
+style = "fg:#769ff0 bg:#212736"
+format = '[ ${symbol} ${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[nodejs]
+symbol = ""
+style = "fg:#769ff0 bg:#212736"
+format = '[ $symbol ($version) ]($style)'
+
+[lua]
+symbol = ""
+style = "fg:#769ff0 bg:#212736"
+format = '[ $symbol ($version) ]($style)'
+
+[cmd_duration]
+style = "fg:#a0a9cb bg:#1d2230"
+format = '[  $duration ]($style)'

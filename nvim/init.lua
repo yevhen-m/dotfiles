@@ -88,8 +88,12 @@ vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]
+-- Paste and keep pasting same thing
+vim.keymap.set("v", "gp", "_dP")
+
 -- Delete to the end of the line in insert mode
 vim.keymap.set("i", "<C-k>", "<C-o>D")
+
 -- Change record/replay for macros
 vim.keymap.set("n", "q", "<cmd>lclose<bar>close<cr>")
 vim.keymap.set("n", "Q", "q")

@@ -7,6 +7,9 @@ unmap ,
 " Yank to system clipboard
 set clipboard=unnamed
 
+" Keep pasting the same thing
+vnoremap gp "_dP
+
 " Y consistent with D and C to the end of line
 nnoremap Y y$
 
@@ -17,7 +20,7 @@ vmap j gj
 vmap k gk
 
 " Go to last change (HACK, only works to jump to the last location)
-nnoremap gc u<C-r>
+nnoremap g; u<C-r>
 
 " Undo/redo consistently on one key
 nnoremap U <C-r>

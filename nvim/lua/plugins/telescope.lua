@@ -24,10 +24,12 @@ return {
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 	},
 	config = function()
-		-- [[ Configure Telescope ]]
-		-- See `:help telescope` and `:help telescope.setup()`
 		require("telescope").setup({
 			defaults = {
+				layout_config = {
+					width = 0.99,
+					height = 0.8,
+				},
 				mappings = {
 					i = {
 						["<C-k>"] = "move_selection_previous",
@@ -64,6 +66,10 @@ return {
 		vim.keymap.set("n", "<leader>/", function()
 			-- You can pass additional configuration to Telescope to change the theme, layout, etc.
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+				layout_config = {
+					width = 0.9,
+					height = 0.9,
+				},
 				previewer = false,
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })

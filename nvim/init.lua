@@ -172,7 +172,6 @@ vim.keymap.set("n", "<C-w><C-\\>", "<C-w>v")
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
--- Trim empty lines and trailing whitespace
 local function call_with_saved_cursor(func)
 	local cursor_pos = vim.api.nvim_win_get_cursor(0)
 	func()
@@ -193,6 +192,7 @@ end
 
 vim.api.nvim_create_augroup("trim_and_clean", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
+	desc = "Trim empty trailing lines and whitespace",
 	group = "trim_and_clean",
 	pattern = "*",
 	callback = function()
@@ -201,9 +201,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 	end,
 })
 
--- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
@@ -212,8 +209,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
--- Persistent Cursor
 vim.api.nvim_create_autocmd("BufReadPost", {
+	desc = "Move the cursor to the last change in the file",
 	callback = function()
 		local mark = vim.api.nvim_buf_get_mark(0, '"')
 		local lcount = vim.api.nvim_buf_line_count(0)

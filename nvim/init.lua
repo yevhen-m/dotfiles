@@ -190,10 +190,9 @@ local function delete_trailing_blank_lines()
 	end)
 end
 
-vim.api.nvim_create_augroup("trim_and_clean", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
 	desc = "Trim empty trailing lines and whitespace",
-	group = "trim_and_clean",
+	group = vim.api.nvim_create_augroup("trim_and_clean", { clear = true }),
 	pattern = "*",
 	callback = function()
 		trim_whitespace()
@@ -205,7 +204,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "Highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank()
+		vim.highlight.on_yank({ timeout = 300 })
 	end,
 })
 

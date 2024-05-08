@@ -105,6 +105,10 @@ alias tl="tmux ls | rg '^(\w+):' -or '\$1' --color=never"
 alias vi="`brew --prefix`/bin/nvim"
 alias vim="`brew --prefix`/bin/nvim"
 
+# Ranger
+alias r=ranger
+export RANGER_LOAD_DEFAULT_RC=FALSE
+
 # Lazygit
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 

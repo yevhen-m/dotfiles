@@ -89,7 +89,7 @@ vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]
 -- Paste and keep pasting same thing
-vim.keymap.set("v", "gp", "_dP")
+vim.keymap.set("v", "gp", '"_dP')
 
 -- Delete to the end of the line in insert mode
 vim.keymap.set("i", "<C-k>", "<C-o>D")

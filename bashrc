@@ -113,7 +113,7 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # Bat
-export BAT_THEME=tokyonight_night
+export BAT_THEME="Catppuccin Macchiato"
 alias cat=bat
 
 # PATH manipulations

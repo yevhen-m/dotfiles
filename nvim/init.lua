@@ -61,6 +61,9 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.expandtab = true
+
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
@@ -88,6 +91,10 @@ vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.opt.grepformat = "%f:%l:%c:%m"
 
 -- [[ Basic Keymaps ]]
+-- Visual mode: moving lines
+vim.keymap.set("x", "<", "<gv")
+vim.keymap.set("x", ">", ">gv")
+
 -- Paste and keep pasting same thing
 vim.keymap.set("v", "gp", '"_dP')
 

@@ -1,10 +1,10 @@
 promptToReturnFromSubprocess: false
+
 gui:
   nerdFontsVersion: "3"
   theme:
     activeBorderColor:
-      - '#8aadf4'
-      - bold
+      - '#ee99a0'
     inactiveBorderColor:
       - '#a5adcb'
     optionsTextColor:
@@ -14,7 +14,7 @@ gui:
     cherryPickedCommitBgColor:
       - '#494d64'
     cherryPickedCommitFgColor:
-      - '#8aadf4'
+      - '#ee99a0'
     unstagedChangesColor:
       - '#ed8796'
     defaultFgColor:
@@ -24,6 +24,7 @@ gui:
 
   authorColors:
     '*': '#b7bdf8'
+
 git:
   paging:
     colorArg: always

@@ -12,9 +12,9 @@
     side-by-side = false
     line-numbers = true
     paging = never
-    features = tokyonight_night
+    features = catppuccin-macchiato
 [include]
-    path = ~/.config/nvim/plugged/tokyonight.nvim/extras/delta/tokyonight_night.gitconfig
+    path = ~/Software/catppuccin-delta/catppuccin.gitconfig
 [interactive]
     diffFilter = delta --color-only
 [push]

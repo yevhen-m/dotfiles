@@ -15,9 +15,19 @@ vim.keymap.set("n", "Q", "q")
 -- Quit all
 vim.keymap.set("n", "<leader>qq", "<cmd>:xa<cr>")
 
+-- Better up/down
+vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "<Down>", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set({ "n", "x" }, "<Up>", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+
 -- Move in insert mode
-vim.keymap.set("i", "<A-j>", "<Down>")
-vim.keymap.set("i", "<A-k>", "<Up>")
+vim.keymap.set("n", "<A-j>", "<cmd>m .+1<cr>==", { desc = "Move Down" })
+vim.keymap.set("n", "<A-k>", "<cmd>m .-2<cr>==", { desc = "Move Up" })
+vim.keymap.set("i", "<A-j>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
+vim.keymap.set("i", "<A-k>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<cr>gv=gv", { desc = "Move Down" })
+vim.keymap.set("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move Up" })
 
 -- Switch buffers
 vim.keymap.set("n", "H", "<cmd>bprev<CR>")
@@ -76,10 +86,10 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Resize windows
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +5<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -5<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +5<CR>", { desc = "Increase window width" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -5<CR>", { desc = "Decreasee window width" })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decreasee window width" })
 
 -- Add empty lines below / above the cursor
 vim.keymap.set("n", "[<Space>", "<cmd>call append(line('.') - 1, '')<CR>")
@@ -102,3 +112,11 @@ vim.keymap.set("n", "<leader><C-i>l", "<cmd>tablast<CR>")
 vim.keymap.set("n", "<leader><C-i>]", "<cmd>tabnext<CR>")
 vim.keymap.set("n", "<leader><C-i>[", "<cmd>tabprev<CR>")
 vim.keymap.set("n", "<leader><C-i>d", "<cmd>tabclose<CR>")
+
+-- Add undo break-points
+vim.keymap.set("i", ",", ",<c-g>u")
+vim.keymap.set("i", ".", ".<c-g>u")
+vim.keymap.set("i", ";", ";<c-g>u")
+
+-- New file
+vim.keymap.set("n", ",nf", "<cmd>enew<cr>", { desc = "[N]ew [F]ile" })

@@ -6,7 +6,7 @@
 vim.opt.hlsearch = true
 
 -- Disable intro message
-vim.opt.shortmess = "OIt"
+vim.opt.shortmess:append({ W = true, I = true, c = true, C = true })
 
 -- Make line numbers default
 vim.opt.number = true
@@ -51,6 +51,7 @@ vim.opt.timeoutlen = 300
 -- Configure how new splits should be opened
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+vim.opt.splitkeep = "screen"
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -75,9 +76,19 @@ vim.opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 8
 
 vim.opt.autowriteall = true
 vim.opt.fileignorecase = true
 vim.opt.swapfile = false
 vim.opt.grepprg = "rg --vimgrep --smart-case --hidden"
 vim.opt.grepformat = "%f:%l:%c:%m"
+
+vim.opt.pumblend = 10
+
+vim.opt.shiftround = true
+vim.opt.shiftwidth = 2
+
+vim.opt.wildmode = "longest:full,full"
+
+vim.opt.winminheight = 5

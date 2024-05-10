@@ -3,9 +3,6 @@ return {
 	name = "catppuccin",
 	lazy = false,
 	priority = 1000,
-	init = function()
-		vim.cmd.colorscheme("catppuccin-macchiato")
-	end,
 	config = function()
 		require("catppuccin").setup({
 			flavour = "macchiato", -- latte, frappe, macchiato, mocha
@@ -19,7 +16,7 @@ return {
 			dim_inactive = {
 				enabled = false, -- dims the background color of inactive window
 				shade = "dark",
-				percentage = 0.15, -- percentage of the shade to apply to the inactive window
+				percentage = 0.10, -- percentage of the shade to apply to the inactive window
 			},
 			no_italic = false, -- Force no italic
 			no_bold = false, -- Force no bold
@@ -45,19 +42,26 @@ return {
 			integrations = {
 				cmp = true,
 				gitsigns = true,
-				nvimtree = true,
+				leap = true,
+				lsp_trouble = true,
+				mason = true,
+				neotree = true,
 				treesitter = true,
 				notify = false,
 				mini = {
 					enabled = true,
 					indentscope_color = "",
 				},
+				which_key = true,
 				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
 		})
 
 		-- setup must be called before loading
-		vim.cmd.colorscheme("catppuccin")
+		vim.cmd([[
+      colorscheme catppuccin
+      " hi BufferLineFill guibg='#1e2030'
+    ]])
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et

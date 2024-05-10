@@ -14,7 +14,7 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Disable intro message
-vim.opt.shortmess = "I"
+vim.opt.shortmess = "OIt"
 
 -- Make line numbers default
 vim.opt.number = true
@@ -109,8 +109,16 @@ vim.keymap.set("n", "Q", "q")
 vim.keymap.set("n", "<leader>qq", "<cmd>:xa<cr>")
 
 -- Move in insert mode
-vim.keymap.set("i", "<A-j>", "<C-o>j")
-vim.keymap.set("i", "<A-k>", "<C-o>k")
+vim.keymap.set("i", "<A-j>", "<Down>")
+vim.keymap.set("i", "<A-k>", "<Up>")
+
+-- Switch buffers
+vim.keymap.set("n", "H", "<cmd>bprev<CR>")
+vim.keymap.set("n", "L", "<cmd>bnext<CR>")
+
+-- Delete buffers
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>")
+vim.keymap.set("n", "<leader>bD", "<cmd>bdelete!<CR>")
 
 -- Use backslash to jump to the previous match
 vim.keymap.set("n", "\\", ",")
@@ -173,8 +181,20 @@ vim.keymap.set("n", "]<Space>", "<cmd>call append(line('.'), '')<CR>")
 -- Split windows
 vim.keymap.set("n", "<C-w>-", "<C-w>s")
 vim.keymap.set("n", "<C-w><C-->", "<C-w>s")
+vim.keymap.set("n", '<C-w>"', "<C-w>s")
+vim.keymap.set("n", '<C-w><C-">', "<C-w>s")
 vim.keymap.set("n", "<C-w>\\", "<C-w>v")
 vim.keymap.set("n", "<C-w><C-\\>", "<C-w>v")
+vim.keymap.set("n", "<C-w>'", "<C-w>v")
+vim.keymap.set("n", "<C-w><C-'>", "<C-w>v")
+
+-- Tabs
+vim.keymap.set("n", "<leader><C-i><C-i>", "<cmd>tabnew<CR>")
+vim.keymap.set("n", "<leader><C-i>f", "<cmd>tabfirst<CR>")
+vim.keymap.set("n", "<leader><C-i>l", "<cmd>tablast<CR>")
+vim.keymap.set("n", "<leader><C-i>]", "<cmd>tabnext<CR>")
+vim.keymap.set("n", "<leader><C-i>[", "<cmd>tabprev<CR>")
+vim.keymap.set("n", "<leader><C-i>d", "<cmd>tabclose<CR>")
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

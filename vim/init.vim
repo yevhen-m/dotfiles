@@ -14,51 +14,6 @@ let g:plug_window = 'enew'
 let s:plug_plugins_dir = '~/.config/nvim/plugged'
 call plug#begin(s:plug_plugins_dir)
 
-" Git
-Plug 'airblade/vim-gitgutter', {'branch': 'main'}
-Plug 'gilligan/textobj-gitgutter'
-Plug 'tpope/vim-rhubarb'
-
-Plug 'preservim/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-" Enhance vim searching.
-Plug 'thinca/vim-visualstar'
-
-" Tmux
-Plug 'tmux-plugins/vim-tmux', {'for': 'tmux'}
-Plug 'tmux-plugins/vim-tmux-focus-events'
-
-" Helpful
-Plug 'Julian/vim-textobj-brace'
-Plug 'christoomey/vim-sort-motion'
-Plug 'kana/vim-textobj-entire'
-Plug 'kana/vim-textobj-line'
-Plug 'kana/vim-textobj-user'
-Plug 'kopischke/vim-fetch'
-Plug 'machakann/vim-highlightedyank'
-Plug 'vim-scripts/ReplaceWithRegister'
-Plug 'ciaranm/detectindent', {'on': 'DetectIndent'}
-Plug 'tommcdo/vim-exchange'
-Plug 'AndrewRadev/bufferize.vim', {'on': ['Bufferize'] }
-Plug 'Shougo/junkfile.vim', {'on': 'JunkfileOpen'}
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'pbrisbin/vim-mkdir'
-Plug 'szw/vim-maximizer', {'on': 'MaximizerToggle'}
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-capslock'
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/fzf'
-Plug 'ggandor/leap.nvim'
-
-Plug 'nvim-lualine/lualine.nvim'
-" Plug 'nvim-tree/nvim-web-devicons'
-Plug 'ryanoasis/vim-devicons'
-Plug 'folke/tokyonight.nvim'
-
 call plug#end()
 
 " Colorscheme

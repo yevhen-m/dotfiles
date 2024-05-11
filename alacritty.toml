@@ -18,3 +18,13 @@ style = "Bold Italic"
 [font.italic]
 family = "MesloLGM Nerd Font"
 style = "Italic"
+
+[window]
+padding = { x = 5, y = 5 }
+
+[scrolling]
+# Due to SmoothScroll.app I need a smaller multiplier, the default is 3
+multiplier = 1
+
+[mouse]
+hide_when_typing = true

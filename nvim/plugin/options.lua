@@ -91,4 +91,5 @@ vim.opt.shiftwidth = 2
 
 vim.opt.wildmode = "longest:full,full"
 
+vim.opt.winheight = 5
 vim.opt.winminheight = 5

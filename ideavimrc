@@ -50,7 +50,7 @@ nnoremap Y y$
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
-cnoremap <C-F> <Right>
+cnoremap <C-f> <Right>
 inoremap <C-b> <Left>
 cnoremap <C-b> <Left>
 inoremap <C-d> <Del>
@@ -58,7 +58,7 @@ cnoremap <C-d> <Del>
 inoremap <C-k> <C-o>D<Right>
 
 nnoremap <Space> :nohlsearch<CR>
-inoremap <Esc> <Esc>l
+inoremap <Esc> <Esc>:nohlsearch<cr>l
 
 " EasyMotion mappings
 let g:EasyMotion_do_mapping = 0
@@ -69,14 +69,16 @@ nmap S         <Plug>(easymotion-F2)
 xmap S         <Plug>(easymotion-F2)
 omap S         <Plug>(easymotion-F2)
 
-map <leader>r <Action>(RenameElement)
-map <leader>u <Action>(FindUsages)
-map <leader>n <Action>(NextOccurence)
-map <leader>N <Action>(PreviousOccurence)
+map gd <Action>(GotoDeclaration)
+map gD <Action>(GotoTypeDeclaration)
+map gr <Action>(FindUsages)
+map <leader>rn <Action>(RenameElement)
+map ]q <Action>(NextOccurence)
+map [q <Action>(PreviousOccurence)
+
 map <C-r> <Action>(Rerun)
 nnoremap U <C-r>
 
-nmap <C-p> <Action>(SearchEverywhere)
 
 " When in normal mode and I hit Enter, then save file please
 nmap <CR> :action ReformatCode<CR> :write<CR>
@@ -90,10 +92,16 @@ xmap <C-x> <Plug>SkipOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
 
 " Window navigation
-nnoremap <c-\> :action SplitVertically<CR>
-nnoremap <c--> :action SplitHorizontally<CR>
-nnoremap <c-=> :action Unsplit<CR>
-nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <C-w><c-\> :action SplitVertically<CR>
+nnoremap <C-w>\ :action SplitVertically<CR>
+nnoremap <C-w>\' :action SplitVertically<CR>
+nnoremap <C-w><c--> :action SplitHorizontally<CR>
+nnoremap <C-w>- :action SplitHorizontally<CR>
+nnoremap <C-w>\" :action SplitHorizontally<CR>
+nnoremap <C-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <C-w><c-=> :action Unsplit<CR>
+nnoremap <C-w>o :action HideAllWindows<CR>
+nnoremap <C-w><C-o> :action HideAllWindows<CR>
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
 nnoremap <c-h> <c-w>h
@@ -106,7 +114,7 @@ nnoremap <c-k> <c-w>k
 " with what is in the register BUT it will YANK (delete) it
 " to a VOID register. Meaning I still have what I originally had
 " when I pasted. I don't loose the previous thing I YANKED!
-vnoremap <leader>p "_dP
+vnoremap gp "_dP
 
 vnoremap < <gv
 vnoremap > >gv
@@ -114,9 +122,8 @@ vnoremap > >gv
 nmap ]e :action GotoNextError<CR>
 nmap [e :action GotoPreviousError<CR>
 
-" Keys from vim-gitgutter
-nmap ]c <Action>(VcsShowNextChangeMarker)
-nmap [c <Action>(VcsShowPrevChangeMarker)
+nmap ]h <Action>(VcsShowNextChangeMarker)
+nmap [h <Action>(VcsShowPrevChangeMarker)
 
 " Marks
 nnoremap M `
@@ -128,3 +135,34 @@ nmap - <Action>(ActivateProjectToolWindow)
 " Insert empty lines around the current line
 nnoremap [<Space> O<Esc>j
 nnoremap ]<Space> o<Esc>k
+
+
+" Move in insert mode
+nnoremap <A-k> :m .-2<CR>==
+nnoremap <A-j> :m .+1<CR>==
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
+
+" Save
+nnoremap <leader><leader> :write<CR>
+
+" Switch buffers
+nnoremap H :bprevious<CR>
+nnoremap [b :bprevious<CR>
+nnoremap L :bnext<cr>
+nnoremap ]b :bnext<cr>
+nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
+nnoremap <leader>bd :bdelete<CR>
+
+" Use backslash to jump to the previous match
+nnoremap \\ ,
+
+nmap <C-p> <Action>(GotoFile)
+nnoremap <leader>sg :action FindInPath<cr>
+nnoremap <leader>s. :action RecentFiles<cr>
+nnoremap <leader>ws :action GotoSymbol<cr>
+
+nnoremap g; :action JumpToLastChange<CR>
+nnoremap g, :action JumpToNextChange<CR>

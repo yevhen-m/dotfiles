@@ -44,6 +44,7 @@ vim.keymap.set("n", "<leader><leader>", "<cmd>update<CR>")
 
 -- Map U for undos
 vim.keymap.set("n", "U", "<C-r>")
+vim.keymap.set("n", "<C-R>", "")
 
 -- Location and quickfix lists
 vim.keymap.set("n", "<leader>xl", "<cmd>copen<CR>")

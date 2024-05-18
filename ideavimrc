@@ -50,6 +50,9 @@ nnoremap Y y$
 nnoremap 0 ^
 nnoremap ^ 0
 
+imap <C-y> <Action>(EditorChooseLookupItem)
+imap <C-/> <Action>(copilot.applyInlays)
+
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
@@ -139,7 +142,6 @@ nmap - <Action>(ActivateProjectToolWindow)
 nnoremap [<Space> O<Esc>j
 nnoremap ]<Space> o<Esc>k
 
-
 " Move in insert mode
 nnoremap <A-k> :m .-2<CR>==
 nnoremap <A-j> :m .+1<CR>==
@@ -152,12 +154,13 @@ vnoremap <A-k> :m '<-2<CR>gv=gv
 nnoremap <leader><leader> :write<CR>
 
 " Switch buffers
-nnoremap H :bprevious<CR>
-nnoremap [b :bprevious<CR>
-nnoremap L :bnext<cr>
-nnoremap ]b :bnext<cr>
+nnoremap H :tabprevious<CR>
+nnoremap [b :tabprevious<CR>
+nnoremap L :tabnext<cr>
+nnoremap ]b :tabnext<cr>
 nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
 nnoremap <leader>bd :bdelete<CR>
+
 
 " Use backslash to jump to the previous match
 nnoremap \\ ,

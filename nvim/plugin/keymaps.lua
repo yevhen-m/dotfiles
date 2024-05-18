@@ -121,3 +121,6 @@ vim.keymap.set("i", ";", ";<c-g>u")
 
 -- New file
 vim.keymap.set("n", ",nf", "<cmd>enew<cr>", { desc = "[N]ew [F]ile" })
+
+vim.keymap.set("n", "0", "^")
+vim.keymap.set("n", "^", "0")

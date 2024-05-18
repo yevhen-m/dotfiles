@@ -47,6 +47,9 @@ set idearefactormode=keep
 " is to yank the whole line.
 nnoremap Y y$
 
+nnoremap 0 ^
+nnoremap ^ 0
+
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
@@ -71,8 +74,8 @@ omap S         <Plug>(easymotion-F2)
 
 map gd <Action>(GotoDeclaration)
 map gD <Action>(GotoTypeDeclaration)
-map gr <Action>(FindUsages)
 map <leader>rn <Action>(RenameElement)
+map <leader>u <Action>(FindUsages)
 map ]q <Action>(NextOccurence)
 map [q <Action>(PreviousOccurence)
 

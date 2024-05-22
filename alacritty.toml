@@ -27,4 +27,4 @@ padding = { x = 5, y = 5 }
 multiplier = 1
 
 [mouse]
-hide_when_typing = true
+hide_when_typing = false

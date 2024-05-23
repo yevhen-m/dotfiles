@@ -93,3 +93,12 @@ vim.opt.wildmode = "longest:full,full"
 
 vim.opt.winheight = 5
 vim.opt.winminheight = 5
+
+vim.opt.fillchars = {
+	foldopen = "",
+	foldclose = "",
+	fold = " ",
+	foldsep = " ",
+	diff = "╱",
+	eob = " ",
+}

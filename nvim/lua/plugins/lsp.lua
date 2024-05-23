@@ -81,6 +81,12 @@ return { -- LSP Configuration & Plugins
 				--  Similar to document symbols, except searches over your entire project.
 				map("<leader>ws", require("telescope.builtin").lsp_dynamic_workspace_symbols, "[W]orkspace [S]ymbols")
 
+				vim.keymap.set("n", "<leader>wS", function()
+					vim.ui.input({ prompt = "Workspace symbols: " }, function(query)
+						require("telescope.builtin").lsp_workspace_symbols({ query = query })
+					end)
+				end, { desc = "LSP workspace symbols" })
+
 				-- Rename the variable under your cursor.
 				--  Most Language Servers support renaming across files, etc.
 				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")

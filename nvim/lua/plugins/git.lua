@@ -19,7 +19,7 @@ return {
 		-- setting the keybinding for LazyGit with 'keys' is recommended in
 		-- order to load the plugin when the command is run for the first time
 		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "[L]azy[G]it" },
+			{ "<leader>gl", "<cmd>LazyGit<cr>", desc = "[G]it open [L]azygit" },
 		},
 	},
 	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -49,7 +49,25 @@ return {
 			})
 		end,
 	},
-	"almo7aya/openingh.nvim",
-	"sindrets/diffview.nvim",
+	{
+		"almo7aya/openingh.nvim",
+		cmd = { "OpenInGHFileLines" },
+		keys = {
+			{
+				"<leader>gf",
+				":OpenInGHFileLines<CR>",
+				mode = { "n", "v" },
+				desc = "[G]it open [F]ile on Github",
+				silent = true,
+			},
+		},
+	},
+	{
+		"sindrets/diffview.nvim",
+		cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewLog" },
+		keys = {
+			{ "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "[G]it open [D]iffview" },
+		},
+	},
 }
 -- vim: ts=2 sts=2 sw=2 et

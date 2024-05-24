@@ -13,7 +13,8 @@ vim.keymap.set("n", "q", "<cmd>lclose<bar>close<cr>")
 vim.keymap.set("n", "Q", "q")
 
 -- Quit all
-vim.keymap.set("n", "<leader>qq", "<cmd>:xa<cr>")
+vim.keymap.set("n", "<leader>qq", "<cmd>:qa!<cr>")
+vim.keymap.set("n", "<leader>zz", "<cmd>:xa<cr>")
 
 -- Better up/down
 vim.keymap.set({ "n", "x" }, "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
@@ -70,12 +71,6 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
--- TIP: Disable arrow keys in normal mode
-vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
-vim.keymap.set("n", "<right>", '<cmd>echo "Use l to move!!"<CR>')
-vim.keymap.set("n", "<up>", '<cmd>echo "Use k to move!!"<CR>')
-vim.keymap.set("n", "<down>", '<cmd>echo "Use j to move!!"<CR>')
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows

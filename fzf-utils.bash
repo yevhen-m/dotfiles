@@ -13,7 +13,7 @@ fi
 
 # CTRL-Y to copy the command into clipboard using pbcopy
 export FZF_CTRL_R_OPTS="
-  --preview 'echo {} | bat -l bash -p --color=always' --preview-window up:3:wrap
+  --preview 'echo {} | bat -l bash -p --color=always' --preview-window right:40%:wrap
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:italic
   --border-label '📜 History'

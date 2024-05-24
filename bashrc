@@ -113,6 +113,9 @@ export RANGER_LOAD_DEFAULT_RC=FALSE
 # Lazygit
 alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
+# Lazydocker
+alias lzd='lazydocker'
+
 # Bat
 export BAT_THEME="Catppuccin Macchiato"
 alias cat=bat

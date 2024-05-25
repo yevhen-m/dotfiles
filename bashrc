@@ -80,15 +80,15 @@ alias ag=rg
 alias grep=rg
 
 # Git aliases
-alias gd='lg'
-alias gdc='lg'
+alias gl=lg
+alias gd='gl'
+alias gdc='gl'
 alias gp='git pull'
 alias gP='git push origin HEAD'
 alias gs=lg
 alias gst=lg
 alias gc='git checkout'
 alias gcb='gc -b'
-alias gl=lg
 alias glg=lg
 alias gc='git add -u && git commit'
 alias gca='gc --amend --no-edit'
@@ -111,10 +111,10 @@ alias r=ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Lazygit
-alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
+alias gl='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # Lazydocker
-alias lzd='lazydocker'
+alias dl='lazydocker'
 
 # Bat
 export BAT_THEME="Catppuccin Macchiato"

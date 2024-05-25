@@ -3,7 +3,8 @@ vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
 
 -- Paste and keep pasting same thing
-vim.keymap.set("v", "gp", '"_dP')
+vim.keymap.set("v", "gp", '"_dp')
+vim.keymap.set("v", "gP", '"_dP')
 
 -- Delete to the end of the line in insert mode
 vim.keymap.set("i", "<C-k>", "<C-o>D")
@@ -48,10 +49,9 @@ vim.keymap.set("n", "U", "<C-r>")
 vim.keymap.set("n", "<C-R>", "")
 
 -- Location and quickfix lists
-vim.keymap.set("n", "<leader>xl", "<cmd>copen<CR>")
-
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
 vim.keymap.set("n", "[q", "<cmd>cprev<CR>")
+vim.keymap.set("n", "<leader>xc", "<cmd>copen<CR>")
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<CR>")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -62,7 +62,7 @@ vim.keymap.set({ "n", "i" }, "<Esc>", "<Esc><cmd>nohlsearch<CR>l")
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+vim.keymap.set("n", "<leader>xL", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

@@ -3,7 +3,24 @@ return { -- Highlight, edit, and navigate code
 	build = ":TSUpdate",
 	event = { "BufReadPre", "BufNewFile" },
 	opts = {
-		ensure_installed = { "bash", "c", "html", "lua", "luadoc", "markdown", "vim", "vimdoc" },
+		ensure_installed = {
+			"bash",
+			"c",
+			"html",
+			"javascript",
+			"json",
+			"jsonc",
+			"lua",
+			"luadoc",
+			"markdown",
+			"python",
+			"query",
+			"toml",
+			"typescript",
+			"vim",
+			"vimdoc",
+			"yaml",
+		},
 		-- Autoinstall languages that are not installed
 		auto_install = true,
 		highlight = {
@@ -14,6 +31,16 @@ return { -- Highlight, edit, and navigate code
 			additional_vim_regex_highlighting = { "ruby" },
 		},
 		indent = { enable = true, disable = { "ruby" } },
+		matchup = { enable = true, disable = { "c", "ruby" } },
+		incremental_selection = {
+			enable = true,
+			keymaps = {
+				init_selection = "gnn", -- set to `false` to disable one of the mappings
+				node_incremental = "gnn",
+				scope_incremental = "gns",
+				node_decremental = "gnd",
+			},
+		},
 	},
 	config = function(_, opts)
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`

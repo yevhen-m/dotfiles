@@ -14,7 +14,7 @@
     paging = never
     features = catppuccin-macchiato
 [include]
-    path = ~/Software/catppuccin-delta/catppuccin.gitconfig
+    path = ~/Cloned/catppuccin-delta/catppuccin.gitconfig
 [interactive]
     diffFilter = delta --color-only
 [push]

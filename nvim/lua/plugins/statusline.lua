@@ -1,6 +1,18 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
+		local extensions = { "neo-tree", "lazy", "quickfix", "trouble", "nvim-dap-ui", "mason", "man" }
+		local filetypes = { "DiffviewFiles" }
+		for _, ft in ipairs(filetypes) do
+			table.insert(extensions, {
+				sections = { lualine_a = { {
+					function()
+						return ft
+					end,
+				} } },
+				filetypes = { ft },
+			})
+		end
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
@@ -41,7 +53,7 @@ return {
 			tabline = {},
 			winbar = {},
 			inactive_winbar = {},
-			extensions = { "neo-tree", "lazy", "quickfix", "trouble" },
+			extensions = extensions,
 		})
 	end,
 }

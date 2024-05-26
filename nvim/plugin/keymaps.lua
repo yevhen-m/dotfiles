@@ -3,8 +3,7 @@ vim.keymap.set("x", "<", "<gv")
 vim.keymap.set("x", ">", ">gv")
 
 -- Paste and keep pasting same thing
-vim.keymap.set("v", "gp", '"_dp')
-vim.keymap.set("v", "gP", '"_dP')
+vim.keymap.set("v", "gp", '"_dP')
 
 -- Delete to the end of the line in insert mode
 vim.keymap.set("i", "<C-k>", "<C-o>D")

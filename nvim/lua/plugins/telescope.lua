@@ -22,6 +22,12 @@ return {
 
 		-- Useful for getting pretty icons, but requires a Nerd Font.
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
+		{
+			"nvim-telescope/telescope-live-grep-args.nvim",
+			-- This will not install any breaking changes.
+			-- For major updates, this must be adjusted manually.
+			version = "^1.0.0",
+		},
 	},
 	config = function()
 		require("telescope").setup({
@@ -48,6 +54,7 @@ return {
 		-- Enable Telescope extensions if they are installed
 		pcall(require("telescope").load_extension, "fzf")
 		pcall(require("telescope").load_extension, "ui-select")
+		pcall(require("telescope").load_extension, "live_grep_args")
 
 		-- See `:help telescope.builtin`
 		local builtin = require("telescope.builtin")
@@ -55,8 +62,6 @@ return {
 		vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
 		vim.keymap.set("n", "<C-p>", builtin.find_files, { desc = "[S]earch [F]iles" })
 		vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
-		vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-		vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
 		vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
@@ -74,19 +79,29 @@ return {
 			}))
 		end, { desc = "[/] Fuzzily search in current buffer" })
 
-		-- It's also possible to pass additional configuration options.
-		--  See `:help telescope.builtin.live_grep()` for information about particular keys
-		vim.keymap.set("n", "<leader>s/", function()
-			builtin.live_grep({
-				grep_open_files = true,
-				prompt_title = "Live Grep in Open Files",
-			})
-		end, { desc = "[S]earch [/] in Open Files" })
-
 		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
+
+		vim.keymap.set(
+			"n",
+			"<leader>sg",
+			require("telescope").extensions.live_grep_args.live_grep_args,
+			{ desc = "[S]earch [G]rep Args" }
+		)
+		vim.keymap.set(
+			"n",
+			"<leader>sw",
+			require("telescope-live-grep-args.shortcuts").grep_word_under_cursor,
+			{ desc = "[S]earch Current [W]ord" }
+		)
+		vim.keymap.set(
+			"v",
+			"<leader>sw",
+			require("telescope-live-grep-args.shortcuts").grep_visual_selection,
+			{ desc = "[S]earch Selected [W]ord" }
+		)
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et

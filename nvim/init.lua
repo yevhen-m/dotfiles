@@ -19,6 +19,10 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
+	install = {
+		missing = true,
+		colorscheme = { "catppuccin" },
+	},
 	change_detection = {
 		-- automatically check for config file changes and reload the ui
 		enabled = true,

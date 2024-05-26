@@ -76,10 +76,10 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 --  Use CTRL+<hjkl> to switch between windows
 --
 -- Resize windows
-vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { desc = "Increase window height" })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { desc = "Increase window width" })
-vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { desc = "Decreasee window width" })
+vim.keymap.set("n", "<C-S-Up>", "<cmd>resize +4<CR>", { desc = "Increase window height" })
+vim.keymap.set("n", "<C-S-Down>", "<cmd>resize -4<CR>", { desc = "Decrease window height" })
+vim.keymap.set("n", "<C-S-Right>", "<cmd>vertical resize +4<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-S-Left>", "<cmd>vertical resize -4<CR>", { desc = "Decreasee window width" })
 
 -- Add empty lines below / above the cursor
 vim.keymap.set("n", "[<Space>", "<cmd>call append(line('.') - 1, '')<CR>")

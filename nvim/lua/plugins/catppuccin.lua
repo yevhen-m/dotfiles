@@ -40,12 +40,35 @@ return {
 			custom_highlights = {},
 			default_integrations = true,
 			integrations = {
+				native_lsp = {
+					enabled = true,
+					virtual_text = {
+						errors = { "italic" },
+						hints = { "italic" },
+						warnings = { "italic" },
+						information = { "italic" },
+						ok = { "italic" },
+					},
+					underlines = {
+						errors = { "undercurl" },
+						hints = { "undercurl" },
+						warnings = { "undercurl" },
+						information = { "undercurl" },
+					},
+					inlay_hints = {
+						background = true,
+					},
+				},
 				cmp = true,
 				gitsigns = true,
 				leap = true,
 				lsp_trouble = true,
 				mason = true,
+				markdown = true,
+				neotest = true,
 				neotree = true,
+				semantic_tokens = true,
+				telescope = true,
 				treesitter = true,
 				notify = false,
 				mini = {
@@ -53,15 +76,11 @@ return {
 					indentscope_color = "",
 				},
 				which_key = true,
-				-- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
 			},
 		})
 
 		-- setup must be called before loading
-		vim.cmd([[
-      colorscheme catppuccin
-      " hi BufferLineFill guibg='#1e2030'
-    ]])
+		vim.cmd([[ colorscheme catppuccin ]])
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et

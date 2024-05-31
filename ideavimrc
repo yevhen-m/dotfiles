@@ -17,7 +17,7 @@ set exchange
 set quickscope
 
 """ Plugin settings -------------------------
-let g:argtextobj_pairs="[:],(:),<:>"
+let g:argtextobj_pairs="[:],(:),<:>,{:}"
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """ Common settings -------------------------
@@ -36,7 +36,7 @@ set number
 
 """ Idea specific settings ------------------
 set ideajoin
-set ideastatusicon=enabled
+set ideastatusicon=gray
 set idearefactormode=keep
 
 """ Mappings --------------------------------
@@ -68,52 +68,55 @@ inoremap <Esc> <Esc>:nohlsearch<cr>l
 
 " EasyMotion mappings
 let g:EasyMotion_do_mapping = 0
-nmap s         <Plug>(easymotion-f2)
-xmap s         <Plug>(easymotion-f2)
-omap s         <Plug>(easymotion-f2)
-nmap S         <Plug>(easymotion-F2)
-xmap S         <Plug>(easymotion-F2)
-omap S         <Plug>(easymotion-F2)
+nmap s <Plug>(easymotion-f2)
+xmap s <Plug>(easymotion-f2)
+omap s <Plug>(easymotion-f2)
+nmap S <Plug>(easymotion-F2)
+xmap S <Plug>(easymotion-F2)
+omap S <Plug>(easymotion-F2)
 
-map gd <Action>(GotoDeclaration)
-map gD <Action>(GotoTypeDeclaration)
-map <leader>rn <Action>(RenameElement)
-map <leader>u <Action>(FindUsages)
-map ]q <Action>(NextOccurence)
-map [q <Action>(PreviousOccurence)
+nmap gd <Action>(GotoDeclaration)
+nmap gD <Action>(GotoTypeDeclaration)
+nmap <leader>rn <Action>(RenameElement)
+nmap <leader>u <Action>(FindUsages)
+nmap ]q <Action>(NextOccurence)
+nmap [q <Action>(PreviousOccurence)
 
-map <C-r> <Action>(Rerun)
+nmap <C-r> <Action>(Rerun)
 nnoremap U <C-r>
 
-
 " When in normal mode and I hit Enter, then save file please
-nmap <CR> :action ReformatCode<CR> :write<CR>
+nmap <CR> <Action>(ReformatCode) :write<CR>
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
-nmap <C-g> <Plug>NextWholeOccurrence
-xmap <C-g> <Plug>NextWholeOccurrence
-nmap g<C-g> <Plug>NextOccurrence
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
 xmap g<C-g> <Plug>NextOccurrence
 xmap <C-x> <Plug>SkipOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
+nmap <S-C-n> <Plug>AllWholeOccurrences
+xmap <S-C-n> <Plug>AllWholeOccurrences
+nmap g<S-C-n> <Plug>AllOccurrences
+xmap g<S-C-n> <Plug>AllOccurrences
 
-" Window navigation
-nnoremap <C-w><c-\> :action SplitVertically<CR>
-nnoremap <C-w>\ :action SplitVertically<CR>
-nnoremap <C-w>\' :action SplitVertically<CR>
-nnoremap <C-w><c--> :action SplitHorizontally<CR>
-nnoremap <C-w>- :action SplitHorizontally<CR>
-nnoremap <C-w>\" :action SplitHorizontally<CR>
-nnoremap <C-w><c-m> :action MoveEditorToOppositeTabGroup<CR>
-nnoremap <C-w><c-=> :action Unsplit<CR>
-nnoremap <C-w>o :action HideAllWindows<CR>
-nnoremap <C-w><C-o> :action HideAllWindows<CR>
+nmap <C-w><c-\> <Action>(SplitVertically)
+nmap <C-w>\ <Action>(SplitVertically)
+nmap <C-w>' <Action>(SplitVertically)
+nmap <C-w><c--> <Action>(SplitHorizontally)
+nmap <C-w>- <Action>(SplitHorizontally)
+" Yes, the double quote should be without a backslash here
+nmap <C-w>" <Action>(SplitHorizontally)
+nmap <C-w><c-m> <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w><c-=> <Action>(Unsplit)
+nmap <C-w>o <Action>(HideAllWindows)
+nmap <C-w><C-o> <Action>(HideAllWindows)
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
-nnoremap <c-h> <c-w>h
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
+nmap <c-h> <c-w>h
+nmap <c-l> <c-w>l
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
 
 " While in visual mode
 " will delete what is currently highlighted and replace it
@@ -125,8 +128,8 @@ vnoremap gp "_dP
 vnoremap < <gv
 vnoremap > >gv
 
-nmap ]e :action GotoNextError<CR>
-nmap [e :action GotoPreviousError<CR>
+nmap ]e <Action>(GotoNextError)
+nmap [e <Action>(GotoPreviousError)
 
 nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap [h <Action>(VcsShowPrevChangeMarker)
@@ -137,6 +140,8 @@ nmap md <Action>(ToggleBookmark)
 
 " Focus project window
 nmap - <Action>(ActivateProjectToolWindow)
+nmap <leader>nr :NERDTreeFind<CR>
+nmap <leader>nc :NERDTreeClose<CR>
 
 " Insert empty lines around the current line
 nnoremap [<Space> O<Esc>j
@@ -158,7 +163,7 @@ nnoremap H :tabprevious<CR>
 nnoremap [b :tabprevious<CR>
 nnoremap L :tabnext<cr>
 nnoremap ]b :tabnext<cr>
-nnoremap <leader>bo :action CloseAllEditorsButActive<CR>
+nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nnoremap <leader>bd :bdelete<CR>
 
 
@@ -166,9 +171,9 @@ nnoremap <leader>bd :bdelete<CR>
 nnoremap \\ ,
 
 nmap <C-p> <Action>(GotoFile)
-nnoremap <leader>sg :action FindInPath<cr>
-nnoremap <leader>s. :action RecentFiles<cr>
-nnoremap <leader>ws :action GotoSymbol<cr>
+nmap <leader>sg <Action>(FindInPath)
+nmap <leader>s. <Action>(RecentFiles)
+nmap <leader>ws <Action>(GotoSymbol)
 
-nnoremap g; :action JumpToLastChange<CR>
-nnoremap g, :action JumpToNextChange<CR>
+nmap g; <Action>(JumpToLastChange)
+nmap g, <Action>(JumpToNextChange)

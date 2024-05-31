@@ -54,7 +54,7 @@ return {
 		cmd = { "OpenInGHFileLines" },
 		keys = {
 			{
-				"<leader>gf",
+				"<leader>go",
 				":OpenInGHFileLines<CR>",
 				mode = { "n", "v" },
 				desc = "[G]it open [F]ile on Github",
@@ -67,6 +67,7 @@ return {
 		cmd = { "DiffviewOpen", "DiffviewFileHistory", "DiffviewLog" },
 		keys = {
 			{ "<leader>gd", "<cmd>DiffviewOpen<CR>", desc = "[G]it open [D]iffview" },
+			{ "<leader>gf", ":DiffviewFileHistory %<CR>", desc = "[G]it open [D]iffview", silent = true },
 		},
 	},
 }

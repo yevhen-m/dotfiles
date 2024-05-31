@@ -1,7 +1,16 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	config = function()
-		local extensions = { "neo-tree", "lazy", "quickfix", "trouble", "nvim-dap-ui", "mason", "man" }
+		local extensions = {
+			"aerial",
+			"neo-tree",
+			"lazy",
+			"quickfix",
+			"trouble",
+			"nvim-dap-ui",
+			"mason",
+			"man",
+		}
 		local filetypes = { "DiffviewFiles" }
 		for _, ft in ipairs(filetypes) do
 			table.insert(extensions, {

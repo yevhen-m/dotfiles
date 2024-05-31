@@ -10,6 +10,8 @@ return {
 		cmd = { "Neotree" },
 		keys = {
 			{ "-", "<cmd>Neotree reveal<cr>", desc = "Neotree" },
+			{ "<leader>nr", "<cmd>Neotree reveal<cr>", desc = "[N]eotree [R]eveal" },
+			{ "<leader>nc", "<cmd>Neotree close<cr>", desc = "[N]eotree [C]lose" },
 		},
 		init = function()
 			vim.api.nvim_create_autocmd("BufEnter", {

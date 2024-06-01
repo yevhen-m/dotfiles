@@ -5,6 +5,12 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		"nvim-tree/nvim-web-devicons",
 	},
+	cmd = {
+		"Aerial",
+		"AerialPrev",
+		"AerialNext",
+		"AerialToggle",
+	},
 	config = function()
 		require("aerial").setup({
 			autojump = true,

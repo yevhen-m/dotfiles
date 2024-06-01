@@ -79,6 +79,10 @@ alias zsh='bash'
 alias ag=rg
 alias grep=rg
 
+# Copilot
+alias gcs='gh copilot suggest'
+alias gce='gh copilot explain'
+
 # Git aliases
 alias gl=lg
 alias gd='gl'

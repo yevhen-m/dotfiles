@@ -8,7 +8,10 @@ vim.g.mousehide = true
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
-vim.cmd("packadd cfilter")
+require("options")
+require("keymaps")
+require("autocmds")
+require("utils")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"

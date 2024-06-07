@@ -86,7 +86,7 @@ nmap <C-r> <Action>(Rerun)
 nnoremap U <C-r>
 
 " When in normal mode and I hit Enter, then save file please
-nmap <CR> <Action>(ReformatCode) :write<CR>
+nmap <CR> :nohl \| action ReformatCode \| update<CR>
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
 nmap <C-n> <Plug>NextWholeOccurrence
@@ -108,22 +108,23 @@ nmap <C-w>- <Action>(SplitHorizontally)
 " Yes, the double quote should be without a backslash here
 nmap <C-w>" <Action>(SplitHorizontally)
 nmap <C-w><c-m> <Action>(MoveEditorToOppositeTabGroup)
+nmap <C-w>m <Action>(MoveEditorToOppositeTabGroup)
 nmap <C-w><c-=> <Action>(Unsplit)
+nmap <C-w>= <Action>(Unsplit)
 nmap <C-w>o <Action>(HideAllWindows)
 nmap <C-w><C-o> <Action>(HideAllWindows)
+
+" Go to the next window with C-w and go to the previous window with C-p. Useful when
+" you have more that two splits.
+nmap <C-w><C-p> <C-w>W
+nmap <C-w>p <C-w>W
+
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
 nmap <c-h> <c-w>h
 nmap <c-l> <c-w>l
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
-
-" While in visual mode
-" will delete what is currently highlighted and replace it
-" with what is in the register BUT it will YANK (delete) it
-" to a VOID register. Meaning I still have what I originally had
-" when I pasted. I don't loose the previous thing I YANKED!
-vnoremap gp "_dP
 
 vnoremap < <gv
 vnoremap > >gv
@@ -134,7 +135,7 @@ nmap [e <Action>(GotoPreviousError)
 nmap ]h <Action>(VcsShowNextChangeMarker)
 nmap [h <Action>(VcsShowPrevChangeMarker)
 
-" Marks
+" Marks. Use mM to set a mark, then MM to go to that mark.
 nnoremap M `
 nmap md <Action>(ToggleBookmark)
 
@@ -156,7 +157,7 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Save
-nnoremap <leader><leader> :write<CR>
+nnoremap <leader><leader> :update<CR>
 
 " Switch buffers
 nnoremap H :tabprevious<CR>
@@ -165,7 +166,6 @@ nnoremap L :tabnext<cr>
 nnoremap ]b :tabnext<cr>
 nmap <leader>bo <Action>(CloseAllEditorsButActive)
 nnoremap <leader>bd :bdelete<CR>
-
 
 " Use backslash to jump to the previous match
 nnoremap \\ ,

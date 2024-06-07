@@ -95,3 +95,6 @@ nmap <C-i> :forward
 " Open link under cursor
 exmap followLink :obcommand editor:follow-link
 nmap <CR> :followLink
+
+nnoremap <Space> :nohl<CR>
+nnoremap <CR> :nohl \| update<CR>

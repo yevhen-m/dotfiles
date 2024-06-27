@@ -52,12 +52,15 @@ return { -- Highlight, edit, and navigate code
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup(opts)
 
-		-- There are additional nvim-treesitter modules that you can use to interact
-		-- with nvim-treesitter. You should go explore a few and see what interests you:
-		--
-		--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-		--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-		--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    local parser_config = require'nvim-treesitter.parsers'.get_parser_configs()
+    parser_config.gotmpl = {
+      install_info = {
+        url = "https://github.com/ngalaiko/tree-sitter-go-template",
+        files = {"src/parser.c"}
+      },
+      filetype = "gotmpl",
+      used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
+    }
 	end,
 }
 -- vim: ts=2 sts=2 sw=2 et

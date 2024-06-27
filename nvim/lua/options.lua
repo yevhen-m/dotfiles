@@ -94,6 +94,7 @@ vim.opt.wildmode = "longest:full,full"
 vim.opt.winheight = 5
 vim.opt.winminheight = 5
 
+vim.opt.foldcolumn = '1'
 vim.opt.fillchars = {
 	foldopen = "",
 	foldclose = "",
@@ -102,3 +103,6 @@ vim.opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true

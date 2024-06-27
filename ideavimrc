@@ -86,7 +86,7 @@ nmap <C-r> <Action>(Rerun)
 nnoremap U <C-r>
 
 " When in normal mode and I hit Enter, then save file please
-nmap <CR> :nohl \| action ReformatCode \| update<CR>
+nmap <CR> :nohl \| action ReformatCode \| write<CR>
 
 " Remap multiple-cursors shortcuts to match terryma/vim-multiple-cursors
 nmap <C-n> <Plug>NextWholeOccurrence
@@ -157,7 +157,7 @@ vnoremap <A-j> :m '>+1<CR>gv=gv
 vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " Save
-nnoremap <leader><leader> :update<CR>
+nnoremap <leader><leader> :write<CR>
 
 " Switch buffers
 nnoremap H :tabprevious<CR>

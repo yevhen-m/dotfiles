@@ -25,6 +25,8 @@ shopt -s cdspell
 shopt -s dirspell
 # Disable softward flow control
 stty -ixon
+# Match directories recursively
+shopt -s globstar
 
 HISTSIZE=1000000
 HISTFILESIZE=1000000

@@ -113,6 +113,8 @@ nmap <C-w><c-=> <Action>(Unsplit)
 nmap <C-w>= <Action>(Unsplit)
 nmap <C-w>o <Action>(HideAllWindows)
 nmap <C-w><C-o> <Action>(HideAllWindows)
+nmap <C-w><C-p> <Action>(JumpToLastToolWindow)
+nmap <C-w>p <Action>(JumpToLastToolWindow)
 
 " Go to the next window with C-w and go to the previous window with C-p. Useful when
 " you have more that two splits.

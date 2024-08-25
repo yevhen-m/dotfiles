@@ -3,7 +3,7 @@ return {
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	"tpope/vim-rsi",
 	"tpope/vim-surround",
-  "vim-scripts/ReplaceWithRegister",
+	"vim-scripts/ReplaceWithRegister",
 	{ "numToStr/Comment.nvim", opts = {} },
 	{
 		"windwp/nvim-autopairs",

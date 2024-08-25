@@ -113,13 +113,8 @@ nmap <C-w><c-=> <Action>(Unsplit)
 nmap <C-w>= <Action>(Unsplit)
 nmap <C-w>o <Action>(HideAllWindows)
 nmap <C-w><C-o> <Action>(HideAllWindows)
-nmap <C-w><C-p> <Action>(JumpToLastToolWindow)
-nmap <C-w>p <Action>(JumpToLastToolWindow)
-
-" Go to the next window with C-w and go to the previous window with C-p. Useful when
-" you have more that two splits.
-nmap <C-w><C-p> <C-w>W
-nmap <C-w>p <C-w>W
+nmap <C-w><C-p> <Action>(JumpToLastWindow)
+nmap <C-w>p <Action>(JumpToLastWindow)
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim

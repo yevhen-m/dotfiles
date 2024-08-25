@@ -97,4 +97,4 @@ exmap followLink :obcommand editor:follow-link
 nmap <CR> :followLink
 
 nnoremap <Space> :nohl<CR>
-nnoremap <CR> :nohl \| update<CR>
+inoremap <Esc> <Esc>l

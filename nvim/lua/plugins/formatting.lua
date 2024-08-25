@@ -26,9 +26,12 @@ return {
 			lua = { "stylua" },
 			-- Conform can also run multiple formatters sequentially
 			python = { "isort", "black" },
-			javascript = { { "prettierd", "prettier" } },
-			typescript = { { "prettierd", "prettier" } },
-			json = { { "prettierd", "prettier" } },
+			javascript = { "prettierd", "prettier", stop_after_first = true },
+			typescript = { "prettierd", "prettier", stop_after_first = true },
+			json = { "prettierd", "prettier", stop_after_first = true },
+      terraform = { "terraform_fmt" },
+      tf = { "terraform_fmt" },
+      ["terraform-vars"] = { "terraform_fmt" },
 		},
 	},
 }

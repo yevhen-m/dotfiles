@@ -6,6 +6,7 @@ return { -- Highlight, edit, and navigate code
 		ensure_installed = {
 			"bash",
 			"c",
+      "hcl",
 			"html",
 			"javascript",
 			"json",
@@ -18,6 +19,7 @@ return { -- Highlight, edit, and navigate code
 			"query",
 			"regex",
 			"toml",
+      "terraform",
 			"typescript",
 			"vim",
 			"vimdoc",

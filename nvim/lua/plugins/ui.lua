@@ -82,6 +82,7 @@ return {
 	},
 	{
 		"Bekaboo/dropbar.nvim",
+    commit = "d26bf92",
 		-- optional, but required for fuzzy finder support
 		dependencies = {
 			"nvim-telescope/telescope-fzf-native.nvim",

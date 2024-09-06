@@ -50,9 +50,6 @@ nnoremap Y y$
 nnoremap 0 ^
 nnoremap ^ 0
 
-imap <C-y> <Action>(EditorChooseLookupItem)
-imap <C-/> <Action>(copilot.applyInlays)
-
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>

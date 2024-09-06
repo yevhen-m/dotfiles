@@ -4,19 +4,19 @@ import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
 size = 16.0
 
 [font.normal]
-family = "MesloLGM Nerd Font"
+family = "MesloLGM Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "MesloLGM Nerd Font"
+family = "MesloLGM Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MesloLGM Nerd Font"
+family = "MesloLGM Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MesloLGM Nerd Font"
+family = "MesloLGM Nerd Font Mono"
 style = "Italic"
 
 [window]

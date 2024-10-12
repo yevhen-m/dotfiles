@@ -53,6 +53,8 @@ nnoremap ^ 0
 inoremap <C-a> <C-o>^
 inoremap <C-e> <End>
 inoremap <C-f> <Right>
+inoremap <C-p> <Up>
+inoremap <C-n> <Down>
 cnoremap <C-f> <Right>
 inoremap <C-b> <Left>
 cnoremap <C-b> <Left>
@@ -62,6 +64,7 @@ inoremap <C-k> <C-o>D<Right>
 
 nnoremap <Space> :nohlsearch<CR>
 inoremap <Esc> <Esc>:nohlsearch<cr>l
+inoremap <S-BS> <BS>
 
 " EasyMotion mappings
 let g:EasyMotion_do_mapping = 0
@@ -73,6 +76,7 @@ xmap S <Plug>(easymotion-F2)
 omap S <Plug>(easymotion-F2)
 
 nmap gd <Action>(GotoDeclaration)
+nmap gh <Action>(ShowHoverInfo)
 nmap gD <Action>(GotoTypeDeclaration)
 nmap <leader>rn <Action>(RenameElement)
 nmap <leader>u <Action>(FindUsages)
@@ -108,10 +112,8 @@ nmap <C-w><c-m> <Action>(MoveEditorToOppositeTabGroup)
 nmap <C-w>m <Action>(MoveEditorToOppositeTabGroup)
 nmap <C-w><c-=> <Action>(Unsplit)
 nmap <C-w>= <Action>(Unsplit)
-nmap <C-w>o <Action>(HideAllWindows)
-nmap <C-w><C-o> <Action>(HideAllWindows)
-nmap <C-w><C-p> <Action>(JumpToLastWindow)
-nmap <C-w>p <Action>(JumpToLastWindow)
+nmap <C-w>o <Action>(HideActiveWindow)
+nmap <C-w><C-o> <Action>(HideActiveWindow)
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
@@ -163,11 +165,6 @@ nnoremap <leader>bd :bdelete<CR>
 
 " Use backslash to jump to the previous match
 nnoremap \\ ,
-
-nmap <C-p> <Action>(GotoFile)
-nmap <leader>sg <Action>(FindInPath)
-nmap <leader>s. <Action>(RecentFiles)
-nmap <leader>ws <Action>(GotoSymbol)
 
 nmap g; <Action>(JumpToLastChange)
 nmap g, <Action>(JumpToNextChange)

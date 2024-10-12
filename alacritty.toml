@@ -1,26 +1,26 @@
 import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
 
 [font]
-size = 16.0
+size = 17.0
 
 [font.normal]
-family = "MesloLGM Nerd Font Mono"
+family = "MonacoLigaturized Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "MesloLGM Nerd Font Mono"
+family = "MonacoLigaturized Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MesloLGM Nerd Font Mono"
+family = "MonacoLigaturized Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MesloLGM Nerd Font Mono"
+family = "MonacoLigaturized Nerd Font Mono"
 style = "Italic"
 
 [window]
-padding = { x = 5, y = 5 }
+padding = { x = 3, y = 3 }
 option_as_alt = "Both"
 
 [scrolling]

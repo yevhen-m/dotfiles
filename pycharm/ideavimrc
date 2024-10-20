@@ -21,23 +21,24 @@ let g:argtextobj_pairs="[:],(:),<:>,{:}"
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 """ Common settings -------------------------
-set clipboard+=unnamed
 set clipboard+=ideaput
-set showmode
-set scrolloff=5
-set sidescrolloff=5
-set incsearch
-set visualbell
-set incsearch
-set ignorecase
-set smartcase
+set clipboard+=unnamed
+set gdefault
 set hlsearch
+set ignorecase
+set incsearch
 set number
+set scrolloff=5
+set showmode
+set sidescrolloff=5
+set smartcase
+set visualbell
 
 """ Idea specific settings ------------------
 set ideajoin
 set ideastatusicon=gray
-set idearefactormode=keep
+set idearefactormode=select
+set ideavimsupport=
 
 """ Mappings --------------------------------
 " To copy text to the end-of-line, press Y.

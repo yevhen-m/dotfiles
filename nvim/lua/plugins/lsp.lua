@@ -153,7 +153,7 @@ return { -- LSP Configuration & Plugins
 			pyright = {},
 			taplo = {},
 			terraformls = {},
-			tsserver = {},
+			ts_ls = {},
 			lua_ls = {
 				-- cmd = {...},
 				-- filetypes = { ...},

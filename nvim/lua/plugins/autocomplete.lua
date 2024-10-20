@@ -63,7 +63,7 @@ return { -- Autocompletion
 				-- Accept ([y]es) the completion.
 				--  This will auto-import if your LSP supports it.
 				--  This will expand snippets if the LSP sent a snippet.
-				["<C-y>"] = cmp.mapping.confirm({ select = true }),
+				["<Enter>"] = cmp.mapping.confirm({ select = true }),
 
 				-- Think of <c-l> as moving to the right of your snippet expansion.
 				--  So if you have a snippet that's like:

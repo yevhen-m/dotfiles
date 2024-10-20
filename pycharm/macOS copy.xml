@@ -10,7 +10,7 @@
   <action id="CloseActiveTab">
     <keyboard-shortcut first-keystroke="meta w" />
   </action>
-  <action id="CloseAllEditorsButActive">
+  <action id="CloseAllEditors">
     <keyboard-shortcut first-keystroke="shift meta w" />
   </action>
   <action id="CodeCompletion">
@@ -91,6 +91,9 @@
   <action id="EditorTextStart" />
   <action id="EditorTextStartWithSelection" />
   <action id="EditorToggleCase" />
+  <action id="EditorToggleUseSoftWraps">
+    <keyboard-shortcut first-keystroke="alt z" />
+  </action>
   <action id="EditorUnindentSelection" />
   <action id="EditorUpWithSelection" />
   <action id="EmmetNextEditPoint" />
@@ -107,6 +110,9 @@
   <action id="Forward">
     <mouse-shortcut keystroke="button5" />
     <keyboard-shortcut first-keystroke="meta right" />
+  </action>
+  <action id="Generate">
+    <keyboard-shortcut first-keystroke="meta n" />
   </action>
   <action id="GitHub.Copy.Link">
     <keyboard-shortcut first-keystroke="shift meta 0" />
@@ -158,6 +164,9 @@
   <action id="MoveLineUp" />
   <action id="MoveStatementDown" />
   <action id="MoveStatementUp" />
+  <action id="NewElement">
+    <keyboard-shortcut first-keystroke="meta n" />
+  </action>
   <action id="NextDiff">
     <keyboard-shortcut first-keystroke="shift ctrl down" />
   </action>
@@ -168,9 +177,6 @@
   <action id="NotebookRunCellSelectBelowAction" />
   <action id="OpenFile">
     <keyboard-shortcut first-keystroke="meta o" />
-  </action>
-  <action id="OpenInRightSplit">
-    <mouse-shortcut keystroke="alt button1 doubleClick" />
   </action>
   <action id="OpenInlineChatAction">
     <keyboard-shortcut first-keystroke="meta i" />
@@ -228,12 +234,18 @@
   <action id="copilot.applyInlaysNextLine">
     <keyboard-shortcut first-keystroke="shift tab" />
   </action>
-  <action id="copilot.applyInlaysNextWord" />
+  <action id="copilot.chat.show">
+    <keyboard-shortcut first-keystroke="ctrl meta i" />
+  </action>
   <action id="copilot.disposeInlays" />
   <action id="copilot.enableCopilot" />
-  <action id="copilot.openCopilot">
-    <keyboard-shortcut first-keystroke="shift alt back_slash" />
+  <action id="copilot.newChatSession">
+    <keyboard-shortcut first-keystroke="shift meta i" />
   </action>
+  <action id="copilot.openCopilot">
+    <keyboard-shortcut first-keystroke="ctrl enter" />
+  </action>
+  <action id="copilot.requestCompletions" />
   <action id="editRunConfigurations">
     <keyboard-shortcut first-keystroke="ctrl alt d" />
   </action>

@@ -7,16 +7,15 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
-$cmd_duration\
-$line_break\
 $python\
+$line_break\
 $character"""
 
 [directory]
 style = "blue"
 
 [character]
-success_symbol = "[❯](purple)"
+success_symbol = "[❯](mauve)"
 error_symbol = "[❯](red)"
 vimcmd_symbol = "[❮](green)"
 
@@ -25,8 +24,8 @@ format = "[$branch]($style)"
 style = "bright-black"
 
 [git_status]
-format = "[[( *$conflicted$untracked$modified$staged$renamed$deleted)](218)( ($ahead_behind$stashed))]($style)"
-style = "cyan"
+format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](flamingo)($ahead_behind$stashed)]($style)"
+style = "sapphire"
 conflicted = "​"
 untracked = "​"
 modified = "​"
@@ -36,15 +35,11 @@ deleted = "​"
 stashed = "≡"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+format = '\([$state( $progress_current/$progress_total)]($style)\)'
 style = "bright-black"
 
-[cmd_duration]
-format = "[( $duration)]($style) "
-style = "yellow"
-
 [python]
-format = "[($virtualenv )]($style)"
+format = "[( [󰌠](blue) $virtualenv)]($style)"
 style = "bright-black"
 
 [palettes.catppuccin_macchiato]

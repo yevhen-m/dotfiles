@@ -102,26 +102,41 @@ xmap <S-C-n> <Plug>AllWholeOccurrences
 nmap g<S-C-n> <Plug>AllOccurrences
 xmap g<S-C-n> <Plug>AllOccurrences
 
+" Open the same tab on the right
 nmap <C-w><c-\> <Action>(SplitVertically)
 nmap <C-w>\ <Action>(SplitVertically)
 nmap <C-w>' <Action>(SplitVertically)
+" Open the same tab below
 nmap <C-w><c--> <Action>(SplitHorizontally)
 nmap <C-w>- <Action>(SplitHorizontally)
 " Yes, the double quote should be without a backslash here
 nmap <C-w>" <Action>(SplitHorizontally)
+" Move the tab to the opposite editor group
 nmap <C-w><c-m> <Action>(MoveEditorToOppositeTabGroup)
 nmap <C-w>m <Action>(MoveEditorToOppositeTabGroup)
 nmap <C-w><c-=> <Action>(Unsplit)
 nmap <C-w>= <Action>(Unsplit)
-nmap <C-w>o <Action>(HideActiveWindow)
-nmap <C-w><C-o> <Action>(HideActiveWindow)
+nmap <C-w>o <Action>(JumpToLastWindow)
+nmap <C-w><C-o> <Action>(JumpToLastWindow)
+" Open the tab on the right
+nmap <C-w><C-l> <Action>(MoveTabRight)
+nmap <C-w>l <Action>(MoveTabRight)
+" Move it back to the left editor group
+nmap <C-w><C-h> <Action>(Unsplit)
+nmap <C-w>h <Action>(Unsplit)
+" Open the tab below
+nmap <C-w><C-j> <Action>(MoveTabDown)
+nmap <C-w>j <Action>(MoveTabDown)
+" Move it back to the top editor group
+nmap <C-w><C-k> <Action>(Unsplit)
+nmap <C-w>k <Action>(Unsplit)
 
 sethandler <c-j> a:vim
 sethandler <c-k> a:vim
-nmap <c-h> <c-w>h
-nmap <c-l> <c-w>l
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
 
 vnoremap < <gv
 vnoremap > >gv

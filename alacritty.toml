@@ -1,27 +1,28 @@
 import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
 
 [font]
-size = 17.0
+size = 23.0
 
 [font.normal]
-family = "MonacoLigaturized Nerd Font Mono"
+family = "DankMono Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "MonacoLigaturized Nerd Font Mono"
+family = "DankMono Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "MonacoLigaturized Nerd Font Mono"
+family = "DankMono Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "MonacoLigaturized Nerd Font Mono"
+family = "DankMono Nerd Font Mono"
 style = "Italic"
 
 [window]
 padding = { x = 3, y = 3 }
 option_as_alt = "Both"
+decorations = "None"
 
 [scrolling]
 # Due to SmoothScroll.app I need a smaller multiplier, the default is 3

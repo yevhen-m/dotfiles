@@ -86,15 +86,15 @@ alias gcs='gh copilot suggest'
 alias gce='gh copilot explain'
 
 # Git aliases
-alias gl=lg
+alias gl='lg log'
+alias gs='lg status'
 alias gd='gl'
 alias gdc='gl'
 alias gp='git pull'
 alias gP='git push origin HEAD'
-alias gs=lg
 alias gst=lg
-alias gc='git checkout'
-alias gcb='gc -b'
+alias gc='lg branch'
+alias gcb='lg branch'
 alias glg=lg
 alias gc='git add -u && git commit'
 alias gca='gc --amend --no-edit'
@@ -117,8 +117,7 @@ alias r=ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
 
 # Lazygit
-alias gl='lazygit --use-config-file="$HOME/.config/lazygit"'
-alias lg='gl'
+alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # Lazydocker
 alias dl='lazydocker'

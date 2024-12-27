@@ -86,18 +86,18 @@ alias gcs='gh copilot suggest'
 alias gce='gh copilot explain'
 
 # Git aliases
+alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
+
 alias gl='lg log'
 alias gs='lg status'
-alias gd='gl'
-alias gdc='gl'
+alias gb='lg branch'
+alias gst='gs'
+alias gd='gs'
+alias gdc='gs'
 alias gp='git pull'
 alias gP='git push origin HEAD'
-alias gst=lg
-alias gc='lg branch'
 alias gcb='lg branch'
-alias glg=lg
-alias gc='git add -u && git commit'
-alias gca='gc --amend --no-edit'
+alias gc='lg branch'
 alias gpr='gh pr view -w'
 
 alias rm=trash
@@ -115,9 +115,6 @@ alias vim="`brew --prefix`/bin/nvim"
 # Ranger
 alias r=ranger
 export RANGER_LOAD_DEFAULT_RC=FALSE
-
-# Lazygit
-alias lg='lazygit --use-config-file="$HOME/.config/lazygit"'
 
 # Lazydocker
 alias dl='lazydocker'

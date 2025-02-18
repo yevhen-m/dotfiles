@@ -1,7 +1,7 @@
-import = ["~/.config/alacritty/catppuccin-macchiato.toml"]
 
 [font]
 size = 23.0
+offset.y = 6
 
 [font.normal]
 family = "DankMono Nerd Font Mono"
@@ -22,7 +22,7 @@ style = "Italic"
 [window]
 padding = { x = 3, y = 3 }
 option_as_alt = "Both"
-decorations = "None"
+decorations = "Full"
 
 [scrolling]
 # Due to SmoothScroll.app I need a smaller multiplier, the default is 3
@@ -30,3 +30,6 @@ multiplier = 1
 
 [mouse]
 hide_when_typing = false
+
+[general]
+import = ["~/.config/alacritty/catppuccin-macchiato.toml"]

@@ -124,6 +124,7 @@ alias ld='dl'
 export BAT_THEME="Catppuccin Macchiato"
 alias cat=bat
 
+
 # PATH manipulations
 [[ -d $HOME/bin ]] && export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
@@ -150,3 +151,4 @@ eval "$(starship init bash)"
 . "$HOME/.atuin/bin/env"
 
 eval "$(atuin init bash)"
+bind -x '"\C-p": __atuin_history --filter-mode session'

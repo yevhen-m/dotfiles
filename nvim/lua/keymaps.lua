@@ -51,7 +51,7 @@ vim.keymap.set("n", "<leader>xc", "<cmd>copen<CR>")
 vim.keymap.set("n", "<leader>xl", "<cmd>lopen<CR>")
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.keymap.set("n", "<Space>", "<cmd>nohlsearch<CR>")
+vim.keymap.set("n", "<Space><Space>", "<cmd>nohlsearch<CR><Esc>l")
 vim.keymap.set({ "i" }, "<Esc>", "<Esc>l")
 
 -- Diagnostic keymaps

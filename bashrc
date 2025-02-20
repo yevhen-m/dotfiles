@@ -150,5 +150,7 @@ eval "$(starship init bash)"
 
 . "$HOME/.atuin/bin/env"
 
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 eval "$(atuin init bash)"
+
 bind -x '"\C-p": __atuin_history --filter-mode session'

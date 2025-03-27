@@ -1,22 +1,22 @@
 
 [font]
-size = 23.0
-offset.y = 6
+size = 20.0
+offset.y = 3
 
 [font.normal]
-family = "DankMono Nerd Font Mono"
+family = "MesloLGM Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "DankMono Nerd Font Mono"
+family = "MesloLGM Nerd Font Mono"
 style = "Bold"
 
 [font.bold_italic]
-family = "DankMono Nerd Font Mono"
+family = "MesloLGM Nerd Font Mono"
 style = "Bold Italic"
 
 [font.italic]
-family = "DankMono Nerd Font Mono"
+family = "MesloLGM Nerd Font Mono"
 style = "Italic"
 
 [window]
